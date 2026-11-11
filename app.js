@@ -20,7 +20,10 @@ function filterPublications() {
     const showSupplementary = visible && collection === 'selected';
     paper.querySelectorAll('.paper-media, .cover-feature, .cover-label, .pub-metrics, .paper-contribution')
       .forEach(item => { item.hidden = !showSupplementary; });
-    if (!showSupplementary) paper.querySelectorAll('video').forEach(video => video.pause());
+    if (!showSupplementary) {
+      paper.querySelectorAll('video').forEach(video => video.pause());
+      paper.querySelectorAll('details.paper-media').forEach(media => { media.open = false; });
+    }
     if (visible) count++;
   });
   collectionButtons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.collection === collection)));
@@ -110,6 +113,11 @@ document.querySelector('#copy-email').addEventListener('click', async () => {
 
 // Keep research films from playing over one another.
 const researchFilms = [...document.querySelectorAll('.paper-media video')];
+document.querySelectorAll('details.paper-media').forEach(media => {
+  media.addEventListener('toggle', () => {
+    if (!media.open) media.querySelector('video')?.pause();
+  });
+});
 researchFilms.forEach(film => film.addEventListener('play', () => {
   researchFilms.forEach(other => { if (other !== film) other.pause(); });
 }));

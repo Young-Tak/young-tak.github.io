@@ -26,9 +26,15 @@ html{scrollbar-gutter:stable}
 .institution-mark.ku-mark{width:48px;height:64px;object-fit:contain;background:transparent;margin:0 4px}
 
 .paper-media{margin-top:20px}
-.paper-media-heading{display:flex;align-items:center;justify-content:space-between;gap:16px;font-size:13px;color:var(--muted);margin-bottom:9px}
-.paper-media-heading>span:first-child{font-weight:500;color:var(--ink)}
-.paper-media video{display:block;width:100%;height:auto;aspect-ratio:16/9;border:1px solid var(--rule);border-radius:5px;background:#f6f8fb;object-fit:contain}
+.research-film-toggle{display:inline-flex;align-items:center;justify-content:center;gap:16px;min-height:44px;padding:8px 14px;border:1px solid var(--accent);border-radius:7px;background:var(--bg);color:var(--accent);font-size:14px;font-weight:500;line-height:1.4;list-style:none;cursor:pointer;user-select:none;transition:background-color .15s}
+.research-film-toggle::-webkit-details-marker{display:none}
+.research-film-toggle::marker{content:''}
+.paper-media>.research-film-toggle:before{display:none;content:none}
+.research-film-toggle:hover,.paper-media[open]>.research-film-toggle{background:var(--hover)}
+.research-film-toggle:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+.film-chevron{width:7px;height:7px;flex:none;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:translateY(-2px) rotate(45deg)}
+.paper-media[open] .film-chevron{transform:translateY(2px) rotate(225deg)}
+.paper-media video{display:block;width:100%;height:auto;aspect-ratio:16/9;margin-top:14px;border:1px solid var(--rule);border-radius:5px;background:#f6f8fb;object-fit:contain}
 .cover-label{color:var(--accent);font-weight:550;display:inline-flex;align-items:center;gap:7px}
 .cover-label:before{content:'';width:5px;height:5px;background:currentColor;border-radius:50%}
 .cover-feature{display:grid;grid-template-columns:minmax(210px,260px) minmax(0,1fr);gap:32px;align-items:center;margin-top:24px;padding:26px 0 5px;border-top:1px solid var(--rule)}
