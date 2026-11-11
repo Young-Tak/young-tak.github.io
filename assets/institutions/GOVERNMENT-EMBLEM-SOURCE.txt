@@ -1,0 +1,23 @@
+Official Korean government Taegeuk emblem source
+
+Site asset: government-korea-emblem.svg
+Source SVG: https://mofe.go.kr/images/2026/logo.svg
+Source page: https://mofe.go.kr/mi/gnrsts/sim.do?menuNo=9010300
+Downloaded original: mofe-government-logo-official.svg
+
+Native vector extraction: retained the first three path elements byte-for-byte
+from the official source; changed only root size/viewBox to 48 x 48 and removed
+five gray ministry-wordmark path elements. No path geometry, fill, proportions,
+or colors were redrawn. Retained official white backing disc (path 1), government
+blue #003764 (path 2), and government red #E4032E (path 3). Transparent outside
+the white disc. Original viewBox was 0 0 167 48; emblem occupies 0 0 48 48.
+
+MOIS government-standard corroboration / official downloadable artwork:
+https://www.mois.go.kr/frt/sub/a06/b08/nationalIcon_10/screen.do
+https://www.mois.go.kr/cmm/fms/FileDown.do?atchFileId=FILE_000000000055808&fileSn=0
+Downloaded: mois-government-symbol-official.zip
+Original MOIS PNG extracted unchanged as mois-government-stacked-official.png
+Archive entry: png/대한민국정부_국문_상하_1행_국문_상하_1행.png
+The archive contains AI/JPG/PNG government+wordmark variants, no emblem-only SVG.
+The official MOIS PNG was visually inspected to confirm the same government
+Taegeuk symbol.
