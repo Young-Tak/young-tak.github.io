@@ -1,0 +1,33 @@
+Korea University shield-only emblem for homepage V5
+Retrieved from the official Korea University UI package, without circular surrounding text.
+
+Official source page:
+https://www.korea.ac.kr/en/1011/subview.do
+
+Official download (linked by that page as "UI file View and Download"):
+https://www.korea.ac.kr/sites/en/files/basic_ui_file.zip
+
+RECOMMENDED
+File: ku-shield.png
+Dimensions: 593 x 797 pixels, RGBA PNG with transparent exterior
+Source archive entry: logo_ui_기본/crimson2positive.gif
+Appearance: crimson shield and tiger, beige field and KOREA UNIVERSITY lettering.
+The source GIF was decoded losslessly to PNG. No crop, redraw, recoloring, resampling, or other visual change.
+Original source GIF: crimson2positive.gif
+Original Illustrator vector source: crimson2positive.ai
+
+ALTERNATIVE
+File: ku-shield-white.png
+Dimensions: 591 x 795 pixels, RGBA PNG with transparent exterior
+Source archive entry: logo_ui_기본/crimson1positive.gif
+Appearance: crimson and white shield.
+The source GIF was decoded losslessly to PNG. No visual change.
+Original source GIF: crimson1positive.gif
+
+Only the requested shield is present; the circular LIBERTAS / JUSTITIA / VERITAS surround from V4 is absent.
+The shield's own KOREA UNIVERSITY title and 1905 remain exactly as supplied by Korea University.
+
+Use at natural aspect ratio (approximately 0.744 width / height). At 64px height the recommended shield is about 47.6px wide.
+Official guidance requires preserving the symbol's elements and proportions; do not modify, omit, or redraw them.
+
+The other extracted GIF files are reference variants from the same official UI bundle and need not be copied into the website.

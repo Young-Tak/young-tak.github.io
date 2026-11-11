@@ -1,0 +1,15 @@
+Institution marks used in this site
+
+Korea University: ku-shield.png
+Official shield-only artwork from https://www.korea.ac.kr/sites/en/files/basic_ui_file.zip
+Official source page: https://www.korea.ac.kr/en/1011/subview.do
+Lossless GIF-to-PNG decoding; original colors and aspect ratio preserved.
+See KU-SHIELD-SOURCE.txt for the precise archive entry.
+
+Mass General Brigham: mgb-favicon.png
+Losslessly decoded 48px frame from https://www.massgeneralbrigham.org/favicon.ico
+The affiliation text remains Massachusetts General Hospital / Harvard Medical School.
+https://www.massgeneralbrigham.org/en/about/massachusetts-general-hospital
+
+Original institution marks identify academic affiliations and remain their owners' property.
+Harvard Medical School is represented in text; no HMS artwork is included.

@@ -1,0 +1,61 @@
+WEBVTT
+
+1
+00:00:00.233 --> 00:00:03.984
+Can AI reveal useful clues to pulmonary embolism
+
+2
+00:00:04.006 --> 00:00:06.252
+from a CT scan without contrast?
+
+3
+00:00:06.965 --> 00:00:10.195
+A generative adversarial network learns from paired scans,
+
+4
+00:00:10.310 --> 00:00:11.954
+creates synthetic enhancement,
+
+5
+00:00:12.185 --> 00:00:14.616
+and feeds a pulmonary embolism classifier.
+
+6
+00:00:15.270 --> 00:00:19.380
+The retrospective evaluation included forty-three internal patients
+
+7
+00:00:19.599 --> 00:00:22.100
+and sixty-two patients from another hospital.
+
+8
+00:00:22.754 --> 00:00:26.123
+With synthetic images, internal patient-level AUC
+
+9
+00:00:26.215 --> 00:00:28.716
+reached zero point eight three six.
+
+10
+00:00:29.393 --> 00:00:33.249
+In the external cohort, it fell to zero point six eight zero.
+
+11
+00:00:33.456 --> 00:00:35.216
+Real contrast scored higher.
+
+12
+00:00:35.940 --> 00:00:39.472
+Patient models used cross-validation within each cohort.
+
+13
+00:00:39.713 --> 00:00:42.400
+Small samples do not establish equivalence.
+
+14
+00:00:43.042 --> 00:00:46.492
+A promising direction: learn more from noncontrast CT.
+
+15
+00:00:46.862 --> 00:00:48.807
+Validate before clinical use.

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" fill="none" role="img" aria-labelledby="clinical-title">
+  <title id="clinical-title">Human and AI inputs converging on a clinical decision</title>
+  <g stroke-linecap="round" stroke-linejoin="round">
+    <path d="M21 43v4.5a5 5 0 0 0 2.5 4.33L40 61.5l16.5-9.67a5 5 0 0 0 2.5-4.33V39" stroke="var(--icon-secondary, #7c9ad9)" stroke-width="2.6"/>
+    <circle cx="21" cy="19" r="7" fill="var(--accent, #2454c1)"/>
+    <path d="M9.5 42v-4a11.5 11.5 0 0 1 23 0v4h-23Z" fill="var(--icon-wash, #edf3ff)" stroke="var(--accent, #2454c1)" stroke-width="2.6"/>
+    <path d="M53 10V6m12 4V6m-12 32v4m12-4v4M45 18h-4m4 12h-4M73 18h4m-4 12h4" stroke="var(--icon-secondary, #7c9ad9)" stroke-width="2.6"/>
+    <rect x="45" y="10" width="28" height="28" rx="6" fill="var(--icon-wash, #edf3ff)" stroke="var(--accent, #2454c1)" stroke-width="2.6"/>
+    <rect x="52" y="17" width="5" height="5" rx="1" fill="var(--accent, #2454c1)"/>
+    <rect x="61" y="17" width="5" height="5" rx="1" fill="var(--icon-secondary, #7c9ad9)"/>
+    <rect x="52" y="26" width="5" height="5" rx="1" fill="var(--icon-secondary, #7c9ad9)"/>
+    <rect x="61" y="26" width="5" height="5" rx="1" fill="var(--accent, #2454c1)"/>
+    <rect x="31.5" y="53" width="17" height="17" rx="3" transform="rotate(45 40 61.5)" fill="var(--accent, #2454c1)"/>
+    <circle cx="40" cy="61.5" r="3" fill="var(--bg, #ffffff)"/>
+  </g>
+</svg>

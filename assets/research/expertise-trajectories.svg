@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="460" height="320" viewBox="0 0 460 320" role="img" aria-labelledby="expertise-title expertise-description">
+  <title id="expertise-title">Supporting clinical expertise after AI introduction</title>
+  <desc id="expertise-description">A conceptual illustration, not measured data. Clinician expertise grows with experience before AI is introduced. After introduction, a strong blue upward path represents continued growth in expertise, while a red dashed downward path represents deskilling. The research goal is the upward path.</desc>
+  <defs>
+    <marker id="growth-arrow" markerWidth="10" markerHeight="10" refX="8.5" refY="5" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M1 1 9 5 1 9" fill="none" stroke="#2454c1" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="axis-arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M1 1 5 3 1 5" fill="none" stroke="#9aa2ad" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+  <rect width="460" height="320" fill="#ffffff"/>
+  <g font-family="Geist, Arial, sans-serif" font-size="19" fill="#646a74">
+    <path d="M48 257V58M48 257H429" fill="none" stroke="#9aa2ad" stroke-width="1.1" marker-end="url(#axis-arrow)"/>
+    <path d="M48 165H423" fill="none" stroke="#c1c8d2" stroke-width="1.1" stroke-dasharray="4 5"/>
+    <text x="424" y="148" text-anchor="end">Proficiency</text>
+    <text x="424" y="288" text-anchor="end">Time</text>
+    <text x="28" y="157.5" text-anchor="middle" dominant-baseline="middle" transform="rotate(-90 28 157.5)">Clinician expertise</text>
+    <path d="M222 60V257" fill="none" stroke="#a8b7ce" stroke-width="1.1" stroke-dasharray="3 5"/>
+    <text x="222" y="48" text-anchor="middle" fill="#515d6e" font-size="19">AI introduced</text>
+    <path d="M64 236C72 185 127 140 222 140" fill="none" stroke="#8ea6ca" stroke-width="2.3" stroke-linecap="round"/>
+    <path d="M222 140C291 141 351 161 416 201" fill="none" stroke="#b94a50" stroke-width="1.9" stroke-linecap="round" stroke-dasharray="5 5"/>
+    <path d="M222 140C292 132 353 107 417 69" fill="none" stroke="#2454c1" stroke-width="3.4" stroke-linecap="round" marker-end="url(#growth-arrow)"/>
+    <circle cx="222" cy="140" r="3.6" fill="#2454c1"/>
+    <text x="424" y="27" text-anchor="end" fill="#2454c1" font-size="19" font-weight="600"><tspan x="424">Growing</tspan><tspan x="424" y="48">expertise</tspan></text>
+    <text x="424" y="229" text-anchor="end" fill="#b94a50" font-size="19">Deskilling</text>
+  </g>
+</svg>

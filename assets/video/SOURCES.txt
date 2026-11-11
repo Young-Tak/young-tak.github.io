@@ -1,0 +1,42 @@
+Research films added in V10
+==========================
+
+Source: research film exports supplied by Young-Tak Kim.
+All files were copied without re-encoding or editing. Each MP4 is 50 seconds,
+1920 x 1080, 60 fps, H.264 with AAC stereo, and has fast-start metadata.
+The matching supplied 3840 x 2160 JPEG poster and English WebVTT accompany
+each film. research-films-v10.json records mappings and MP4 SHA-256 hashes.
+
+pub-01 | When AI says “I don’t know”
+  Source prefix: Safe_AI_Mammography_MGB_White
+  Local: mammography-safety-zone.mp4
+         mammography-safety-zone-poster.jpg
+         mammography-safety-zone.en.vtt
+
+pub-08 | Targeted Surface-Enhanced Raman Scattering (ACS Nano)
+  Source prefix: Targeted_SERS_ACS_Nano_MGB_White
+  Local: targeted-sers.mp4 / targeted-sers-poster.jpg / targeted-sers.en.vtt
+
+pub-15 | Non-contrast CT-based pulmonary embolism detection
+  Source prefix: Synthetic_CT_PE_MGB_White
+  Local: synthetic-ct-pe.mp4 / synthetic-ct-pe-poster.jpg / synthetic-ct-pe.en.vtt
+
+pub-21 | Differentiating loss of consciousness causes (NeuroImage)
+  Source prefix: EEG_NeuroImage_MGB_White
+  Local: eeg-consciousness.mp4 / eeg-consciousness-poster.jpg / eeg-consciousness.en.vtt
+
+pub-16 | MINERVA (Briefings in Bioinformatics)
+  Source prefix: MINERVA_Original_White
+  Local: minerva.mp4 / minerva-poster.jpg / minerva.en.vtt
+
+pub-33 | BiomeTrail (GenAI for Health workshop)
+  Source prefix: BiomeTrail_Health_White
+  Local: biometrail-health.mp4 / biometrail-health-poster.jpg / biometrail-health.en.vtt
+
+Each source video filename is {Source prefix}_50s_Web_1080p60.mp4.
+Each source poster filename is {Source prefix}_Poster.jpg.
+Each source caption filename is {Source prefix}_50s_English.vtt.
+
+The existing clinical-ai-safety.mp4 and clinical-ai-safety-poster.jpg for
+pub-09 (Defining operational safety in clinical artificial intelligence
+systems) are retained unchanged from V9.
