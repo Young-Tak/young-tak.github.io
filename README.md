@@ -18,3 +18,23 @@ For a local preview, run `python -m http.server 8000` and open
 
 The initial release uses the approved version 15 of the website.
 Asset attribution and license notices are retained alongside the assets.
+
+## Private website analytics
+
+The owner dashboard is at `https://young-tak.github.io/admin/`.
+It is intentionally absent from the public navigation and requires server-verified
+login. The public files contain no credentials or password verification logic.
+
+- `analytics.js`: lightweight, optional collection on the homepage.
+- `admin/`: login, reports, and CSV export.
+- `privacy/`: collection details and a browser-level opt-out.
+
+The API and database run separately on Sites at
+`https://youngtak-site-analytics.wellchar512.chatgpt.site`.
+Authentication secrets are configured as server runtime environment variables.
+Reports cover the most recent 90 days. Older records are pruned during later
+service requests. Logging begins with this installation; past visits cannot be
+reconstructed. Login automatically excludes that browser's subsequent visits.
+
+An ordinary static preview does not include the analytics API. The production
+dashboard only talks to the configured API; authentication is never simulated.

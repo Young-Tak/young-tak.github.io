@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <meta name="referrer" content="no-referrer">
+  <meta name="color-scheme" content="light">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'self' https://youngtak-site-analytics.wellchar512.chatgpt.site; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data:; base-uri 'none'; form-action 'none'">
+  <title>방문 통계 — Young-Tak Kim</title>
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="admin.css">
+  <script src="admin.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">본문으로 이동</a>
+  <header class="site-header">
+    <a class="site-name" href="../">Young-Tak Kim <span>홈페이지 ↗</span></a>
+    <div class="header-actions"><span class="header-label">Site analytics</span><button id="logout" class="text-button" type="button" hidden>로그아웃</button></div>
+  </header>
+  <main id="main">
+    <section id="login-panel" class="login-panel" aria-labelledby="login-title">
+      <p class="eyebrow">관리자</p>
+      <h1 id="login-title">방문 통계에 로그인</h1>
+      <p class="login-intro">홈페이지 방문과 연구 자료 이용 현황을 확인합니다.</p>
+      <form id="login-form" method="post">
+        <label for="username">아이디</label>
+        <input id="username" name="username" type="text" autocomplete="username" autocapitalize="none" spellcheck="false" required maxlength="100">
+        <label for="password">비밀번호</label>
+        <div class="password-field"><input id="password" name="password" type="password" autocomplete="current-password" required maxlength="256"><button id="toggle-password" type="button" aria-label="비밀번호 표시" aria-pressed="false">표시</button></div>
+        <p id="login-message" class="status-message" role="status" aria-live="polite"></p>
+        <button id="login-button" class="primary-button" type="submit" disabled>로그인</button>
+      </form>
+      <p class="login-note">페이지를 새로고침하면 다시 로그인해야 합니다.</p>
+      <a class="privacy-link" href="../privacy/">방문 통계 및 개인정보 안내</a>
+      <noscript><p class="status-message error">이 페이지를 사용하려면 JavaScript를 켜주세요.</p></noscript>
+    </section>
+
+    <section id="dashboard" class="dashboard" aria-labelledby="dashboard-title" hidden>
+      <div class="dashboard-heading">
+        <div><p class="eyebrow">홈페이지 이용 현황</p><h1 id="dashboard-title">방문 통계</h1><p id="range-description" class="subtle">데이터를 불러오는 중입니다.</p></div>
+        <div class="dashboard-tools"><button id="refresh" type="button" class="secondary-button">새로고침</button><button id="export-csv" type="button" class="secondary-button" disabled>CSV 내보내기</button></div>
+      </div>
+      <div class="report-toolbar">
+        <div class="range-buttons" role="group" aria-label="조회 기간"><button type="button" data-days="7" aria-pressed="false">7일</button><button type="button" data-days="30" aria-pressed="true">30일</button><button type="button" data-days="90" aria-pressed="false">90일</button></div>
+        <p id="updated-at" class="subtle">모든 날짜와 시간은 UTC 기준입니다.</p>
+      </div>
+      <p id="dashboard-message" class="status-message" role="status" aria-live="polite"></p>
+      <div class="summary-metrics" aria-label="기간 합계">
+        <div><h2>페이지 조회</h2><p id="total-pageviews" class="metric-value">—</p><span>홈페이지를 연 횟수</span></div>
+        <div><h2>세션</h2><p id="total-sessions" class="metric-value">—</p><span>브라우저 탭 단위 · 사람 수 아님</span></div>
+        <div><h2>상호작용</h2><p id="total-interactions" class="metric-value">—</p><span>메뉴·자료 클릭 및 영상 재생</span></div>
+      </div>
+
+      <section class="chart-section" aria-labelledby="daily-heading">
+        <div class="section-heading"><div><h2 id="daily-heading">일별 추이</h2><p class="subtle">해당 기간에 수집된 기록</p></div><label class="chart-select" for="chart-metric">표시<select id="chart-metric"><option value="pageviews">페이지 조회</option><option value="sessions">세션</option><option value="interactions">상호작용</option></select></label></div>
+        <div id="chart-empty" class="empty-state" hidden>선택한 기간에 수집된 기록이 없습니다.</div>
+        <svg id="daily-chart" viewBox="0 0 960 260" role="img" aria-labelledby="chart-title chart-description"><title id="chart-title">일별 페이지 조회</title><desc id="chart-description">데이터를 불러오는 중입니다.</desc></svg>
+        <details class="daily-details"><summary>일별 숫자 보기</summary><div class="table-scroll"><table><caption class="sr-only">UTC 기준 일별 이용 통계</caption><thead><tr><th scope="col">날짜 · UTC</th><th scope="col" class="number">조회</th><th scope="col" class="number">세션</th><th scope="col" class="number">상호작용</th></tr></thead><tbody id="daily-table"></tbody></table></div></details>
+      </section>
+
+      <div class="rank-grid">
+        <section class="rank-section" aria-labelledby="countries-heading"><h2 id="countries-heading">국가</h2><p class="subtle">대략적인 접속 지역</p><ol id="countries-list" class="rank-list"></ol></section>
+        <section class="rank-section" aria-labelledby="regions-heading"><h2 id="regions-heading">지역</h2><p class="subtle">도시나 개인의 위치를 식별하지 않습니다.</p><ol id="regions-list" class="rank-list"></ol></section>
+        <section class="rank-section" aria-labelledby="referrers-heading"><h2 id="referrers-heading">유입 경로</h2><p class="subtle">이전 페이지의 도메인만 표시</p><ol id="referrers-list" class="rank-list"></ol></section>
+        <section class="rank-section" aria-labelledby="devices-heading"><h2 id="devices-heading">기기</h2><p class="subtle">기기 유형별 이용 기록</p><ol id="devices-list" class="rank-list"></ol></section>
+        <section class="rank-section" aria-labelledby="browsers-heading"><h2 id="browsers-heading">브라우저</h2><p class="subtle">브라우저 종류별 이용 기록</p><ol id="browsers-list" class="rank-list"></ol></section>
+        <section class="rank-section" aria-labelledby="events-heading"><h2 id="events-heading">상호작용 종류</h2><p class="subtle">실제로 발생한 클릭과 재생</p><ol id="events-list" class="rank-list"></ol></section>
+      </div>
+
+      <section class="recent-section" aria-labelledby="recent-heading">
+        <div class="section-heading"><h2 id="recent-heading">최근 기록</h2><p id="recent-count" class="subtle">최대 100건</p></div>
+        <div class="table-scroll" tabindex="0" role="region" aria-label="최근 이용 기록 표, 가로 스크롤 가능"><table class="recent-table"><caption class="sr-only">최근 홈페이지 이용 기록, 모든 시간 UTC</caption><thead><tr><th scope="col">시간 · UTC</th><th scope="col">종류</th><th scope="col">대상</th><th scope="col">국가 / 지역</th><th scope="col">기기</th><th scope="col">브라우저</th><th scope="col">유입</th></tr></thead><tbody id="recent-table"></tbody></table></div>
+        <p id="recent-empty" class="empty-state" hidden>선택한 기간에 이용 기록이 없습니다.</p>
+      </section>
+      <aside class="collection-notes" aria-label="통계 안내">
+        <p id="collection-start">수집 시작일 확인 중</p>
+        <p id="geo-note">지역 정보는 대략적이며, 확인할 수 없는 접속은 ‘알 수 없음’으로 표시됩니다.</p>
+        <p>국가·지역·유입·기기·브라우저의 숫자는 수집된 기록 수이며, 개인별 방문 횟수가 아닙니다.</p>
+        <p>세션은 브라우저 탭별 임시 식별자로 집계합니다. 실제 방문자 수와 같지 않으며, 동일한 사람이 여러 세션으로 나타날 수 있습니다. 통계는 최근 90일을 대상으로 하며, 더 오래된 기록은 이후 서비스 요청에 따른 정리 작업에서 삭제됩니다.</p>
+        <label class="optout-control"><input id="owner-optout" type="checkbox" checked>이 브라우저의 내 방문을 통계에서 제외</label>
+        <p id="optout-note" class="subtle">로그인한 브라우저는 기본적으로 제외됩니다. 이 설정은 이 브라우저에만 적용됩니다.</p>
+      </aside>
+    </section>
+  </main>
+  <footer><span>Young-Tak Kim</span><a href="../privacy/">Privacy &amp; analytics</a></footer>
+</body>
+</html>
