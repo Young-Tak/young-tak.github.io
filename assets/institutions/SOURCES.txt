@@ -6,7 +6,10 @@ Official source page: https://www.korea.ac.kr/en/1011/subview.do
 Lossless GIF-to-PNG decoding; original colors and aspect ratio preserved.
 See KU-SHIELD-SOURCE.txt for the precise archive entry.
 
-Mass General Brigham: mgb-favicon.png
+Mass General Brigham: mass-general-brigham-512.png
+User-provided 512px PNG, November 11, 2026. Used without resampling or recompression.
+
+Previous Mass General Brigham asset: mgb-favicon.png
 Losslessly decoded 48px frame from https://www.massgeneralbrigham.org/favicon.ico
 The affiliation text remains Massachusetts General Hospital / Harvard Medical School.
 https://www.massgeneralbrigham.org/en/about/massachusetts-general-hospital
