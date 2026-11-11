@@ -17,7 +17,11 @@ https://www.massgeneralbrigham.org/en/about/massachusetts-general-hospital
 National Research Foundation of Korea: national-research-foundation-korea.png
 User-provided 545x400 transparent PNG, November 11, 2026. Used without resampling or recompression.
 
-IEEE: ieee-masterbrand-blue.png
+IEEE: ieee-tagline-blue.png
+User-provided 500x282 transparent PNG with tagline, November 11, 2026. Used without alteration.
+Used to identify the organization associated with Outstanding Reviewer Recognition.
+
+Previous IEEE asset: ieee-masterbrand-blue.png
 Official blue masterbrand PNG, 287x84, used unmodified.
 https://brand-experience.ieee.org/guidelines/master-brand-and-logos/
 https://brand-experience.ieee.org/download/ieee-mb-blue-png-2/?wpdmdl=4855
