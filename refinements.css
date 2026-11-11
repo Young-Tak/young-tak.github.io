@@ -51,7 +51,9 @@ html{scrollbar-gutter:stable}
 .pub-metrics{color:var(--accent);font-size:14px;line-height:1.65;margin-top:11px}
 .pub-metrics strong{color:inherit;font-weight:600}
 .metric-edition{font-size:13px}
-.metric-rank{white-space:nowrap;font-weight:500}
+.metric-rank{display:inline-flex;align-items:baseline;gap:5px;white-space:nowrap;vertical-align:baseline}
+.pub-metrics .metric-top{padding:1px 6px;border-radius:3px;background:#eaf0ff;color:#1d49a9;font-weight:650}
+.metric-position{font-size:13px;font-weight:450}
 .metric-provenance{padding:14px 16px;background:var(--surface);border-left:2px solid var(--rule);font-size:13px;line-height:1.7}
 .metric-provenance p+p{margin-top:7px}
 .metric-provenance ul{padding-left:18px;margin:10px 0 0}
