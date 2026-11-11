@@ -44,6 +44,9 @@ document.querySelector('#reset-search').addEventListener('click', () => { resetF
 document.querySelectorAll('[data-topic-link]').forEach(link => link.addEventListener('click', () => {
   collection = 'all'; topicSelect.value = link.dataset.topicLink; search.value = ''; filterPublications();
 }));
+document.querySelectorAll('a[href^="#pub-"]').forEach(link => link.addEventListener('click', () => {
+  if (document.querySelector(link.getAttribute('href'))?.hidden) resetFilters();
+}));
 filterPublications();
 
 const sectionLinks = [...document.querySelectorAll('.section-nav a')];
