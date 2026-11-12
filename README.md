@@ -9,6 +9,7 @@ Static HTML, CSS, and JavaScript, published with GitHub Pages from the
 
 - `index.html`: introduction, research, publications, and background.
 - `refinements.css` and `styles.css`: typography and layout.
+- `entrance.css` and `entrance.js`: opening screen and immediate entry to the profile.
 - `app.js`: publication filters, navigation, and video controls.
 - `assets/`: CV, research films, cover image, photographs, fonts, and icons.
 
@@ -18,6 +19,11 @@ For a local preview, run `python -m http.server 8000` and open
 
 The initial release uses the approved version 15 of the website.
 Asset attribution and license notices are retained alongside the assets.
+
+The root URL opens with a typographic landing screen. Its links enter the existing
+profile at `#research`; any section hash opens the profile directly, preserving
+shared links. Browser Back returns to the opening screen. Without JavaScript,
+the full profile remains accessible. Both views use a plain white background.
 
 ## Private website analytics
 
