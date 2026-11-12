@@ -14,7 +14,7 @@
 <link href="assets/favicon.svg" rel="icon" type="image/svg+xml"/>
 <link as="font" crossorigin="" href="assets/fonts/geist-latin-variable.woff2" rel="preload" type="font/woff2"/>
 <link href="styles.css" rel="stylesheet"/>
-<link href="refinements.css?v=735f2aa87b" rel="stylesheet"/>
+<link href="refinements.css?v=b05f7d213c" rel="stylesheet"/>
 <script defer="" src="app.js?v=19909a58aa"></script>
 <script defer="" src="analytics.js"></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Young-Tak Kim","honorificSuffix":"PhD","jobTitle":"Research Fellow, Radiology","affiliation":[{"@type":"Organization","name":"Massachusetts General Hospital"},{"@type":"Organization","name":"Harvard Medical School"}],"sameAs":["https://orcid.org/0000-0003-3604-6580","https://www.linkedin.com/in/young-tak-kim/","https://scholar.google.co.kr/citations?user=4RyYKDAAAAAJ"],"knowsAbout":["Clinical AI safety","Human–AI decision-making","Biomedical informatics"],"url":"https://young-tak.github.io/"}</script>
@@ -44,29 +44,29 @@
 </aside>
 <main id="main">
 <section aria-labelledby="research-title" class="intro" id="research">
-<h2 id="research-title">Making AI safer for clinical practice.</h2>
-<p class="intro-lead">AI can help a clinician decide whether a patient needs further tests or treatment. But a system that performs well overall can still give the wrong advice in an individual case. How should a clinician know when to rely on it?</p>
+<h2 id="research-title">Defining when AI can guide care.</h2>
+<p class="intro-lead">AI can detect a disease pattern or retrieve a relevant study. A clinician still has to decide whether that information is sufficient to guide care for a particular patient. I study how the demands of that decision should shape the way AI is built and evaluated.</p>
 <div class="intro-copy">
-<p>I led the development of a framework for evaluating when AI meets the reliability required for a clinical task and when cases need human review, published in <a href="https://doi.org/10.1038/s41746-026-02450-7" target="_blank" rel="noopener noreferrer"><cite class="journal-name">npj Digital Medicine</cite> (2026)</a>. I now study how communicating these limits affects clinicians’ decisions.</p>
-<p>I also want clinicians to be able to examine why a recommendation applies to their patient. Building on collaborative work that links biomedical findings to their sources, I plan to connect guidelines and published evidence to patient records, showing the basis for a recommendation and what information is missing.</p>
-<p>My long-term aim is to prevent deskilling: AI should help clinicians develop the expertise to question its advice and make sound decisions on their own.</p>
+<p>My work has used brain signals, medical images, and molecular spectra to extract information relevant to diagnosis. My current focus is on the conditions under which such information can support a clinical decision. I led the development of a framework, published in <a href="https://doi.org/10.1038/s41746-026-02450-7" target="_blank" rel="noopener noreferrer"><cite class="journal-name">npj Digital Medicine</cite> (2026)</a>, that evaluates AI against clinically defined reliability requirements and identifies where human review is still needed.</p>
+<p>I also co-authored <a href="https://doi.org/10.1093/bib/bbaf472" target="_blank" rel="noopener noreferrer">MINERVA</a>, which connects reported microbiome findings to their source passages. Building on this experience, I plan to link guidelines and published evidence to patient records, so clinicians can examine why a recommendation applies, where evidence conflicts, and what information is missing.</p>
+<p>I aim to build <strong>safe AI for clinical practice</strong> that helps clinicians examine the evidence supporting a recommendation, understand its limits, and see what additional information could change it. I will evaluate its effects on clinical decisions and whether, over time, it helps clinicians recognize errors and <strong>retain and strengthen their independent clinical judgment</strong>.</p>
 </div>
 <div class="research-agenda">
 <h3>Research program</h3>
 <article class="research-area"><svg aria-hidden="true" class="research-icon" fill="none" focusable="false" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"><path d="M11 2v2M5 2v2m0-1H4a2 2 0 0 0-2 2v4a6 6 0 0 0 12 0V5a2 2 0 0 0-2-2h-1"></path><path d="M8 15a6 6 0 0 0 12 0v-3"></path><circle cx="20" cy="10" r="2"></circle></g></svg><div class="research-area-copy"><h4>Clinical AI safety &amp; clinician judgment</h4>
 <p>Our framework, SA-ROC, starts with a clinical reliability requirement and estimates how many cases meet it, with other cases designated for human review. I now study how this guidance changes radiologists’ use of AI advice.</p>
 <div class="research-vision">
-<p class="research-next"><span class="research-next-label">Research direction</span>I want to establish how AI should offer, explain, or withhold advice across clinical settings. This means evaluating both the decisions made with AI and how repeated use changes clinicians’ ability to recognize errors and judge independently over time.</p>
+<p class="research-next"><span class="research-next-label">Research direction</span>How should clinical requirements shape when AI advises and when it asks for review—and how do these choices affect decisions and expertise over time?</p>
 <figure class="research-figure">
 <img alt="Conceptual trajectories of clinical expertise after AI introduction, showing continued growth and a possible decline through deskilling." decoding="async" height="320" loading="lazy" src="assets/research/expertise-trajectories.svg" width="460"/>
 <figcaption>Conceptual illustration of clinical expertise over time.</figcaption>
 </figure>
 </div>
 <div class="research-links"><a aria-label="View publications on clinical AI safety and clinician judgment" data-topic-link="Clinical AI" href="#publications">View related publications <span aria-hidden="true">↗</span></a><a href="https://github.com/MGH-LMIC/SA-ROC" target="_blank" rel="noopener noreferrer">SA-ROC code &amp; tutorial <span aria-hidden="true">↗</span></a></div></div></article>
-<article class="research-area"><svg aria-hidden="true" class="research-icon" fill="none" focusable="false" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"><rect height="8" rx="2" width="8" x="3" y="3"></rect><path d="M7 11v4a2 2 0 0 0 2 2h4"></path><rect height="8" rx="2" width="8" x="13" y="13"></rect></g></svg><div class="research-area-copy"><h4>Clinical evidence for individual patients</h4>
+<article class="research-area"><svg aria-hidden="true" class="research-icon" fill="none" focusable="false" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"><rect height="8" rx="2" width="8" x="3" y="3"></rect><path d="M7 11v4a2 2 0 0 0 2 2h4"></path><rect height="8" rx="2" width="8" x="13" y="13"></rect></g></svg><div class="research-area-copy"><h4>Biomedical knowledge for patient-specific decisions</h4>
 <p>A guideline recommendation may depend on patient details that are missing from the record. My interest in making evidence easier to examine builds on MINERVA, a study I co-authored that links reported microbiome findings to their source passages.</p>
 <div class="research-vision">
-<p class="research-next"><span class="research-next-label">Research direction</span>I plan to build knowledge graphs from guidelines and studies, using ontologies to connect clinical concepts to patient records. The goal is decision support that exposes missing or conflicting evidence. I will test whether clinicians can use it to identify applicable recommendations and cases that need further review.</p>
+<p class="research-next"><span class="research-next-label">Research direction</span>How can ontologies and knowledge graphs connect published evidence to patient records, making clear when a recommendation applies and what additional information could change it?</p>
 <figure class="research-figure">
 <img alt="AI extracts relationships from guidelines and studies to build a graph connecting conditions, tests, findings, recommendations, and evidence." decoding="async" height="320" loading="lazy" src="assets/research/knowledge-graph-construction.svg" width="460"/>
 <figcaption>Conceptual illustration of AI-assisted graph construction.</figcaption>
