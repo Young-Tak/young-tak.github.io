@@ -281,8 +281,9 @@ html{scrollbar-gutter:stable}
 .journal-name{font-style:italic;font-synthesis:style}
 
 /* Research evidence stays in the reading flow. */
-.intro-copy a{color:var(--accent);text-decoration:underline;text-decoration-color:#bdccec;text-underline-offset:3px}
-.intro-copy a:hover{text-decoration-color:var(--accent)}
+.intro-copy a,.research-area-copy>p a{color:var(--accent);text-decoration:underline;text-decoration-color:#bdccec;text-underline-offset:3px}
+.intro-copy a:hover,.research-area-copy>p a:hover{text-decoration-color:var(--accent)}
+.research-area-copy>p a{display:inline;font-size:inherit;line-height:inherit;min-height:0;margin:0}
 .patent-jumps{flex-wrap:wrap;gap:4px 26px}
 .patent-group .subsection-heading{flex-wrap:wrap;row-gap:4px}
 .patent-group .subsection-heading span{white-space:nowrap}
@@ -302,7 +303,6 @@ html{scrollbar-gutter:stable}
 .patent-record .patent-date{margin:0;font-size:14px;line-height:1.65}
 .patent-record .patent-date time{white-space:nowrap}
 .patent-record .patent-number{font-size:14px;font-weight:500;line-height:1.65}
-.patent-record .patent-source-note{margin:0;font-size:14px;font-weight:400;line-height:1.65;color:var(--muted)}
 .patent-note{font-size:14px;line-height:1.65;margin-top:8px}
 .teaching-group>h3{margin-bottom:24px}
 .teaching-entry .entry-date{white-space:normal;text-align:right}

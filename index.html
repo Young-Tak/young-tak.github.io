@@ -14,7 +14,7 @@
 <link href="assets/favicon.svg" rel="icon" type="image/svg+xml"/>
 <link as="font" crossorigin="" href="assets/fonts/geist-latin-variable.woff2" rel="preload" type="font/woff2"/>
 <link href="styles.css" rel="stylesheet"/>
-<link href="refinements.css?v=1c18dd0166" rel="stylesheet"/>
+<link href="refinements.css?v=6f2c9dab9c" rel="stylesheet"/>
 <script defer="" src="app.js?v=19909a58aa"></script>
 <script defer="" src="analytics.js"></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Young-Tak Kim","honorificSuffix":"PhD","jobTitle":"Research Fellow, Radiology","affiliation":[{"@type":"Organization","name":"Massachusetts General Hospital"},{"@type":"Organization","name":"Harvard Medical School"}],"sameAs":["https://orcid.org/0000-0003-3604-6580","https://www.linkedin.com/in/young-tak-kim/","https://scholar.google.co.kr/citations?user=4RyYKDAAAAAJ"],"knowsAbout":["Clinical AI safety","Human–AI decision-making","Biomedical informatics"],"url":"https://young-tak.github.io/"}</script>
@@ -45,18 +45,17 @@
 <main id="main">
 <section aria-labelledby="research-title" class="intro" id="research">
 <h2 id="research-title">Defining when AI can guide care.</h2>
-<p class="intro-lead">To use AI in care, clinicians need to know whether a model meets the reliability required for the decision and what information it relies on. When a recommendation comes from a study or guideline, they also need to know whether its supporting evidence applies to their patient. I develop methods to make these conditions explicit and testable.</p>
+<p class="intro-lead">My research question is: what does biomedical AI rely on, and when can clinicians safely rely on it? I develop methods to examine the features behind predictions, the evidence behind recommendations, and the reliability required for clinical decisions.</p>
 <div class="intro-copy">
-<p>In work published in <a href="https://doi.org/10.1038/s41746-026-02450-7" target="_blank" rel="noopener noreferrer"><cite class="journal-name">npj Digital Medicine</cite> (2026)</a>, I led the development of a framework for evaluating the scope for AI support and the need for human review against clinically defined reliability requirements.</p>
-<p>My goal is <strong>safe AI for clinical practice</strong>. I want to establish when a system should offer a recommendation, seek additional information, or request clinical review, according to the available evidence and the patient’s circumstances. Over time, I want these systems to help clinicians <strong>retain and strengthen their independent clinical judgment</strong>.</p>
+<p>My goal is <strong>safe AI for clinical practice</strong> that shows what supports a recommendation and what new information could change it. I want to evaluate these systems by the decisions they help clinicians make and whether clinicians <strong>retain and strengthen their independent clinical judgment</strong> over time.</p>
 </div>
 <div class="research-agenda">
 <h3>Research program</h3>
 <article class="research-area"><svg aria-hidden="true" class="research-icon" fill="none" focusable="false" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"><path d="M11 2v2M5 2v2m0-1H4a2 2 0 0 0-2 2v4a6 6 0 0 0 12 0V5a2 2 0 0 0-2-2h-1"></path><path d="M8 15a6 6 0 0 0 12 0v-3"></path><circle cx="20" cy="10" r="2"></circle></g></svg><div class="research-area-copy"><h4>Clinical AI safety</h4>
-<p>Building on SA-ROC, I study how guidance about the scope of AI support and the need for review affects radiologists’ decisions.</p>
+<p>In work published in <a href="https://doi.org/10.1038/s41746-026-02450-7" target="_blank" rel="noopener noreferrer"><cite class="journal-name">npj Digital Medicine</cite> (2026)</a>, I developed a framework for evaluating AI support against clinically defined reliability requirements and identifying the need for human review. I study how this guidance affects clinicians’ decisions.</p>
 <div class="research-vision">
 <p class="research-next"><span class="research-next-label">Research direction</span>
-Safer clinical AI should support diagnosis while minimizing deskilling, the loss of existing expertise, and misskilling, the acquisition of incorrect diagnostic reasoning patterns. I plan large-scale prospective studies to evaluate decisions made with AI and clinicians’ ability to recognize errors and judge independently without AI after repeated use. I also plan to extend this work to diagnostic support based on large language models (LLMs), establishing design and use principles that preserve clinical expertise and help clinicians critically assess AI advice.</p>
+I plan large-scale prospective studies to identify forms of assistance that improve diagnostic decisions while limiting deskilling (loss of expertise) and misskilling (learning incorrect diagnostic patterns). These studies will assess clinicians’ ability to recognize errors and judge without AI after repeated use. I will extend this work to diagnostic support using large language models (LLMs).</p>
 <figure class="research-figure">
 <img alt="Conceptual trajectories of clinical expertise after AI introduction, showing continued growth and a possible decline through deskilling." decoding="async" height="320" loading="lazy" src="assets/research/expertise-trajectories.svg" width="460"/>
 <figcaption>Conceptual illustration of clinical expertise over time.</figcaption>
@@ -64,10 +63,10 @@ Safer clinical AI should support diagnosis while minimizing deskilling, the loss
 </div>
 <div class="research-links"><a aria-label="View publications on clinical AI safety and clinician judgment" data-topic-link="Clinical AI" href="#publications">View related publications <span aria-hidden="true">↗</span></a><a href="https://github.com/MGH-LMIC/SA-ROC" target="_blank" rel="noopener noreferrer">SA-ROC code &amp; tutorial <span aria-hidden="true">↗</span></a><a aria-label="Read the Mass General Brigham feature: Building Trust in Artificial Intelligence for Clinical Decision-Making" href="https://mgriblog.org/project/building-trust-in-artificial-intelligence-for-clinical-decision-making/" target="_blank" rel="noopener noreferrer">Mass General Brigham feature <span aria-hidden="true">↗</span></a></div></div></article>
 <article class="research-area"><svg aria-hidden="true" class="research-icon" fill="none" focusable="false" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"><rect height="8" rx="2" width="8" x="3" y="3"></rect><path d="M7 11v4a2 2 0 0 0 2 2h4"></path><rect height="8" rx="2" width="8" x="13" y="13"></rect></g></svg><div class="research-area-copy"><h4>Biomedical knowledge graphs</h4>
-<p>I co-authored MINERVA, which links reported microbiome findings to their source passages. My next research question extends from tracing where evidence comes from to checking the conditions under which it applies to a patient.</p>
+<p>I co-developed MINERVA, a large-scale knowledge graph platform that connects reported microbiome findings to their supporting source passages.</p>
 <div class="research-vision">
 <p class="research-next"><span class="research-next-label">Research direction</span>
-I plan to use ontologies and knowledge graphs to represent the conditions behind recommendations in guidelines and studies, then check them against patient records. I will test whether this approach can distinguish applicable recommendations from those that remain unresolved because patient information is missing or supporting evidence conflicts.</p>
+Building on this work, I plan to integrate clinical guidelines and evidence from large bodies of literature into ontology-based knowledge graphs. I will connect these resources with patient records to develop knowledge-based AI methods for patient-specific clinical decision support.</p>
 <figure class="research-figure">
 <img alt="AI extracts relationships from guidelines and studies to build a graph connecting conditions, tests, findings, recommendations, and evidence." decoding="async" height="320" loading="lazy" src="assets/research/knowledge-graph-construction.svg" width="460"/>
 <figcaption>Conceptual illustration of AI-assisted graph construction.</figcaption>
@@ -75,11 +74,10 @@ I plan to use ontologies and knowledge graphs to represent the conditions behind
 </div>
 <div class="research-links"><a aria-label="View publications on knowledge graphs and biomedical evidence" data-topic-link="Knowledge &amp; discovery" href="#publications">View related publications <span aria-hidden="true">↗</span></a><a href="https://minervabio.org/" target="_blank" rel="noopener noreferrer">Explore MINERVA platform <span aria-hidden="true">↗</span></a></div></div></article>
 <article class="research-area"><svg aria-hidden="true" class="research-icon" fill="none" focusable="false" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 3v18h18"/><path d="M5 16h3l2-8 3 10 3-14 2 12h3"/></svg><div class="research-area-copy"><h4>Explainable biomedical AI</h4>
-<p>In my first-author study in <cite class="journal-name">ACS Nano</cite>, we used explainable AI to identify the Raman spectral features that contributed to bacterial classification and summarized them as interpretable spectral barcodes.</p>
-<p>I am extending this work beyond bacterial species identification to investigate whether Raman spectra can distinguish finer molecular differences, including DNA variants.</p>
+<p>In our study in <cite class="journal-name">ACS Nano</cite>, we used explainable AI to identify Raman spectral features supporting bacterial classification and summarize them as interpretable barcodes. I am now investigating whether Raman spectra can distinguish finer molecular differences, including DNA variants.</p>
 <div class="research-vision">
 <p class="research-next"><span class="research-next-label">Research direction</span>
-Using explainable AI, I plan to identify the spectral features supporting these distinctions and test whether they remain informative in independent samples and under different measurement conditions. My aim is to connect the features a model relies on to molecular differences and develop hypotheses for further experimental validation.</p>
+I aim to develop explainable methods that connect Raman spectral features to molecular and biological meaning, helping clinicians understand the basis and potential clinical implications of an AI classification. My goal is for these explanations to inform diagnostic hypotheses and follow-up testing, while also generating new biological hypotheses for experimental validation.</p>
 <figure class="research-figure">
 <img alt="Conceptual Raman spectrum with influential features highlighted by AI attribution and summarized as a spectral barcode." decoding="async" height="320" loading="lazy" src="assets/research/explainable-biomedical-ai.svg" width="460"/>
 <figcaption>Conceptual illustration of spectral feature attribution.</figcaption>
@@ -431,7 +429,7 @@ Using explainable AI, I plan to identify the spectral features supporting these 
 <div class="patent-group" id="patents-kr"><div class="subsection-heading"><h3>Republic of Korea</h3><span>13 granted patents</span></div><article class="patent-entry" id="patent-multimodal">
 <h4>System and method for analyzing health condition of user based on multimodal biological signal</h4>
 <p class="patent-inventors"><strong>Kim YT</strong>.</p>
-<div class="patent-record"><div class="patent-numbers"><a class="patent-number" href="https://patents.google.com/patent/KR20240018729A/en" aria-label="KR 10-3021332 B1 — view the related published application record" title="Related published application: KR 10-2024-0018729 A" rel="noopener noreferrer" target="_blank">KR 10-3021332 B1</a><span class="patent-source-note">(application record)</span></div><p class="patent-date"><span class="patent-status">Granted</span> · <time datetime="2026-09-14">September 14, 2026</time></p></div>
+<div class="patent-record"><div class="patent-numbers"><a class="patent-number" href="https://patents.google.com/patent/KR20240018729A/en" aria-label="KR 10-3021332 B1 — view the related published application record" title="Related published application: KR 10-2024-0018729 A" rel="noopener noreferrer" target="_blank">KR 10-3021332 B1</a></div><p class="patent-date"><span class="patent-status">Granted</span> · <time datetime="2026-09-14">September 14, 2026</time></p></div>
 </article>
 <article class="patent-entry" id="patent-icp">
 <h4>Apparatus for estimating intracranial pressure information based on arterial blood pressure information and method thereof</h4>
