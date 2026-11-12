@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="460" height="320" viewBox="0 0 460 320" role="img" aria-labelledby="graph-title graph-description">
+  <title id="graph-title">AI-assisted knowledge graph construction</title>
+  <desc id="graph-description">A conceptual workflow. AI extracts entities and relationships from guidelines and studies. The resulting graph links conditions, tests, findings, recommendations, and supporting evidence.</desc>
+  <defs>
+    <marker id="flow-arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M1 1 7 4 1 7" fill="none" stroke="#2454c1" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <g id="source-page" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M0 0h29l11 11v41H0zM29 0v11h11" fill="#ffffff" stroke="#8ea6ca" stroke-width="1.6"/>
+      <path d="M9 22h22M9 30h22M9 38h15" stroke="#a8b7ce" stroke-width="1.5"/>
+    </g>
+  </defs>
+  <rect width="460" height="320" fill="#ffffff"/>
+
+  <g fill="none" stroke="#a8b7ce" stroke-width="1.6" stroke-linecap="round">
+    <path d="M94 91h18q14 0 14 14v33q0 17 17 17"/>
+    <path d="M94 219h18q14 0 14-14v-33q0-17 17-17"/>
+    <path d="M267 106l48 38M397 106l-50 38M267 107v112M326 166l-52 53M336 166l55 53M343 234h16"/>
+  </g>
+  <path d="M143 155h140" fill="none" stroke="#2454c1" stroke-width="2" stroke-linecap="round" marker-end="url(#flow-arrow)"/>
+
+  <use href="#source-page" x="47" y="65"/>
+  <use href="#source-page" x="47" y="193"/>
+
+  <g font-family="Geist, Arial, sans-serif" font-size="19" text-anchor="middle">
+    <text x="67" y="142" fill="#646a74">Guidelines</text>
+    <text x="67" y="270" fill="#646a74">Studies</text>
+    <text x="182" y="126" fill="#515d6e"><tspan x="182">AI-assisted</tspan><tspan x="182" dy="21">extraction</tspan></text>
+    <text x="331" y="48" fill="#2454c1" font-weight="600">Knowledge graph</text>
+
+    <g fill="#ffffff" stroke="#8ea6ca" stroke-width="1.5">
+      <rect x="217" y="77" width="100" height="30" rx="5"/>
+      <rect x="368" y="77" width="58" height="30" rx="5"/>
+      <rect x="190" y="219" width="153" height="30" rx="5"/>
+      <rect x="359" y="219" width="85" height="30" rx="5"/>
+    </g>
+    <rect x="288" y="139" width="88" height="32" rx="5" fill="#edf2fc" stroke="#2454c1" stroke-width="1.6"/>
+    <g fill="#515d6e" font-size="17.5">
+      <text x="267" y="98">Condition</text>
+      <text x="397" y="98">Test</text>
+      <text x="266.5" y="240">Recommendation</text>
+      <text x="401.5" y="240">Evidence</text>
+    </g>
+    <text x="332" y="161" fill="#2454c1" font-size="18" font-weight="600">Finding</text>
+  </g>
+</svg>

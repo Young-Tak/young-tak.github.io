@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="460" height="320" viewBox="0 0 460 320" role="img" aria-labelledby="fusion-title fusion-description">
+  <title id="fusion-title">Joint analysis of medical images and physiological signals</title>
+  <desc id="fusion-description">A conceptual workflow. A schematic scan and a physiological time series are interpreted together. A dashed guide relates the scan findings to the signal over time.</desc>
+  <defs>
+    <marker id="flow-arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M1 1 7 4 1 7" fill="none" stroke="#2454c1" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="axis-arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M1 1 5 3 1 5" fill="none" stroke="#9aa2ad" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <g id="scan" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <rect width="96" height="64" rx="5" fill="#f6f8fc" stroke="#8ea6ca" stroke-width="1.5"/>
+      <path d="M48 9c-18-1-33 9-33 24 0 14 13 23 33 23s33-9 33-23C81 18 66 8 48 9Z" fill="#ffffff" stroke="#8ea6ca" stroke-width="1.5"/>
+      <path d="M48 15v11l-3 7 3 7v10M36 17c-8 3-12 9-12 16 0 8 5 13 13 16M60 17c8 3 12 9 12 16 0 8-5 13-13 16M35 26l4 5-2 8M61 26l-4 5 2 8" stroke="#a8b7ce" stroke-width="1.4"/>
+    </g>
+  </defs>
+  <rect width="460" height="320" fill="#ffffff"/>
+
+  <g fill="none" stroke="#a8b7ce" stroke-width="1.6" stroke-linecap="round">
+    <path d="M126 91h14q14 0 14 14v33q0 17 17 17"/>
+    <path d="M126 219h14q14 0 14-14v-33q0-17 17-17"/>
+  </g>
+  <path d="M171 155h50" fill="none" stroke="#2454c1" stroke-width="2" stroke-linecap="round" marker-end="url(#flow-arrow)"/>
+
+  <use href="#scan" x="25" y="59"/>
+  <path d="M25 235v-36m0 36h96" fill="none" stroke="#9aa2ad" stroke-width="1.1"/>
+  <path d="M31 221h9l5-6 4 8 6-25 7 32 5-9h9l6-5 5 6h8l5-6 5 5h11" fill="none" stroke="#2454c1" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <g font-family="Geist, Arial, sans-serif" font-size="19">
+    <text x="25" y="148" fill="#646a74">Medical image</text>
+    <text x="25" y="263" fill="#646a74">Physiological signal</text>
+    <text x="330" y="48" fill="#2454c1" font-weight="600" text-anchor="middle">Joint analysis</text>
+    <text x="244" y="97" fill="#515d6e" font-size="17">Scan findings</text>
+    <use href="#scan" transform="translate(304 109) scale(.65)"/>
+    <text x="244" y="179" fill="#515d6e" font-size="17">Signal over time</text>
+    <path d="M335 151v13m0 22v53" fill="none" stroke="#8ea6ca" stroke-width="1.4" stroke-dasharray="4 5"/>
+    <path d="M244 190v49h184" fill="none" stroke="#9aa2ad" stroke-width="1.1" marker-end="url(#axis-arrow)"/>
+    <path d="M251 218h13l7-7 5 7h10l6-5 5 5h16l6-7 5 7 6-20 5 20 6 9 5-9h16l7-7 5 7h11l6-8 6 8h13" fill="none" stroke="#2454c1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="335" cy="218" r="3.5" fill="#2454c1"/>
+    <text x="428" y="266" fill="#646a74" font-size="17" text-anchor="end">Time</text>
+  </g>
+</svg>

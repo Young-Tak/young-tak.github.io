@@ -157,9 +157,9 @@ html{scrollbar-gutter:stable}
   font-size: 14px;
 }
 .intro-links a span { margin-inline-start: 5px; }
-.expertise-figure{width:min(100%,360px);margin:14px 0 3px}
-.expertise-figure img{display:block;width:100%;height:auto;background:#fff;border-radius:3px}
-.expertise-figure figcaption{font-size:12px;line-height:1.6;color:var(--muted);margin-top:7px}
+.research-figure{width:min(100%,360px);margin:14px 0 3px}
+.research-figure img{display:block;width:100%;height:auto;background:#fff;border-radius:3px}
+.research-figure figcaption{font-size:12px;line-height:1.6;color:var(--muted);margin-top:7px}
 @media (min-width: 1150px) {
   .research-vision {
     display: grid;
