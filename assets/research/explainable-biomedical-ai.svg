@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="460" height="320" viewBox="0 0 460 320" role="img" aria-labelledby="spectrum-title spectrum-description">
+  <title id="spectrum-title">Conceptual illustration of explainable biomedical AI</title>
+  <desc id="spectrum-description">An illustrative Raman spectrum is shown again with peaks highlighted for their influence on a model’s classification. A schematic spectral barcode summarizes those selected peaks. The curves are conceptual and do not represent measured data.</desc>
+  <defs>
+    <marker id="flow-arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M1 1 7 4 1 7" fill="none" stroke="#2454c1" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <path id="spectrum" d="M114 87C127 87 130 83 139 83C146 83 149 87 156 86C166 85 170 54 178 54C186 54 189 84 198 85C210 87 217 74 225 75C232 76 235 84 242 84C251 84 255 48 264 48C273 48 278 82 286 83C296 85 303 64 310 64C317 64 324 85 334 85C342 85 346 82 352 84"/>
+  </defs>
+  <rect width="460" height="320" fill="#ffffff"/>
+
+  <g font-family="Geist, Arial, sans-serif" font-size="19" text-anchor="middle">
+    <text x="230" y="30" fill="#515d6e">Raman spectrum</text>
+    <text x="230" y="138" fill="#515d6e">XAI highlights influential peaks</text>
+    <text x="230" y="246" fill="#2454c1" font-weight="600">Spectral barcode</text>
+  </g>
+
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M108 91H358M108 195H358" stroke="#a8b7ce" stroke-width="1.2"/>
+    <use href="#spectrum" stroke="#8ea6ca" stroke-width="2"/>
+    <use href="#spectrum" y="104" stroke="#a8b7ce" stroke-width="2"/>
+    <path d="M156 190C166 189 170 158 178 158C186 158 189 188 198 189M242 188C251 188 255 152 264 152C273 152 278 186 286 187M286 187C296 189 303 168 310 168C317 168 324 189 334 189" stroke="#2454c1" stroke-width="2.6"/>
+    <path d="M230 101v16M230 205v17" stroke="#2454c1" stroke-width="1.7" marker-end="url(#flow-arrow)"/>
+  </g>
+
+  <g fill="#2454c1">
+    <circle cx="178" cy="158" r="3"/>
+    <circle cx="264" cy="152" r="3"/>
+    <circle cx="310" cy="168" r="3"/>
+    <rect x="174" y="260" width="8" height="30" rx="1.5"/>
+    <rect x="260" y="260" width="8" height="30" rx="1.5"/>
+    <rect x="306" y="260" width="8" height="30" rx="1.5"/>
+  </g>
+</svg>
