@@ -15,6 +15,7 @@ body::before{
 @media(max-width:620px){body::before{opacity:.6}}
 @media print,(forced-colors:active){body::before{display:none}}
 .intro-lead strong{color:var(--accent);font-weight:550}
+.intro-lead .research-question{background:#eaf0ff;color:#1d49a9;font-weight:600;border-radius:3px;padding:1px 5px;-webkit-box-decoration-break:clone;box-decoration-break:clone}
 .intro-copy strong{color:var(--accent);font-weight:600}
 .section-title{display:inline-block;padding:5px 13px 6px;border-left:3px solid var(--accent);border-radius:0 4px 4px 0;background:var(--hover);font-size:26px;line-height:1.35;letter-spacing:-.6px}
 .section-nav{position:relative;padding-left:14px;border-left:0;gap:3px;margin-top:26px}
