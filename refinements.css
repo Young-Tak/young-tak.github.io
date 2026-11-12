@@ -243,7 +243,7 @@ html{scrollbar-gutter:stable}
 .teaching-group>h3{margin-bottom:24px}
 .teaching-entry .entry-date{white-space:normal;text-align:right}
 .teaching-entry .entry-date .date-line{white-space:nowrap}
-.background-section .institution-mark{margin-top:0;object-position:center top}
+.background-section .institution-mark,.award-entry>.institution-mark{margin-top:0;object-position:center top}
 @media(max-width:620px){.patent-record{grid-template-columns:minmax(0,1fr);gap:6px}.teaching-entry .entry-date{text-align:left}}
 
 /* A small portrait sequence beside the contact information. */
