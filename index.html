@@ -5,7 +5,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <meta content="light" name="color-scheme"/>
-<title>Young-Tak Kim — Clinical AI &amp; Human–AI Decision-Making</title>
+<title>Young-Tak Kim — Clinical AI &amp; Biomedical Informatics</title>
 <meta content="Young-Tak Kim, PhD. Research Fellow at Massachusetts General Hospital and Harvard Medical School. Clinical AI safety, human–AI decision-making, and biomedical informatics." name="description"/>
 <meta content="Young-Tak Kim, PhD — Research &amp; Publications" property="og:title"/>
 <meta content="Young-Tak Kim, PhD. Research Fellow at Massachusetts General Hospital and Harvard Medical School. Clinical AI safety, human–AI decision-making, and biomedical informatics." property="og:description"/>
@@ -14,7 +14,7 @@
 <link href="assets/favicon.svg" rel="icon" type="image/svg+xml"/>
 <link as="font" crossorigin="" href="assets/fonts/geist-latin-variable.woff2" rel="preload" type="font/woff2"/>
 <link href="styles.css" rel="stylesheet"/>
-<link href="refinements.css?v=099f539eae" rel="stylesheet"/>
+<link href="refinements.css?v=6231079e1c" rel="stylesheet"/>
 <script defer="" src="app.js?v=19909a58aa"></script>
 <script defer="" src="analytics.js"></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Young-Tak Kim","honorificSuffix":"PhD","jobTitle":"Research Fellow, Radiology","affiliation":[{"@type":"Organization","name":"Massachusetts General Hospital"},{"@type":"Organization","name":"Harvard Medical School"}],"sameAs":["https://orcid.org/0000-0003-3604-6580","https://www.linkedin.com/in/young-tak-kim/","https://scholar.google.co.kr/citations?user=4RyYKDAAAAAJ"],"knowsAbout":["Clinical AI safety","Human–AI decision-making","Biomedical informatics"],"url":"https://young-tak.github.io/"}</script>
@@ -27,11 +27,11 @@
 <a class="name-link" href="#top"><h1>Young-Tak Kim</h1></a><p class="profile-identity">PhD · Biomedical AI researcher</p><figure class="profile-photo">
 <a aria-label="View family photograph at Boston Public Garden" href="assets/photos/boston-public-garden-family-2026.webp" rel="noopener" target="_blank">
 <img alt="With my wife and son at Boston Public Garden in fall 2026." decoding="async" fetchpriority="high" height="1334" src="assets/photos/boston-public-garden-family-2026.webp" width="1000"/>
-</a><figcaption>With my wife and son at<br/>Boston Public Garden · Fall 2026</figcaption></figure><div class="profile-details"><p class="role">Research Fellow, Radiology</p><p class="affiliation">Massachusetts General Hospital<br/>Harvard Medical School</p><a class="profile-email" href="mailto:ytkim@mgh.harvard.edu">ytkim@mgh.harvard.edu</a><div class="profile-links">
+</a><figcaption>With my wife and son at <br/>Boston Public Garden · Fall 2026</figcaption></figure><div class="profile-details"><p class="role">Research Fellow, Radiology</p><p class="affiliation">Massachusetts General Hospital<br/>Harvard Medical School</p><a class="profile-email" href="mailto:ytkim@mgh.harvard.edu">ytkim@mgh.harvard.edu</a><div class="profile-resources"><div class="profile-links">
 <a href="https://scholar.google.co.kr/citations?user=4RyYKDAAAAAJ" rel="noopener noreferrer" target="_blank">Scholar</a>
 <a href="https://orcid.org/0000-0003-3604-6580" rel="noopener noreferrer" target="_blank">ORCID</a>
 <a href="https://www.linkedin.com/in/young-tak-kim/" rel="noopener noreferrer" target="_blank">LinkedIn</a>
-</div><a class="cv-link" href="assets/Young_Tak_Kim_CV_2026.pdf" rel="noopener" target="_blank">Curriculum vitae <span>PDF</span></a></div>
+</div><a class="cv-link" href="assets/Young_Tak_Kim_CV_2026.pdf" rel="noopener" target="_blank">Curriculum vitae <span>PDF</span></a></div></div>
 </div>
 <nav aria-label="Sections" class="section-nav"><span aria-hidden="true" class="nav-indicator"></span>
 <a aria-current="location" href="#research">Research</a>
@@ -44,29 +44,37 @@
 </aside>
 <main id="main">
 <section aria-labelledby="research-title" class="intro" id="research">
-<h2 id="research-title">Making AI safer<br class="wide-break"/> for clinical practice.</h2>
-<p class="intro-lead">I develop methods for assessing when AI predictions are reliable enough to inform clinical decisions.</p>
+<h2 id="research-title">When do we have enough evidence to act?</h2>
+<p class="intro-lead">I develop methods to extract diagnostic information from biomedical data and test when it can guide care.</p>
 <div class="intro-copy">
-<p>Our SA-ROC framework evaluates predictions against clinically defined reliability requirements and identifies cases that need human review (<a href="https://doi.org/10.1038/s41746-026-02450-7" target="_blank" rel="noopener noreferrer"><cite class="journal-name">npj Digital Medicine</cite>, 2026</a>).</p>
-<div class="intro-perspective">
-<figure class="expertise-figure"><img alt="Conceptual trajectories of clinical expertise: after AI introduction, the research goal is continued growth, shown by a blue upward arrow, rather than deskilling, shown by a red dashed decline." decoding="async" height="320" src="assets/research/expertise-trajectories.svg" width="460"/><figcaption>Designing AI that strengthens clinical expertise.<span>Conceptual illustration</span></figcaption></figure>
-<p>My earlier work used EEG to distinguish causes of loss of consciousness and synthetic CT to support pulmonary embolism detection. My work on biomedical knowledge graphs examines the evidence behind scientific claims.</p>
-<p>At Massachusetts General Hospital and Harvard Medical School, I study how clinicians respond to uncertainty in AI advice. I want to build a research program that expands what we can learn from biomedical data and establishes when we need more evidence. In clinical practice, my long-term goal is to help prevent deskilling by designing AI that helps clinicians build expertise they can draw on even without the system.</p>
+<div class="intro-study">
+<p><strong>I led the development of SA-ROC</strong> to measure when AI meets a clinical reliability target and when cases need human review. In a retrospective study of 1,000 mammograms, the model with the higher AUC qualified fewer cases for rule-out at the same stringent target (167 versus 290).</p>
+<div class="intro-links">
+<a aria-label="Read the SA-ROC paper in npj Digital Medicine" href="https://doi.org/10.1038/s41746-026-02450-7" target="_blank" rel="noopener noreferrer">Read the paper <span aria-hidden="true">↗</span></a>
+<a href="https://github.com/MGH-LMIC/SA-ROC" target="_blank" rel="noopener noreferrer">Code and tutorial <span aria-hidden="true">↗</span></a>
 </div>
+</div>
+<p>My earlier studies used EEG to distinguish causes of loss of consciousness and tested whether synthetic contrast could help detect pulmonary embolism on noncontrast CT. As principal investigator of a <a href="#research-funding">Sejong Science Fellowship</a>, I studied how physiological signals could inform medical imaging. I also contributed to MINERVA, a knowledge graph that links reported microbiome findings to their source studies.</p>
 </div>
 <div class="research-agenda">
-<h3>Current research</h3>
+<h3>Research program</h3>
 <article class="research-area"><svg aria-hidden="true" class="research-icon" fill="none" focusable="false" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"><path d="M11 2v2M5 2v2m0-1H4a2 2 0 0 0-2 2v4a6 6 0 0 0 12 0V5a2 2 0 0 0-2-2h-1"></path><path d="M8 15a6 6 0 0 0 12 0v-3"></path><circle cx="20" cy="10" r="2"></circle></g></svg><div class="research-area-copy"><h4>Clinical AI safety &amp; human–AI interaction</h4>
 <p>I evaluate operational safety and study how safety-zone guidance affects radiologists’ use of AI advice.</p>
-<p class="research-next"><span class="research-next-label">Research direction</span>I want the long-term effect on clinicians’ judgment to become a criterion for clinical AI safety. I plan to design systems that vary when and how they offer advice, then test whether clinicians make better decisions with AI and become better at recognizing errors and making decisions on their own.</p>
+<div class="research-vision">
+<p class="research-next"><span class="research-next-label">Research direction</span>I want clinical AI evaluations to measure what clinicians learn from using a system. I plan to compare when and how AI offers advice, testing both immediate decision quality and how well clinicians later recognize errors and make decisions on their own. The long-term goal is to prevent deskilling and help clinicians build expertise through everyday use.</p>
+<figure class="expertise-figure">
+<img alt="Conceptual trajectories of clinical expertise after AI introduction, showing continued growth and a possible decline through deskilling." decoding="async" height="320" loading="lazy" src="assets/research/expertise-trajectories.svg" width="460"/>
+<figcaption>Conceptual illustration of clinical expertise over time.</figcaption>
+</figure>
+</div>
 <a aria-label="View publications on Clinical AI safety &amp; human–AI interaction" data-topic-link="Clinical AI" href="#publications">View related publications <span aria-hidden="true">↗</span></a></div></article>
 <article class="research-area"><svg aria-hidden="true" class="research-icon" fill="none" focusable="false" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"><rect height="8" rx="2" width="8" x="3" y="3"></rect><path d="M7 11v4a2 2 0 0 0 2 2h4"></path><rect height="8" rx="2" width="8" x="13" y="13"></rect></g></svg><div class="research-area-copy"><h4>Biomedical knowledge &amp; discovery</h4>
 <p>I use ontologies and knowledge graphs to connect microbiome findings with their source evidence and biological context.</p>
-<p class="research-next"><span class="research-next-label">Research direction</span>I plan to build ontologies and knowledge graphs from clinical guidelines and published research, then map findings from individual patients’ electronic health records (EHRs) onto those graphs. The goal is to help clinicians see which recommendations apply to a patient, what evidence supports them, and where the evidence is uncertain.</p>
+<p class="research-next"><span class="research-next-label">Research direction</span>I plan to build ontologies and knowledge graphs from guidelines and published studies, then link their recommendations to individual patients’ electronic health records. I want to test whether these tools can show why a recommendation applies to a patient and identify when conflicting guidance or missing information calls for further review.</p>
 <a aria-label="View publications on Biomedical knowledge &amp; discovery" data-topic-link="Knowledge &amp; discovery" href="#publications">View related publications <span aria-hidden="true">↗</span></a></div></article>
 <article class="research-area"><svg aria-hidden="true" class="research-icon" fill="none" focusable="false" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 7V5a2 2 0 0 1 2-2h2m10 0h2a2 2 0 0 1 2 2v2m0 10v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2m4-5h10" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"></path></svg><div class="research-area-copy"><h4>Medical imaging &amp; physiological signals</h4>
 <p>My work includes synthetic CT for pulmonary embolism detection and EEG analysis to distinguish causes of loss of consciousness.</p>
-<p class="research-next"><span class="research-next-label">Research direction</span>I plan to develop models that interpret medical images and physiological signals together, linking structural findings on scans with changes in physiology over time. The goal is to distinguish patients whose scans look similar but whose conditions evolve differently, and to detect changes that either source alone might miss.</p>
+<p class="research-next"><span class="research-next-label">Research direction</span>I plan to interpret medical images alongside physiological signals, linking structural findings on scans with changes in physiology over time. I want to test when the two sources together can distinguish patients with similar scans but different clinical courses, and detect changes that either source alone might miss.</p>
 <a aria-label="View publications on Medical imaging &amp; physiological signals" data-topic-link="Imaging &amp; signals" href="#publications">View related publications <span aria-hidden="true">↗</span></a></div></article>
 </div>
 </section>
