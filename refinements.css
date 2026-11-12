@@ -245,3 +245,14 @@ html{scrollbar-gutter:stable}
 .teaching-entry .entry-date .date-line{white-space:nowrap}
 .background-section .institution-mark{margin-top:0;object-position:center top}
 @media(max-width:620px){.patent-record{grid-template-columns:minmax(0,1fr);gap:6px}.teaching-entry .entry-date{text-align:left}}
+
+/* A small portrait sequence beside the contact information. */
+.contact-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,360px);align-items:center;gap:28px 40px}
+.contact-details .section-heading{margin-bottom:13px}
+.contact-details .contact-row{justify-content:flex-start;flex-wrap:wrap;gap:8px 14px}
+.contact-details .email-link{overflow-wrap:anywhere}
+.contact-portraits{min-width:0;width:100%;max-width:360px;margin:0}
+.contact-photo-strip{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}
+.contact-photo-strip img{display:block;width:100%;height:auto;aspect-ratio:4/5;border-radius:4px;background:#f5f2ed}
+.contact-portraits figcaption{margin-top:10px;color:var(--muted);font-size:13px;line-height:1.55}
+@media(max-width:760px){.contact-layout{grid-template-columns:minmax(0,1fr);gap:15px}}
