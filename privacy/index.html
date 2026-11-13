@@ -18,12 +18,13 @@
   <main id="main" class="privacy-main">
     <p class="eyebrow">Website information</p>
     <h1>Privacy &amp; analytics</h1>
-    <p>This website uses limited, anonymous usage statistics to understand which research materials are useful to visitors.</p>
+    <p>This website uses limited usage statistics to understand which research materials are useful to visitors.</p>
     <ul>
       <li>Records include homepage views, section navigation, CV and publication-link clicks, and the first start and completion of each research video per page load.</li>
       <li>Statistics may include an approximate country or region, browser and device category, language, and the referring website’s hostname. Full referring URLs, search terms, and text entered on this site are not collected.</li>
       <li>A temporary random identifier in session storage groups activity within a browser tab. It is not a person’s identity or a persistent visitor identifier. Session counts are not counts of individual people.</li>
-      <li>The analytics application does not store raw IP addresses. It stores only coarse location information when available; unknown locations remain unknown. Hosting providers process requests to deliver the site and may maintain their own operational logs.</li>
+      <li>The analytics server sends the connecting IP address over HTTPS to <a href="https://ipwhois.io/" target="_blank" rel="noopener noreferrer">IPWhois</a> to look up an approximate country and state/province when that information is not supplied by the hosting platform. It sends no browsing history, visitor identifier, credentials, or user-agent header from your browser to this lookup service. The provider processes requests under its <a href="https://ipwhois.io/privacy" target="_blank" rel="noopener noreferrer">privacy policy</a> and may keep operational logs.</li>
+      <li>The analytics application does not store raw IP addresses, cities, street addresses, or coordinates. Lookup results are cached for up to 24 hours under a keyed, daily-changing hash of the IP address; failed lookups are cached briefly. Expired entries are removed during request-triggered cleanup. Only coarse country/state/province values are attached to usage records. Unknown locations remain unknown; VPNs and mobile networks can make locations inaccurate. Hosting providers also process requests to deliver the site and may maintain operational logs.</li>
       <li>Reports cover the most recent 90 days. Older records are pruned during cleanup triggered by subsequent service requests, so deletion may occur later during periods of inactivity. The private analytics dashboard requires an authenticated administrator session.</li>
     </ul>
     <p>The tracker respects Do Not Track (DNT) and Global Privacy Control (GPC) browser signals. It does not set analytics cookies. The administration and privacy pages are excluded from analytics collection.</p>
@@ -34,7 +35,8 @@
     </div>
     <section lang="ko" aria-labelledby="korean-notice">
       <h2 id="korean-notice">방문 통계 안내</h2>
-      <p>이 사이트는 방문과 연구 자료 이용 현황을 파악하기 위해 제한적인 익명 이용 통계를 수집합니다. 페이지 조회, 메뉴·CV·논문 링크 클릭, 영상 재생과 완료, 대략적인 국가·지역, 기기·브라우저 종류, 언어, 유입 도메인을 포함할 수 있습니다.</p>
+      <p>이 사이트는 방문과 연구 자료 이용 현황을 파악하기 위해 제한적인 이용 통계를 수집합니다. 페이지 조회, 메뉴·CV·논문 링크 클릭, 영상 재생과 완료, 대략적인 국가·주·도, 기기·브라우저 종류, 언어, 유입 도메인을 포함할 수 있습니다.</p>
+      <p>호스팅에서 지역 정보를 제공하지 않으면 서버가 접속 IP를 HTTPS로 IPWhois에 전달해 주·도를 조회합니다. 방문 기록·방문 식별자·인증 정보·브라우저의 User-Agent는 조회 서비스에 전달하지 않습니다. 해당 제공자는 자체 개인정보 처리방침에 따라 요청을 처리하고 운영 로그를 보관할 수 있습니다. 조회 결과는 매일 달라지는 비밀키 기반 IP 해시로 최대 24시간 동안 재사용하며, 만료된 캐시는 이후 요청에 따른 정리 작업에서 삭제합니다. 이 사이트에는 원본 IP·도시·정확한 주소·좌표를 저장하지 않습니다. VPN·이동통신망에서는 표시 위치가 실제와 다를 수 있습니다.</p>
       <p>원본 IP 주소, 전체 유입 URL, 검색어와 입력한 글은 통계 애플리케이션에 저장하지 않습니다. 세션은 탭별 임시 식별자로 구분하므로 실제 사람 수와 다릅니다. 통계는 최근 90일을 대상으로 합니다. 더 오래된 기록은 이후 서비스 요청에 따른 정리 작업에서 삭제되므로, 접속이 없으면 삭제가 늦어질 수 있습니다. DNT·GPC 설정과 위의 브라우저별 제외 설정을 존중합니다.</p>
     </section>
     <h2>Contact</h2>

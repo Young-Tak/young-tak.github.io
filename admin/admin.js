@@ -193,7 +193,8 @@
       range:{days:[7,30,90].includes(Number(value.range.days)) ? Number(value.range.days) : requestedDays,from:text(value.range.from),to:text(value.range.to),timezone:'UTC'},
       collection:{startedAt:text(value.collection?.startedAt),retentionDays:count(value.collection?.retentionDays) || 90,
         countryAvailable:(value.collection?.countryAvailable ?? value.collection?.geographyAvailable) === true,
-        regionAvailable:value.collection?.regionAvailable === true},
+        regionAvailable:value.collection?.regionAvailable === true,
+        regionLookupConfigured:value.collection?.regionLookupConfigured === true},
       summary:{pageviews:count(value.summary.pageviews),sessions:count(value.summary.sessions),interactions:count(value.summary.interactions)},
       daily:value.daily.slice(0, 90).map(day => ({date:text(day.date),pageviews:count(day.pageviews),sessions:count(day.sessions),interactions:count(day.interactions)})).sort((a,b)=>a.date.localeCompare(b.date)),
       countries:list('countries'),regions:list('regions'),referrers:list('referrers'),devices:list('devices'),browsers:list('browsers'),languages:list('languages'),events:list('events'),
@@ -286,11 +287,11 @@
     el('collection-start').textContent = report.collection.startedAt ? `수집 시작: ${timestampUTC(report.collection.startedAt)} UTC · 수집 이전의 방문은 포함되지 않습니다.` : '아직 수집된 방문 기록이 없습니다. 수집 이전의 방문은 집계할 수 없습니다.';
     el('region-note').textContent = report.collection.regionAvailable
       ? 'IP 기준의 대략적인 주·도 정보이며, 정확한 위치가 아닙니다.'
-      : report.collection.countryAvailable
-        ? '국가는 확인되지만, 주·도 정보는 현재 제공되지 않습니다.'
+      : report.collection.regionLookupConfigured
+        ? '주·도 조회가 활성화되었습니다. 확인된 새 방문부터 표시하며, 조회 불가 기록은 ‘알 수 없음’으로 남습니다.'
         : '선택한 기간에 확인 가능한 주·도 정보가 없습니다.';
     el('geo-note').textContent = report.collection.countryAvailable
-      ? '확인된 국가부터 표시합니다. 과거에 위치 정보 없이 수집된 기록은 ‘알 수 없음’으로 유지됩니다.'
+      ? '국가·주·도는 IP 기준의 대략적인 위치입니다. VPN·이동통신망에서는 실제 위치와 다를 수 있습니다. 과거 미수집 기록은 ‘알 수 없음’으로 유지됩니다.'
       : '선택한 기간에 확인 가능한 국가 정보가 없습니다. 과거 기록의 위치를 추정해서 채우지 않습니다.';
   }
   async function loadReport(days = requestedDays) {
