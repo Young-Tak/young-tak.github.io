@@ -191,7 +191,9 @@
     const list = key => Array.isArray(value[key]) ? value[key].slice(0, 150).map(row => ({name:text(row.name),count:count(row.count)})) : [];
     return {
       range:{days:[7,30,90].includes(Number(value.range.days)) ? Number(value.range.days) : requestedDays,from:text(value.range.from),to:text(value.range.to),timezone:'UTC'},
-      collection:{startedAt:text(value.collection?.startedAt),retentionDays:count(value.collection?.retentionDays) || 90,geographyAvailable:value.collection?.geographyAvailable === true},
+      collection:{startedAt:text(value.collection?.startedAt),retentionDays:count(value.collection?.retentionDays) || 90,
+        countryAvailable:(value.collection?.countryAvailable ?? value.collection?.geographyAvailable) === true,
+        regionAvailable:value.collection?.regionAvailable === true},
       summary:{pageviews:count(value.summary.pageviews),sessions:count(value.summary.sessions),interactions:count(value.summary.interactions)},
       daily:value.daily.slice(0, 90).map(day => ({date:text(day.date),pageviews:count(day.pageviews),sessions:count(day.sessions),interactions:count(day.interactions)})).sort((a,b)=>a.date.localeCompare(b.date)),
       countries:list('countries'),regions:list('regions'),referrers:list('referrers'),devices:list('devices'),browsers:list('browsers'),languages:list('languages'),events:list('events'),
@@ -282,7 +284,14 @@
     el('recent-count').textContent = `${report.recent.length}건 표시 · 최근 최대 100건`;
     el('recent-empty').hidden = report.recent.length!==0;
     el('collection-start').textContent = report.collection.startedAt ? `수집 시작: ${timestampUTC(report.collection.startedAt)} UTC · 수집 이전의 방문은 포함되지 않습니다.` : '아직 수집된 방문 기록이 없습니다. 수집 이전의 방문은 집계할 수 없습니다.';
-    el('geo-note').textContent = report.collection.geographyAvailable ? '지역은 대략적인 접속 위치입니다. 확인할 수 없는 접속은 ‘알 수 없음’으로 표시됩니다.' : '현재 데이터에는 확인 가능한 지역 정보가 없습니다. 위치를 추정해서 채우지 않습니다.';
+    el('region-note').textContent = report.collection.regionAvailable
+      ? 'IP 기준의 대략적인 주·도 정보이며, 정확한 위치가 아닙니다.'
+      : report.collection.countryAvailable
+        ? '국가는 확인되지만, 주·도 정보는 현재 제공되지 않습니다.'
+        : '선택한 기간에 확인 가능한 주·도 정보가 없습니다.';
+    el('geo-note').textContent = report.collection.countryAvailable
+      ? '확인된 국가부터 표시합니다. 과거에 위치 정보 없이 수집된 기록은 ‘알 수 없음’으로 유지됩니다.'
+      : '선택한 기간에 확인 가능한 국가 정보가 없습니다. 과거 기록의 위치를 추정해서 채우지 않습니다.';
   }
   async function loadReport(days = requestedDays) {
     if (!token || busy) return;
