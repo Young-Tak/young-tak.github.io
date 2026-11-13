@@ -18,8 +18,9 @@ html[data-view="landing"] .landing{
 }
 .landing-line{display:block;white-space:nowrap}
 .landing-question{text-align:right;color:var(--accent);margin-top:12px}
-.landing-invitation{display:grid;grid-template-columns:minmax(0,470px) auto;justify-content:space-between;align-items:end;gap:40px;margin-top:32px}
+.landing-invitation{display:grid;grid-template-columns:minmax(0,650px) auto;justify-content:space-between;align-items:end;gap:40px;margin-top:32px}
 .landing-invitation>p{font-size:21px;line-height:1.55;letter-spacing:-.35px;text-wrap:pretty}
+.landing-description-clause{display:block}
 .landing-enter{
   display:inline-flex;justify-content:space-between;align-items:center;gap:34px;
   min-height:64px;padding:15px 24px;background:var(--accent);color:#fff;
@@ -43,7 +44,8 @@ html[data-view="landing"] .landing{
 .landing-affiliations a:hover{opacity:.76}
 .landing-affiliations img{display:block;width:100%;height:auto;object-fit:contain}
 .landing-mgh-logo{width:380px}
-.landing-hms-logo{width:230px}
+/* Match visible emblem height, accounting for each source's transparent margins. */
+.landing-affiliations .landing-hms-logo{width:42.596%;max-width:161.87px}
 @media(prefers-reduced-motion:no-preference){
   html[data-view="landing"] .landing-line{animation:landing-arrive .65s cubic-bezier(.16,1,.3,1) both}
   html[data-view="landing"] .landing-question{animation-delay:.08s}
@@ -52,12 +54,12 @@ html[data-view="landing"] .landing{
 @media(max-width:960px){
   .landing-main{padding-top:42px}
   .landing-invitation{grid-template-columns:minmax(0,390px) auto;gap:28px;margin-top:30px}
-  .landing-invitation>p{font-size:18px}
+  .landing-invitation>p{font-size:18px;text-wrap:balance}
+  .landing-description-clause{display:inline}
   .landing-enter{font-size:16px;gap:20px;padding-inline:18px;min-height:60px}
   .landing-visual-row{grid-template-columns:minmax(0,1fr) minmax(230px,280px);gap:18px;margin-top:30px}
   .landing-ocean{height:310px}
   .landing-affiliations{gap:20px}
-  .landing-hms-logo{width:210px}
 }
 @media(max-width:620px){
   html[data-view="landing"] .landing{padding:24px 24px 22px}
@@ -75,8 +77,7 @@ html[data-view="landing"] .landing{
   .landing-visual-row{display:flex;flex-direction:column;align-items:stretch;gap:14px;margin-top:22px}
   .landing-ocean{height:230px}
   .landing-affiliations{gap:22px;padding:4px 0 12px}
-  .landing-mgh-logo{width:100%;max-width:380px}
-  .landing-hms-logo{width:210px}
+  .landing-affiliations .landing-mgh-logo{width:100%;max-width:380px}
 }
 @media(max-width:350px){
   html[data-view="landing"] .landing{padding-inline:18px}
