@@ -11,18 +11,14 @@ html[data-view="landing"] .landing{
 .landing-name{font-size:21px;line-height:1.35;font-weight:550;letter-spacing:-.5px}
 .landing-name span{font-size:14px;letter-spacing:0;font-weight:400;color:var(--muted);margin-left:6px}
 .landing-field{font-size:14px;line-height:1.5;color:var(--muted);margin-top:4px}
-.landing-profile-link{display:inline-flex;align-items:center;gap:15px;min-height:44px;font-size:14px;color:var(--ink);white-space:nowrap}
-.landing-profile-link svg{transition:transform .2s ease}
-.landing-profile-link:hover{text-decoration:none;color:var(--accent)}
-.landing-profile-link:hover svg{transform:translate(2px,-2px)}
-.landing-main{flex:1;display:flex;flex-direction:column;justify-content:center;padding:76px 0 88px}
+.landing-main{flex:1;display:flex;flex-direction:column;justify-content:center;padding:36px 0 0}
 .landing-title{
   font-size:clamp(64px,9.15vw,158px);font-weight:500;line-height:1.04;
   letter-spacing:-.04em;white-space:normal;
 }
 .landing-line{display:block;white-space:nowrap}
 .landing-question{text-align:right;color:var(--accent);margin-top:12px}
-.landing-invitation{display:grid;grid-template-columns:minmax(0,470px) auto;justify-content:space-between;align-items:end;gap:40px;margin-top:64px}
+.landing-invitation{display:grid;grid-template-columns:minmax(0,470px) auto;justify-content:space-between;align-items:end;gap:40px;margin-top:32px}
 .landing-invitation>p{font-size:21px;line-height:1.55;letter-spacing:-.35px;text-wrap:pretty}
 .landing-enter{
   display:inline-flex;justify-content:space-between;align-items:center;gap:34px;
@@ -34,21 +30,34 @@ html[data-view="landing"] .landing{
 .landing-enter:hover{background:#1d46a3;text-decoration:none;transform:translateY(-2px)}
 .landing-enter:hover svg{transform:translateX(4px)}
 .landing-enter:active{transform:translateY(0)}
-.landing-footer{display:flex;align-items:end;justify-content:space-between;gap:24px;padding-top:22px;border-top:1px solid var(--rule);font-size:13px;line-height:1.6;color:var(--muted)}
-.landing-footer>p:last-child{text-align:right}
-.landing-footer span{margin:0 10px;color:#a8afb9}
+.landing-visual-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(290px,380px);align-items:end;gap:32px;margin-top:18px}
+.landing-ocean{position:relative;min-width:0;height:330px}
+.landing-ocean canvas{display:block;width:100%;height:100%;pointer-events:none}
+.ocean-toggle{position:absolute;left:0;bottom:0;display:flex;align-items:center;justify-content:center;width:44px;height:44px;border:0;background:transparent;color:#5678b8;border-radius:5px;transition:background .2s,color .2s}
+.ocean-toggle:hover{background:var(--hover);color:var(--accent)}
+.ocean-toggle .ocean-play-icon{display:none}
+.ocean-toggle[data-paused="true"] .ocean-play-icon{display:block}
+.ocean-toggle[data-paused="true"] .ocean-pause-icon{display:none}
+.landing-affiliations{display:flex;flex-direction:column;align-items:flex-end;gap:24px;padding-bottom:24px}
+.landing-affiliations a{display:flex;align-items:center;min-height:44px;max-width:100%;transition:opacity .2s ease}
+.landing-affiliations a:hover{opacity:.76}
+.landing-affiliations img{display:block;width:100%;height:auto;object-fit:contain}
+.landing-mgh-logo{width:380px}
+.landing-hms-logo{width:230px}
 @media(prefers-reduced-motion:no-preference){
   html[data-view="landing"] .landing-line{animation:landing-arrive .65s cubic-bezier(.16,1,.3,1) both}
   html[data-view="landing"] .landing-question{animation-delay:.08s}
   @keyframes landing-arrive{from{opacity:.3;transform:translateY(18px)}to{opacity:1;transform:none}}
 }
 @media(max-width:960px){
-  .landing-main{padding-block:80px}
-  .landing-invitation{grid-template-columns:minmax(0,390px) auto;gap:28px;margin-top:54px}
+  .landing-main{padding-top:42px}
+  .landing-invitation{grid-template-columns:minmax(0,390px) auto;gap:28px;margin-top:30px}
   .landing-invitation>p{font-size:18px}
   .landing-enter{font-size:16px;gap:20px;padding-inline:18px;min-height:60px}
-  .landing-footer{font-size:12px}
-  .landing-footer span{margin-inline:5px}
+  .landing-visual-row{grid-template-columns:minmax(0,1fr) minmax(230px,280px);gap:18px;margin-top:30px}
+  .landing-ocean{height:310px}
+  .landing-affiliations{gap:20px}
+  .landing-hms-logo{width:210px}
 }
 @media(max-width:620px){
   html[data-view="landing"] .landing{padding:24px 24px 22px}
@@ -56,31 +65,25 @@ html[data-view="landing"] .landing{
   .landing-name{font-size:19px}
   .landing-name span{font-size:12px;margin-left:3px}
   .landing-field{font-size:12px;max-width:200px;margin-top:5px}
-  .landing-profile-link{font-size:0;gap:0;width:44px;justify-content:center;border:1px solid var(--rule);border-radius:5px}
-  .landing-profile-link svg{width:20px;height:20px}
-  .landing-main{padding:58px 0 48px}
+  .landing-main{padding:40px 0 0;justify-content:flex-start}
   .landing-title{font-size:clamp(48px,14.5vw,88px);line-height:1.02;letter-spacing:-.04em}
   .landing-phrase{display:block}
   .landing-question{margin-top:16px}
   .landing-invitation{display:flex;flex-direction:column;align-items:stretch;gap:26px;margin-top:36px}
   .landing-invitation>p{font-size:17px;line-height:1.6;max-width:32ch}
   .landing-enter{min-height:58px;padding:14px 19px;font-size:16px}
-  .landing-footer{align-items:start;gap:18px;padding-top:18px;font-size:11px;line-height:1.65}
-  .landing-footer>p:first-child{max-width:130px}
-  .landing-footer span{display:none}
-  .landing-footer>p:first-child{display:flex;flex-direction:column}
-  .landing-footer>p:last-child{max-width:175px}
+  .landing-visual-row{display:flex;flex-direction:column;align-items:stretch;gap:14px;margin-top:22px}
+  .landing-ocean{height:230px}
+  .landing-affiliations{gap:22px;padding:4px 0 12px}
+  .landing-mgh-logo{width:100%;max-width:380px}
+  .landing-hms-logo{width:210px}
 }
 @media(max-width:350px){
   html[data-view="landing"] .landing{padding-inline:18px}
   .landing-main{padding-top:44px}
-  .landing-footer{flex-direction:column;gap:12px}
-  .landing-footer>p:last-child{text-align:left;max-width:none}
-  .landing-footer>p:first-child{max-width:none;display:block}
-  .landing-footer span{display:inline;margin-inline:3px}
 }
 @media(prefers-reduced-motion:reduce){
-  .landing a,.landing a svg{transition:none}
+  .landing a,.landing a svg,.ocean-toggle{transition:none}
 }
 @media print{
   html[data-view="landing"] .landing{display:none}

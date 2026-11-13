@@ -33,4 +33,6 @@ https://mofe.go.kr/images/2026/logo.svg
 See GOVERNMENT-EMBLEM-SOURCE.txt for extraction details and official cross-checks.
 
 Original institution marks identify academic affiliations, funding, and awards, and remain their owners' property.
-Harvard Medical School is represented in text; no HMS artwork is included.
+Landing-page affiliation wordmarks (added November 12, 2026)
+- mgh-horizontal.png: user-supplied transparent Massachusetts General Hospital / Founding Member, Mass General Brigham wordmark, preserved without alteration.
+- harvard-medical-school-horizontal.png: user-supplied transparent Harvard Medical School wordmark, preserved without alteration.

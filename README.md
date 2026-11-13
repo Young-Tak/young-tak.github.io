@@ -10,6 +10,7 @@ Static HTML, CSS, and JavaScript, published with GitHub Pages from the
 - `index.html`: introduction, research, publications, and background.
 - `refinements.css` and `styles.css`: typography and layout.
 - `entrance.css` and `entrance.js`: opening screen and immediate entry to the profile.
+- `ocean.js`: lightweight canvas wave mesh, with pause and reduced-motion support.
 - `app.js`: publication filters, navigation, and video controls.
 - `assets/`: CV, research films, cover image, photographs, fonts, and icons.
 
