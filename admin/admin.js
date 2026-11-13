@@ -114,13 +114,13 @@
   function clearReport() {
     report = null;
     ['total-pageviews','total-sessions','total-interactions'].forEach(id => { el(id).textContent = '—'; });
-    ['daily-table','recent-table','countries-list','regions-list','referrers-list','devices-list','browsers-list','events-list'].forEach(id => el(id).replaceChildren());
+    ['daily-table','recent-table','countries-list','referrers-list','devices-list','browsers-list','events-list'].forEach(id => el(id).replaceChildren());
     el('daily-chart').replaceChildren();
     el('range-description').textContent = '데이터를 불러오는 중입니다.';
     el('updated-at').textContent = '모든 날짜와 시간은 UTC 기준입니다.';
     el('recent-count').textContent = '최대 100건';
     el('collection-start').textContent = '수집 시작일 확인 중';
-    el('geo-note').textContent = '지역 정보는 대략적이며, 확인할 수 없는 접속은 ‘알 수 없음’으로 표시됩니다.';
+    el('geo-note').textContent = '접속 국가는 호스팅에서 제공하는 정보를 사용합니다.';
     el('chart-empty').hidden = true;
     el('recent-empty').hidden = true;
     el('export-csv').disabled = true;
@@ -192,13 +192,11 @@
     return {
       range:{days:[7,30,90].includes(Number(value.range.days)) ? Number(value.range.days) : requestedDays,from:text(value.range.from),to:text(value.range.to),timezone:'UTC'},
       collection:{startedAt:text(value.collection?.startedAt),retentionDays:count(value.collection?.retentionDays) || 90,
-        countryAvailable:(value.collection?.countryAvailable ?? value.collection?.geographyAvailable) === true,
-        regionAvailable:value.collection?.regionAvailable === true,
-        regionLookupConfigured:value.collection?.regionLookupConfigured === true},
+        countryAvailable:(value.collection?.countryAvailable ?? value.collection?.geographyAvailable) === true},
       summary:{pageviews:count(value.summary.pageviews),sessions:count(value.summary.sessions),interactions:count(value.summary.interactions)},
       daily:value.daily.slice(0, 90).map(day => ({date:text(day.date),pageviews:count(day.pageviews),sessions:count(day.sessions),interactions:count(day.interactions)})).sort((a,b)=>a.date.localeCompare(b.date)),
-      countries:list('countries'),regions:list('regions'),referrers:list('referrers'),devices:list('devices'),browsers:list('browsers'),languages:list('languages'),events:list('events'),
-      recent:value.recent.slice(0, 100).map(row => ({at:text(row.at),type:text(row.type),label:text(row.label),path:'/',country:text(row.country),region:text(row.region),referrer:text(row.referrer),device:text(row.device),browser:text(row.browser),language:text(row.language)}))
+      countries:list('countries'),referrers:list('referrers'),devices:list('devices'),browsers:list('browsers'),languages:list('languages'),events:list('events'),
+      recent:value.recent.slice(0, 100).map(row => ({at:text(row.at),type:text(row.type),label:text(row.label),path:'/',country:text(row.country),referrer:text(row.referrer),device:text(row.device),browser:text(row.browser),language:text(row.language)}))
     };
   }
   function addCell(row, value, className = '') {
@@ -273,25 +271,19 @@
       ['pageviews','sessions','interactions'].forEach(metric=>addCell(row,formatCount(day[metric]),'number'));el('daily-table').append(row);
     });
     renderChart();
-    ['countries','regions','referrers','devices','browsers','events'].forEach(renderRanks);
+    ['countries','referrers','devices','browsers','events'].forEach(renderRanks);
     el('recent-table').replaceChildren();
     report.recent.forEach(item => {
       const row=document.createElement('tr');
-      const country=readableName(item.country,'countries'), region=readableName(item.region);
-      const locationText=region==='알 수 없음' ? country : `${country} / ${region}`;
-      [timestampUTC(item.at),eventNames[item.type]||item.type,eventTarget(item.type,item.label),locationText,readableName(item.device,'devices'),readableName(item.browser),readableName(item.referrer)].forEach((value,index)=>addCell(row,value,index===2?'event-target':''));
+      const country=readableName(item.country,'countries');
+      [timestampUTC(item.at),eventNames[item.type]||item.type,eventTarget(item.type,item.label),country,readableName(item.device,'devices'),readableName(item.browser),readableName(item.referrer)].forEach((value,index)=>addCell(row,value,index===2?'event-target':''));
       el('recent-table').append(row);
     });
     el('recent-count').textContent = `${report.recent.length}건 표시 · 최근 최대 100건`;
     el('recent-empty').hidden = report.recent.length!==0;
     el('collection-start').textContent = report.collection.startedAt ? `수집 시작: ${timestampUTC(report.collection.startedAt)} UTC · 수집 이전의 방문은 포함되지 않습니다.` : '아직 수집된 방문 기록이 없습니다. 수집 이전의 방문은 집계할 수 없습니다.';
-    el('region-note').textContent = report.collection.regionAvailable
-      ? 'IP 기준의 대략적인 주·도 정보이며, 정확한 위치가 아닙니다.'
-      : report.collection.regionLookupConfigured
-        ? '주·도 조회가 활성화되었습니다. 확인된 새 방문부터 표시하며, 조회 불가 기록은 ‘알 수 없음’으로 남습니다.'
-        : '선택한 기간에 확인 가능한 주·도 정보가 없습니다.';
     el('geo-note').textContent = report.collection.countryAvailable
-      ? '국가·주·도는 IP 기준의 대략적인 위치입니다. VPN·이동통신망에서는 실제 위치와 다를 수 있습니다. 과거 미수집 기록은 ‘알 수 없음’으로 유지됩니다.'
+      ? '접속 국가는 호스팅에서 제공하는 정보를 사용합니다. 확인할 수 없는 기록은 ‘알 수 없음’으로 표시됩니다.'
       : '선택한 기간에 확인 가능한 국가 정보가 없습니다. 과거 기록의 위치를 추정해서 채우지 않습니다.';
   }
   async function loadReport(days = requestedDays) {
@@ -357,7 +349,7 @@
   }
   el('export-csv').addEventListener('click',()=>{
     if (!report) return;
-    const headers=['record_type','category','date_utc','name','event','label','country','region','referrer','device','browser','language','pageviews','sessions','interactions','count'];
+    const headers=['record_type','category','date_utc','name','event','label','country','referrer','device','browser','language','pageviews','sessions','interactions','count'];
     const rows=[headers];
     const row=value=>rows.push(headers.map(key=>value[key]??''));
     row({record_type:'metadata',category:'range_start',date_utc:report.range.from});
@@ -365,7 +357,7 @@
     row({record_type:'metadata',category:'collection_started',date_utc:report.collection.startedAt});
     row({record_type:'summary',...report.summary});
     report.daily.forEach(day=>row({record_type:'daily',date_utc:day.date,...day}));
-    ['countries','regions','referrers','devices','browsers','languages','events'].forEach(category=>report[category].forEach(item=>row({record_type:'ranking',category,...item})));
+    ['countries','referrers','devices','browsers','languages','events'].forEach(category=>report[category].forEach(item=>row({record_type:'ranking',category,...item})));
     report.recent.forEach(item=>row({record_type:'recent_event',date_utc:item.at,event:item.type,name:eventTarget(item.type,item.label),...item}));
     const blob=new Blob(['\uFEFF'+rows.map(cells=>cells.map(csvCell).join(',')).join('\r\n')],{type:'text/csv;charset=utf-8'});
     const url=URL.createObjectURL(blob), link=document.createElement('a');
