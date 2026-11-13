@@ -1,5 +1,5 @@
 /* A typographic opening; the academic profile keeps its established layout. */
-.landing{display:none}
+.landing{display:none;position:relative;isolation:isolate;overflow:hidden}
 html[data-view="landing"] .page-shell{display:none}
 html[data-view="landing"]{scroll-behavior:auto;scroll-padding-top:0}
 html[data-view="landing"] .landing{
@@ -7,11 +7,11 @@ html[data-view="landing"] .landing{
   max-width:1800px;margin-inline:auto;padding:32px clamp(24px,4.4vw,80px) 28px;
   background:#fff;color:var(--ink);
 }
-.landing-header{display:flex;align-items:center;justify-content:space-between;gap:28px}
+.landing-header{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:28px}
 .landing-name{font-size:21px;line-height:1.35;font-weight:550;letter-spacing:-.5px}
 .landing-name span{font-size:14px;letter-spacing:0;font-weight:400;color:var(--muted);margin-left:6px}
 .landing-field{font-size:14px;line-height:1.5;color:var(--muted);margin-top:4px}
-.landing-main{flex:1;display:flex;flex-direction:column;justify-content:center;padding:36px 0 0}
+.landing-main{position:relative;z-index:2;flex:1;display:flex;flex-direction:column;justify-content:center;padding:36px 0 0}
 .landing-title{
   font-size:clamp(64px,9.15vw,158px);font-weight:500;line-height:1.04;
   letter-spacing:-.04em;white-space:normal;
@@ -31,21 +31,22 @@ html[data-view="landing"] .landing{
 .landing-enter:hover{background:#1d46a3;text-decoration:none;transform:translateY(-2px)}
 .landing-enter:hover svg{transform:translateX(4px)}
 .landing-enter:active{transform:translateY(0)}
-.landing-visual-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(290px,380px);align-items:end;gap:32px;margin-top:18px}
-.landing-ocean{position:relative;min-width:0;height:330px}
-.landing-ocean canvas{display:block;width:100%;height:100%;pointer-events:none}
-.ocean-toggle{position:absolute;left:0;bottom:0;display:flex;align-items:center;justify-content:center;width:44px;height:44px;border:0;background:transparent;color:#5678b8;border-radius:5px;transition:background .2s,color .2s}
+.landing-visual-row{display:flex;align-items:flex-end;justify-content:space-between;min-height:330px;gap:32px;margin-top:18px}
+.landing-network{position:absolute;z-index:1;left:0;right:0;bottom:-65px;height:clamp(520px,75vh,820px);overflow:hidden;pointer-events:none;opacity:.8;contain:layout paint;-webkit-mask-image:linear-gradient(to bottom,transparent,rgba(0,0,0,.46) 14%,#000 36%,#000);mask-image:linear-gradient(to bottom,transparent,rgba(0,0,0,.46) 14%,#000 36%,#000)}
+.landing-network canvas,.landing-network-static{display:block;position:absolute;inset:0;width:100%;height:100%}
+.landing-network-static{top:auto;height:60%;object-fit:cover;object-position:center bottom;filter:brightness(.5);-webkit-mask-image:linear-gradient(to bottom,transparent,#000 38%);mask-image:linear-gradient(to bottom,transparent,#000 38%)}
+.landing-network[data-renderer="webgl"] .landing-network-static{display:none}
+.ocean-toggle{flex:0 0 44px;display:flex;align-items:center;justify-content:center;width:44px;height:44px;margin-bottom:24px;border:0;background:transparent;color:#5678b8;border-radius:5px;transition:background .2s,color .2s}
 .ocean-toggle:hover{background:var(--hover);color:var(--accent)}
 .ocean-toggle .ocean-play-icon{display:none}
 .ocean-toggle[data-paused="true"] .ocean-play-icon{display:block}
 .ocean-toggle[data-paused="true"] .ocean-pause-icon{display:none}
-.landing-affiliations{display:flex;flex-direction:column;align-items:flex-end;gap:24px;padding-bottom:24px}
-.landing-affiliations a{display:flex;align-items:center;min-height:44px;max-width:100%;transition:opacity .2s ease}
+.landing-affiliations{display:grid;grid-template-columns:minmax(0,380fr) minmax(0,161.87fr);align-items:center;gap:28px;width:min(100%,570px);margin-left:auto;padding-bottom:24px}
+.landing-affiliations a{display:flex;align-items:center;width:100%;min-width:0;min-height:44px;max-width:none;transition:opacity .2s ease}
 .landing-affiliations a:hover{opacity:.76}
 .landing-affiliations img{display:block;width:100%;height:auto;object-fit:contain}
-.landing-mgh-logo{width:380px}
-/* Match visible emblem height, accounting for each source's transparent margins. */
-.landing-affiliations .landing-hms-logo{width:42.596%;max-width:161.87px}
+/* Grid proportions match emblem heights; offset accounts for transparent margins. */
+.landing-affiliations .landing-mgh-logo img{transform:translateY(1.42%)}
 @media(prefers-reduced-motion:no-preference){
   html[data-view="landing"] .landing-line{animation:landing-arrive .65s cubic-bezier(.16,1,.3,1) both}
   html[data-view="landing"] .landing-question{animation-delay:.08s}
@@ -57,9 +58,7 @@ html[data-view="landing"] .landing{
   .landing-invitation>p{font-size:18px;text-wrap:balance}
   .landing-description-clause{display:inline}
   .landing-enter{font-size:16px;gap:20px;padding-inline:18px;min-height:60px}
-  .landing-visual-row{grid-template-columns:minmax(0,1fr) minmax(230px,280px);gap:18px;margin-top:30px}
-  .landing-ocean{height:310px}
-  .landing-affiliations{gap:20px}
+  .landing-visual-row{min-height:310px;gap:18px;margin-top:30px}
 }
 @media(max-width:620px){
   html[data-view="landing"] .landing{padding:24px 24px 22px}
@@ -74,10 +73,9 @@ html[data-view="landing"] .landing{
   .landing-invitation{display:flex;flex-direction:column;align-items:stretch;gap:26px;margin-top:36px}
   .landing-invitation>p{font-size:17px;line-height:1.6;max-width:32ch}
   .landing-enter{min-height:58px;padding:14px 19px;font-size:16px}
-  .landing-visual-row{display:flex;flex-direction:column;align-items:stretch;gap:14px;margin-top:22px}
-  .landing-ocean{height:230px}
-  .landing-affiliations{gap:22px;padding:4px 0 12px}
-  .landing-affiliations .landing-mgh-logo{width:100%;max-width:380px}
+  .landing-visual-row{flex-direction:column;align-items:stretch;justify-content:flex-end;min-height:310px;gap:14px;margin-top:22px}
+  .ocean-toggle{align-self:flex-start;margin-bottom:0}
+  .landing-affiliations{gap:16px;padding:4px 0 12px}
 }
 @media(max-width:350px){
   html[data-view="landing"] .landing{padding-inline:18px}

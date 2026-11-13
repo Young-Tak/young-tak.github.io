@@ -10,7 +10,8 @@ Static HTML, CSS, and JavaScript, published with GitHub Pages from the
 - `index.html`: introduction, research, publications, and background.
 - `refinements.css` and `styles.css`: typography and layout.
 - `entrance.css` and `entrance.js`: opening screen and immediate entry to the profile.
-- `ocean.js`: lightweight canvas wave mesh, with pause and reduced-motion support.
+- `network-hero.js`: landing network lifecycle, pause control, and static fallback.
+- `assets/network/`: framework-free RadPathway graphics port; see its [maintenance notes](assets/network/README.md).
 - `app.js`: publication filters, navigation, and video controls.
 - `assets/`: CV, research films, cover image, photographs, fonts, and icons.
 
@@ -25,6 +26,12 @@ The root URL opens with a typographic landing screen. Its links enter the existi
 profile at `#research`; any section hash opens the profile directly, preserving
 shared links. Browser Back returns to the opening screen. Without JavaScript,
 the full profile remains accessible. Both views use a plain white background.
+
+The landing effect uses self-hosted Three.js 0.185.1 without React, Fiber, or a CDN.
+It preserves the supplied RadPathway shaders, camera, geometry, and default settings.
+Reduced motion or unavailable WebGL uses an SVG fallback; animation pauses when
+offscreen, in a hidden tab, or after entering the profile. No RadPathway login or
+authentication code is included.
 
 ## Private website analytics
 
