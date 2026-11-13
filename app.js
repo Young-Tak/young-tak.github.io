@@ -30,6 +30,7 @@ function filterPublications() {
   document.querySelector('#result-count').textContent = `${count} ${collection === 'selected' ? 'selected ' : ''}${count === 1 ? 'work' : 'works'}`;
   document.querySelector('#no-results').hidden = count !== 0;
   document.querySelector('#show-all').hidden = collection === 'all';
+  document.dispatchEvent(new CustomEvent('publications:filtered'));
 }
 collectionButtons.forEach(button => button.addEventListener('click', () => { collection = button.dataset.collection; filterPublications(); }));
 topicSelect.addEventListener('change', () => { collection = 'all'; filterPublications(); });
@@ -53,16 +54,37 @@ const sectionLinks = [...document.querySelectorAll('.section-nav a')];
 const sectionNav = document.querySelector('.section-nav');
 const navIndicator = document.querySelector('.nav-indicator');
 const sections = [...document.querySelectorAll('main > section[id]')];
+const mobileNavMedia = window.matchMedia('(max-width: 960px)');
+const profile = sectionNav.closest('.profile');
+const navHome = document.createComment('Section navigation home');
+sectionNav.before(navHome);
 let scrollQueued = false;
 let previewLink = null;
 let intendedSection = null;
 let intentTimer;
+let activeReadingLine = 140;
+function updateNavLayout() {
+  const height = sectionNav.getBoundingClientRect().height;
+  if (mobileNavMedia.matches && height > 0) {
+    document.documentElement.style.setProperty('--mobile-nav-height', `${Math.ceil(height)}px`);
+    activeReadingLine = height + (parseFloat(getComputedStyle(sectionNav).top) || 8) + 24;
+  } else if (!mobileNavMedia.matches) activeReadingLine = 140;
+  updateActiveSection();
+}
+function placeSectionNav() {
+  const focusedLink = sectionNav.contains(document.activeElement) ? document.activeElement : null;
+  if (mobileNavMedia.matches) profile.after(sectionNav);
+  else navHome.after(sectionNav);
+  sectionNav.classList.toggle('is-mobile-nav', mobileNavMedia.matches);
+  document.documentElement.classList.toggle('has-mobile-nav', mobileNavMedia.matches);
+  focusedLink?.focus({preventScroll:true});
+  updateNavLayout();
+}
 function moveNavIndicator(link) {
-  if (!link || !navIndicator) return;
+  if (!link || !navIndicator || mobileNavMedia.matches) return;
   const navRect = sectionNav.getBoundingClientRect();
   const linkRect = link.getBoundingClientRect();
-  const horizontalMenu = window.matchMedia('(max-width: 960px)').matches;
-  const x = horizontalMenu ? linkRect.left - navRect.left + 3 : 1;
+  const x = 1;
   const y = linkRect.top - navRect.top + (linkRect.height - 26) / 2;
   navIndicator.style.transform = `translate3d(${x}px, ${y}px, 0)`;
   navIndicator.classList.add('is-ready');
@@ -75,8 +97,9 @@ function paintActiveLink(current) {
   moveNavIndicator(previewLink || sectionLinks.find(link => link.hash === `#${current}`));
 }
 function updateActiveSection() {
+  if (document.documentElement.dataset.view === 'landing') { scrollQueued = false; return; }
   let current = sections[0].id;
-  for (const section of sections) if (section.getBoundingClientRect().top <= 140) current = section.id;
+  for (const section of sections) if (section.getBoundingClientRect().top <= activeReadingLine) current = section.id;
   if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 40) current = 'contact';
   if (intendedSection === current) intendedSection = null;
   paintActiveLink(intendedSection || current);
@@ -102,9 +125,11 @@ sectionNav.addEventListener('focusout', event => {
 window.addEventListener('scroll', () => {
   if (!scrollQueued) { scrollQueued = true; requestAnimationFrame(updateActiveSection); }
 }, {passive:true});
-new ResizeObserver(updateActiveSection).observe(sectionNav);
-document.fonts.ready.then(updateActiveSection);
-updateActiveSection();
+mobileNavMedia.addEventListener('change', placeSectionNav);
+new ResizeObserver(updateNavLayout).observe(sectionNav);
+new MutationObserver(updateNavLayout).observe(document.documentElement, {attributes:true,attributeFilter:['data-view']});
+document.fonts.ready.then(updateNavLayout);
+placeSectionNav();
 document.querySelector('#copy-email').addEventListener('click', async () => {
   const status = document.querySelector('#copy-status');
   try {

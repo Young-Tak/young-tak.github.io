@@ -1,0 +1,37 @@
+/* Content is visible by default; JavaScript opts individual blocks into motion. */
+.scroll-reveal-ready .scroll-reveal {
+  opacity: 1;
+  transform: none;
+  transition: opacity 650ms cubic-bezier(.22, 1, .36, 1),
+              transform 650ms cubic-bezier(.22, 1, .36, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+.scroll-reveal-ready .reveal-pending {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: none;
+}
+.scroll-reveal-ready .reveal-instant,
+.scroll-reveal-ready .reveal-pending:focus-within {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+@media (max-width: 620px) {
+  .scroll-reveal-ready .scroll-reveal { transition-duration: 540ms; }
+  .scroll-reveal-ready .reveal-pending { transform: translateY(20px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal-ready .scroll-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+@media print {
+  .scroll-reveal-ready .scroll-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}

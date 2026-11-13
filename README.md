@@ -13,6 +13,10 @@ Static HTML, CSS, and JavaScript, published with GitHub Pages from the
 - `network-hero.js`: landing network lifecycle, pause control, and static fallback.
 - `assets/network/`: framework-free RadPathway graphics port; see its [maintenance notes](assets/network/README.md).
 - `app.js`: publication filters, navigation, and video controls.
+- `navigation.css`: translucent mobile section navigation; `app.js` moves the
+  same menu outside the profile on small screens so it stays sticky through the page.
+- `scroll-reveal.js` and `scroll-reveal.css`: once-only upward content entrances,
+  with reduced-motion, keyboard, direct-link, and no-JavaScript fallbacks.
 - `assets/`: CV, research films, cover image, photographs, fonts, and icons.
 
 Edit the files and push to `main`; GitHub Pages publishes the update.
