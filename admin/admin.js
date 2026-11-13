@@ -23,6 +23,7 @@
   const eventNames = {pageview:'페이지 조회',section:'섹션 이동',cv_download:'CV 열기',publication_click:'논문 링크',video_start:'영상 시작',video_complete:'영상 완료'};
   const sectionNames = {research:'Research',publications:'Publications',background:'Background',patents:'Patents',service:'Service & Recognition',contact:'Contact'};
   const metricNames = {pageviews:'페이지 조회',sessions:'세션',interactions:'상호작용'};
+  const sourceNames = {google_scholar:'Google Scholar',threads:'Threads',linkedin:'LinkedIn'};
   const publicationNames = {
   "pub-09": "Defining operational safety in clinical artificial intelligence systems",
   "pub-01": "When AI says “I don’t know”: a multireader multicase study of safety-zone guidance and radiologists’ reliance on AI advice in screening mammography",
@@ -85,6 +86,7 @@
   };
   function readableName(value, category = '') {
     const name = text(value).trim();
+    if (category === 'sources') return name ? (sourceNames[name] || name) : 'UTM 태그 없음';
     if (!name || /^(unknown|unknown region|n\/a|null)$/i.test(name)) return '알 수 없음';
     if (/^(direct|none|direct \/ unknown|direct\/unknown)$/i.test(name)) return '직접 접속 / 정보 없음';
     if (category === 'countries' && /^[A-Z]{2}$/.test(name) && regionNames) {
@@ -114,7 +116,8 @@
   function clearReport() {
     report = null;
     ['total-pageviews','total-sessions','total-interactions'].forEach(id => { el(id).textContent = '—'; });
-    ['daily-table','recent-table','countries-list','referrers-list','devices-list','browsers-list','events-list'].forEach(id => el(id).replaceChildren());
+    ['daily-table','recent-table','countries-list','sources-list','referrers-list','devices-list','browsers-list','events-list'].forEach(id => el(id).replaceChildren());
+    el('untagged-count').textContent = '';
     el('daily-chart').replaceChildren();
     el('range-description').textContent = '데이터를 불러오는 중입니다.';
     el('updated-at').textContent = '모든 날짜와 시간은 UTC 기준입니다.';
@@ -189,14 +192,16 @@
   function normalizeReport(value) {
     if (!value || typeof value !== 'object' || !value.summary || !value.range || !Array.isArray(value.daily) || !Array.isArray(value.recent)) throw new Error('Invalid report');
     const list = key => Array.isArray(value[key]) ? value[key].slice(0, 150).map(row => ({name:text(row.name),count:count(row.count)})) : [];
+    const sources = list('sources');
+    Object.keys(sourceNames).forEach(name => { if (!sources.some(source=>source.name===name)) sources.push({name,count:0}); });
     return {
       range:{days:[7,30,90].includes(Number(value.range.days)) ? Number(value.range.days) : requestedDays,from:text(value.range.from),to:text(value.range.to),timezone:'UTC'},
       collection:{startedAt:text(value.collection?.startedAt),retentionDays:count(value.collection?.retentionDays) || 90,
         countryAvailable:(value.collection?.countryAvailable ?? value.collection?.geographyAvailable) === true},
       summary:{pageviews:count(value.summary.pageviews),sessions:count(value.summary.sessions),interactions:count(value.summary.interactions)},
       daily:value.daily.slice(0, 90).map(day => ({date:text(day.date),pageviews:count(day.pageviews),sessions:count(day.sessions),interactions:count(day.interactions)})).sort((a,b)=>a.date.localeCompare(b.date)),
-      countries:list('countries'),referrers:list('referrers'),devices:list('devices'),browsers:list('browsers'),languages:list('languages'),events:list('events'),
-      recent:value.recent.slice(0, 100).map(row => ({at:text(row.at),type:text(row.type),label:text(row.label),path:'/',country:text(row.country),referrer:text(row.referrer),device:text(row.device),browser:text(row.browser),language:text(row.language)}))
+      countries:list('countries'),sources,referrers:list('referrers'),devices:list('devices'),browsers:list('browsers'),languages:list('languages'),events:list('events'),
+      recent:value.recent.slice(0, 100).map(row => ({at:text(row.at),type:text(row.type),label:text(row.label),path:'/',country:text(row.country),utmSource:text(row.utmSource),referrer:text(row.referrer),device:text(row.device),browser:text(row.browser),language:text(row.language)}))
     };
   }
   function addCell(row, value, className = '') {
@@ -210,7 +215,7 @@
   function renderRanks(key) {
     const target = el(key + '-list');
     target.replaceChildren();
-    const entries = report[key].filter(item => key !== 'events' || item.name !== 'pageview').sort((a,b)=>b.count-a.count).slice(0, 8);
+    const entries = report[key].filter(item => (key !== 'events' || item.name !== 'pageview') && (key !== 'sources' || item.name)).sort((a,b)=>b.count-a.count).slice(0, 8);
     if (!entries.length) {
       const item = document.createElement('li'); item.className = 'no-data'; item.textContent = '수집된 기록 없음'; target.append(item); return;
     }
@@ -271,12 +276,13 @@
       ['pageviews','sessions','interactions'].forEach(metric=>addCell(row,formatCount(day[metric]),'number'));el('daily-table').append(row);
     });
     renderChart();
-    ['countries','referrers','devices','browsers','events'].forEach(renderRanks);
+    ['countries','sources','referrers','devices','browsers','events'].forEach(renderRanks);
+    el('untagged-count').textContent = `UTM 태그 없는 조회 ${formatCount(report.sources.find(source=>!source.name)?.count || 0)}건`;
     el('recent-table').replaceChildren();
     report.recent.forEach(item => {
       const row=document.createElement('tr');
       const country=readableName(item.country,'countries');
-      [timestampUTC(item.at),eventNames[item.type]||item.type,eventTarget(item.type,item.label),country,readableName(item.device,'devices'),readableName(item.browser),readableName(item.referrer)].forEach((value,index)=>addCell(row,value,index===2?'event-target':''));
+      [timestampUTC(item.at),eventNames[item.type]||item.type,eventTarget(item.type,item.label),country,readableName(item.device,'devices'),readableName(item.browser),readableName(item.utmSource,'sources'),readableName(item.referrer)].forEach((value,index)=>addCell(row,value,index===2?'event-target':''));
       el('recent-table').append(row);
     });
     el('recent-count').textContent = `${report.recent.length}건 표시 · 최근 최대 100건`;
@@ -349,7 +355,7 @@
   }
   el('export-csv').addEventListener('click',()=>{
     if (!report) return;
-    const headers=['record_type','category','date_utc','name','event','label','country','referrer','device','browser','language','pageviews','sessions','interactions','count'];
+    const headers=['record_type','category','date_utc','name','event','label','country','utm_source','referrer','device','browser','language','pageviews','sessions','interactions','count'];
     const rows=[headers];
     const row=value=>rows.push(headers.map(key=>value[key]??''));
     row({record_type:'metadata',category:'range_start',date_utc:report.range.from});
@@ -357,8 +363,8 @@
     row({record_type:'metadata',category:'collection_started',date_utc:report.collection.startedAt});
     row({record_type:'summary',...report.summary});
     report.daily.forEach(day=>row({record_type:'daily',date_utc:day.date,...day}));
-    ['countries','referrers','devices','browsers','languages','events'].forEach(category=>report[category].forEach(item=>row({record_type:'ranking',category,...item})));
-    report.recent.forEach(item=>row({record_type:'recent_event',date_utc:item.at,event:item.type,name:eventTarget(item.type,item.label),...item}));
+    ['countries','sources','referrers','devices','browsers','languages','events'].forEach(category=>report[category].forEach(item=>row({record_type:'ranking',category,...item})));
+    report.recent.forEach(item=>row({record_type:'recent_event',date_utc:item.at,event:item.type,name:eventTarget(item.type,item.label),...item,utm_source:item.utmSource}));
     const blob=new Blob(['\uFEFF'+rows.map(cells=>cells.map(csvCell).join(',')).join('\r\n')],{type:'text/csv;charset=utf-8'});
     const url=URL.createObjectURL(blob), link=document.createElement('a');
     link.href=url;link.download=`youngtak-analytics-${dateUTC(report.range.from)}-${dateUTC(report.range.to)}.csv`;

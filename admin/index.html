@@ -10,8 +10,8 @@
   <title>방문 통계 — Young-Tak Kim</title>
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../assets/fonts/roboto.css">
-  <link rel="stylesheet" href="admin.css?v=roboto-20261112">
-  <script src="admin.js?v=country-only-20261112" defer></script>
+  <link rel="stylesheet" href="admin.css?v=utm-20261113">
+  <script src="admin.js?v=utm-20261113" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">본문으로 이동</a>
@@ -62,7 +62,8 @@
 
       <div class="rank-grid">
         <section class="rank-section" aria-labelledby="countries-heading"><h2 id="countries-heading">국가</h2><p class="subtle">접속 국가별 기록</p><ol id="countries-list" class="rank-list"></ol></section>
-        <section class="rank-section" aria-labelledby="referrers-heading"><h2 id="referrers-heading">유입 경로</h2><p class="subtle">이전 페이지의 도메인만 표시</p><ol id="referrers-list" class="rank-list"></ol></section>
+        <section class="rank-section" aria-labelledby="sources-heading"><h2 id="sources-heading">공유 링크별 유입</h2><p class="subtle">UTM 태그 기준 · 페이지 조회</p><ol id="sources-list" class="rank-list"></ol><p id="untagged-count" class="subtle source-note"></p></section>
+        <section class="rank-section" aria-labelledby="referrers-heading"><h2 id="referrers-heading">이전 사이트</h2><p class="subtle">브라우저가 전달한 유입 도메인</p><ol id="referrers-list" class="rank-list"></ol></section>
         <section class="rank-section" aria-labelledby="devices-heading"><h2 id="devices-heading">기기</h2><p class="subtle">기기 유형별 이용 기록</p><ol id="devices-list" class="rank-list"></ol></section>
         <section class="rank-section" aria-labelledby="browsers-heading"><h2 id="browsers-heading">브라우저</h2><p class="subtle">브라우저 종류별 이용 기록</p><ol id="browsers-list" class="rank-list"></ol></section>
         <section class="rank-section" aria-labelledby="events-heading"><h2 id="events-heading">상호작용 종류</h2><p class="subtle">실제로 발생한 클릭과 재생</p><ol id="events-list" class="rank-list"></ol></section>
@@ -70,7 +71,7 @@
 
       <section class="recent-section" aria-labelledby="recent-heading">
         <div class="section-heading"><h2 id="recent-heading">최근 기록</h2><p id="recent-count" class="subtle">최대 100건</p></div>
-        <div class="table-scroll" tabindex="0" role="region" aria-label="최근 이용 기록 표, 가로 스크롤 가능"><table class="recent-table"><caption class="sr-only">최근 홈페이지 이용 기록, 모든 시간 UTC</caption><thead><tr><th scope="col">시간 · UTC</th><th scope="col">종류</th><th scope="col">대상</th><th scope="col">국가</th><th scope="col">기기</th><th scope="col">브라우저</th><th scope="col">유입</th></tr></thead><tbody id="recent-table"></tbody></table></div>
+        <div class="table-scroll" tabindex="0" role="region" aria-label="최근 이용 기록 표, 가로 스크롤 가능"><table class="recent-table"><caption class="sr-only">최근 홈페이지 이용 기록, 모든 시간 UTC</caption><thead><tr><th scope="col">시간 · UTC</th><th scope="col">종류</th><th scope="col">대상</th><th scope="col">국가</th><th scope="col">기기</th><th scope="col">브라우저</th><th scope="col">공유 링크</th><th scope="col">이전 사이트</th></tr></thead><tbody id="recent-table"></tbody></table></div>
         <p id="recent-empty" class="empty-state" hidden>선택한 기간에 이용 기록이 없습니다.</p>
       </section>
       <aside class="collection-notes" aria-label="통계 안내">
