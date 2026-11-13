@@ -23,7 +23,7 @@ The initial release uses the approved version 15 of the website.
 Asset attribution and license notices are retained alongside the assets.
 
 The root URL opens with a typographic landing screen. Its links enter the existing
-profile at `#research`; any section hash opens the profile directly, preserving
+profile at `#top`; any section hash opens the profile directly, preserving
 shared links. Browser Back returns to the opening screen. Without JavaScript,
 the full profile remains accessible. Both views use a plain white background.
 

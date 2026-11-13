@@ -20,7 +20,7 @@
         try { targetId = decodeURIComponent(targetId); } catch (_) { /* Keep malformed hashes harmless. */ }
         const target = document.getElementById(targetId) || document.getElementById('main');
         target.scrollIntoView({ block: 'start', behavior: 'instant' });
-        const focusTarget = target.querySelector('h2') || target;
+        const focusTarget = (targetId === 'top' ? target.querySelector('h1') : target.querySelector('h2')) || target;
         focusTarget.setAttribute('tabindex', '-1');
         focusTarget.focus({ preventScroll: true });
       }
