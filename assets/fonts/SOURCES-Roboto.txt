@@ -1,0 +1,30 @@
+Roboto font sources
+
+CSS request: https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap
+License: https://raw.githubusercontent.com/google/fonts/main/ofl/roboto/OFL.txt
+Family: Roboto
+Styles: normal, italic
+Variable weight axis: 100-900
+Subsets: latin, latin-ext
+License: SIL Open Font License 1.1
+Downloaded: 2026-11-12
+
+roboto-latin-ext-italic-variable.woff2
+Source: https://fonts.gstatic.com/s/roboto/v51/KFO5CnqEu92Fr1Mu53ZEC9_Vu3r1gIhOszmkCHkaWzU.woff2
+Style: italic; weight: 100 900
+SHA256: 7f21d061a9de1ea78a858938ff3b8e677869656b10bad470fc6039f8f3daf329
+
+roboto-latin-italic-variable.woff2
+Source: https://fonts.gstatic.com/s/roboto/v51/KFO5CnqEu92Fr1Mu53ZEC9_Vu3r1gIhOszmkBnka.woff2
+Style: italic; weight: 100 900
+SHA256: 14f23757c6b41b4b6c0b967ca3fa74ff47a868728158373461c4e6e4b6368f19
+
+roboto-latin-ext-variable.woff2
+Source: https://fonts.gstatic.com/s/roboto/v51/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3KUBGEe.woff2
+Style: normal; weight: 100 900
+SHA256: cedb374b05a35034cf96db185db4eeb8f8ce49e1a56197673702ff11b5533d6e
+
+roboto-latin-variable.woff2
+Source: https://fonts.gstatic.com/s/roboto/v51/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3yUBA.woff2
+Style: normal; weight: 100 900
+SHA256: 1404ca348bd75ef836f4dd8b6f2cc719458642d1237c368296b2fc652dca47dc

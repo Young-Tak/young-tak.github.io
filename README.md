@@ -22,6 +22,10 @@ For a local preview, run `python -m http.server 8000` and open
 The initial release uses the approved version 15 of the website.
 Asset attribution and license notices are retained alongside the assets.
 
+Typography uses self-hosted Roboto variable fonts, including true italic journal
+titles. Body text uses Light (300); headings and emphasis retain stronger weights.
+The shared font declarations and license are in `assets/fonts/`.
+
 The root URL opens with a typographic landing screen. Its links enter the existing
 profile at `#top`; any section hash opens the profile directly, preserving
 shared links. Browser Back returns to the opening screen. Without JavaScript,
