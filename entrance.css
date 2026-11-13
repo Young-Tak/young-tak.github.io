@@ -61,25 +61,25 @@ html[data-view="landing"] .landing{
   .landing-visual-row{min-height:310px;gap:18px;margin-top:30px}
 }
 @media(max-width:620px){
-  html[data-view="landing"] .landing{padding:24px 24px 22px}
+  html[data-view="landing"] .landing{padding:clamp(14px,2.4svh,22px) 24px clamp(12px,2svh,18px)}
   .landing-header{align-items:start;gap:12px}
-  .landing-name{font-size:19px}
+  .landing-name{font-size:18px}
   .landing-name span{font-size:12px;margin-left:3px}
-  .landing-field{font-size:12px;max-width:200px;margin-top:5px}
-  .landing-main{padding:40px 0 0;justify-content:flex-start}
-  .landing-title{font-size:clamp(48px,14.5vw,88px);line-height:1.02;letter-spacing:-.04em}
+  .landing-field{font-size:12px;max-width:none;margin-top:4px}
+  .landing-main{padding:clamp(12px,3svh,28px) 0 0;justify-content:flex-start;min-height:0}
+  .landing-title{font-size:clamp(34px,min(14.2vw,6.4svh),64px);line-height:1.02;letter-spacing:-.04em}
   .landing-phrase{display:block}
-  .landing-question{margin-top:16px}
-  .landing-invitation{display:flex;flex-direction:column;align-items:stretch;gap:26px;margin-top:36px}
-  .landing-invitation>p{font-size:17px;line-height:1.6;max-width:32ch}
-  .landing-enter{min-height:58px;padding:14px 19px;font-size:16px}
-  .landing-visual-row{flex-direction:column;align-items:stretch;justify-content:flex-end;min-height:310px;gap:14px;margin-top:22px}
-  .ocean-toggle{align-self:flex-start;margin-bottom:0}
-  .landing-affiliations{gap:16px;padding:4px 0 12px}
+  .landing-question{margin-top:clamp(10px,1.6svh,14px)}
+  .landing-invitation{display:flex;flex-direction:column;align-items:stretch;gap:clamp(12px,2svh,18px);margin-top:clamp(16px,2.5svh,24px)}
+  .landing-invitation>p{font-size:clamp(14px,2svh,17px);line-height:1.5;max-width:32ch}
+  .landing-enter{min-height:clamp(46px,6.8svh,54px);padding:10px 16px;font-size:15px}
+  .landing-visual-row{position:relative;flex:1;align-items:flex-end;min-height:clamp(96px,18svh,164px);gap:14px;margin-top:clamp(12px,2svh,18px)}
+  .landing-network{height:clamp(340px,62svh,540px);bottom:-35px}
+  .ocean-toggle{position:absolute;left:-10px;bottom:52px;margin:0}
+  .landing-affiliations{gap:14px;padding:0}
 }
 @media(max-width:350px){
   html[data-view="landing"] .landing{padding-inline:18px}
-  .landing-main{padding-top:44px}
 }
 @media(prefers-reduced-motion:reduce){
   .landing a,.landing a svg,.ocean-toggle{transition:none}
