@@ -62,7 +62,11 @@ An ordinary static preview does not include the analytics API. The production
 dashboard only talks to the configured API; authentication is never simulated.
 
 Shared profile links can use `?utm_source=google_scholar`, `?utm_source=threads`,
-or `?utm_source=linkedin`. Only the bounded source slug is collected; full URLs
+`?utm_source=linkedin`, `?utm_source=cv`, or `?utm_source=cover_letter`.
+In CV and cover letter documents, the visible link text can remain
+`young-tak.github.io` while the hyperlink target includes the appropriate tag.
+CV inbound pageviews are separate from the existing `cv_download` event for
+opening the CV from the homepage. Only the bounded source slug is collected; full URLs
 and other query parameters are not sent. The admin source report counts pageviews,
 separately from referrer domains, and exports `utm_source` in CSV. Untagged records
 remain untagged. A tag describes the shared link, including when it is reposted.

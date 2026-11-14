@@ -23,7 +23,7 @@
   const eventNames = {pageview:'페이지 조회',section:'섹션 이동',cv_download:'CV 열기',publication_click:'논문 링크',video_start:'영상 시작',video_complete:'영상 완료'};
   const sectionNames = {research:'Research',publications:'Publications',background:'Background',patents:'Patents',service:'Service & Recognition',contact:'Contact'};
   const metricNames = {pageviews:'페이지 조회',sessions:'세션',interactions:'상호작용'};
-  const sourceNames = {google_scholar:'Google Scholar',threads:'Threads',linkedin:'LinkedIn'};
+  const sourceNames = {google_scholar:'Google Scholar',threads:'Threads',linkedin:'LinkedIn',cv:'CV',cover_letter:'Cover letter'};
   const publicationNames = {
   "pub-09": "Defining operational safety in clinical artificial intelligence systems",
   "pub-01": "When AI says “I don’t know”: a multireader multicase study of safety-zone guidance and radiologists’ reliance on AI advice in screening mammography",
