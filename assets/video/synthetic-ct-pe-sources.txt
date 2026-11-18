@@ -9,7 +9,7 @@ Axial CT comparison
 Kim and colleagues, supplied manuscript, Figure 3, page 27. The left panel shows acquired contrast, and the right panel shows AI-generated contrast. The source panels retain their original yellow circles and magnified insets marking the embolism.
 
 Anatomy credit
-The three-dimensional lung imagery uses a separate public reference CT (case s0004) from the TotalSegmentator dataset by Jakob Wasserthal and colleagues, University Hospital Basel. The study cohort contributes the paired axial CT images described above. The 3D animation combines five segmented lobes, the central pulmonary artery, the airway and branching intrapulmonary densities with a projection of the original lung attenuation. The closing shot sweeps a registered axial section through the same public scan. No clot is marked in the reference anatomy.
+The three-dimensional lung imagery uses a separate public reference CT (case s0004) from the TotalSegmentator dataset by Jakob Wasserthal and colleagues, University Hospital Basel. The study cohort contributes the paired axial CT images described above. The lung-focused render shows the five segmented pulmonary lobes and branching densities reconstructed from CT attenuation inside the lungs. These branches can include both arteries and veins. The extrapulmonary central pulmonary artery lies outside this overlay. The closing shot shows a registered axial CT section from the same reference case.
 Jakob Wasserthal et al., “TotalSegmentator: Robust Segmentation of 104 Anatomic Structures in CT Images.” Radiology: Artificial Intelligence (2023). https://doi.org/10.1148/ryai.230024
 Dataset: https://doi.org/10.5281/zenodo.6802614
 Download mirror: https://huggingface.co/datasets/MedOtter/totalsegmentator-organs
