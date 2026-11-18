@@ -67,10 +67,12 @@
     {
       "publication_id": "pub-21",
       "slug": "eeg-consciousness",
-      "film_title": "When Consciousness Is Lost",
-      "source_video": "EEG_NeuroImage_MGB_White_50s_Web_1080p60.mp4",
-      "source_poster": "EEG_NeuroImage_MGB_White_Poster.jpg",
-      "source_captions": "EEG_NeuroImage_MGB_White_50s_English.vtt",
+      "film_title": "When Consciousness Is Lost · Scalp EEG",
+      "source_video": "EEG_NeuroImage_Scalp_Edition_50s_Web_1080p60.mp4",
+      "source_poster": "EEG_NeuroImage_Scalp_Edition_Poster.jpg",
+      "source_captions": "EEG_NeuroImage_Scalp_Edition_English.vtt",
+      "source_notes": "assets/video/eeg-consciousness-sources.txt",
+      "updated": "2026-11-18",
       "video": "assets/video/eeg-consciousness.mp4",
       "poster": "assets/video/eeg-consciousness-poster.jpg",
       "captions": "assets/video/eeg-consciousness.en.vtt",
@@ -79,10 +81,10 @@
       "height": 1080,
       "fps": 60,
       "fast_start": true,
-      "size_bytes": 10103137,
-      "sha256": "256143eeba7fa677bcbacc2dc110b35b09dd909cfd1610732b416737a91b887b",
-      "video_stream": "Stream #0:0[0x1](und): Video: h264 (High) (avc1 / 0x31637661), yuv420p(tv, bt709, progressive), 1920x1080 [SAR 1:1 DAR 16:9], 1440 kb/s, 60 fps, 60 tbr, 15360 tbn (default)",
-      "audio_stream": "Stream #0:1[0x2](eng): Audio: aac (LC) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 163 kb/s (default)"
+      "size_bytes": 11138678,
+      "sha256": "1bc673d77b71a0df960a041687fbeb124a65c1a89003057a4378af15abf98b4e",
+      "video_stream": "Stream #0:0[0x1](und): Video: h264 (High) (avc1 / 0x31637661), yuv420p(tv, bt709, progressive), 1920x1080 [SAR 1:1 DAR 16:9], 1487 kb/s, 60 fps, 60 tbr, 15360 tbn (default)",
+      "audio_stream": "Stream #0:1[0x2](eng): Audio: aac (LC) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 282 kb/s (default)"
     },
     {
       "publication_id": "pub-16",

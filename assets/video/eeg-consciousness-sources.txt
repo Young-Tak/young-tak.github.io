@@ -1,0 +1,40 @@
+When Consciousness Is Lost · Scalp EEG
+
+Young-Tak Kim, Hayom Kim, Mingyeong So, Jooheon Kong, Keun-Tae Kim, Je Hyeong Hong, Yunsik Son, Jason K. Sa, Synho Do, Jae-Ho Han and Jung Bin Kim.
+Differentiating loss of consciousness causes through artificial intelligence-enabled decoding of functional connectivity. NeuroImage 297 (2024), 120749. https://doi.org/10.1016/j.neuroimage.2024.120749
+
+The researchers compared three causes of loss of consciousness in 150 retrospectively studied patients, with 50 patients per group. They calculated scalp EEG coherence from expert-selected, artifact-free 20-second epochs across 19 channels and five frequency bands. The three conditions were focal-onset nonconvulsive status epilepticus, metabolic encephalopathy, and benzodiazepine intoxication.
+
+In ten-fold cross-validation, the CNN achieved 88% accuracy and AUC 0.905 (Table 1). In prospective testing, 25 of 30 participants were correctly classified. That count is the diagonal sum of Figure 6A (6 + 9 + 10). The comparison applies to the three conditions studied. Broader clinical generalization needs independent evaluation.
+
+The head illustrates a reference scalp montage separate from the study participants. The wires carry individual electrode signals. In the separate network diagrams, lines illustrate statistical relationships between scalp recordings. The reported numerical results come from the published study.
+
+Anatomy and graphics
+The illustrated head uses Infinite, 3D Head Scan by Lee Perry-Smith / Infinite-Realities, licensed under Creative Commons Attribution 3.0 Unported.
+The head geometry, normal map and specular map come from the three.js distribution. The original 4K color map comes from the McGuire and Cardenas conversion distributed by Keijiro Takahashi.
+The film scales and shades the optical scan and fits an illustrative EEG montage. The model depicts a reference adult and is independent of the participants in the NeuroImage study.
+Mesh and maps: https://github.com/mrdoob/three.js/tree/r180/examples/models/gltf/LeePerrySmith
+Original color map: https://github.com/keijiro/InfiniteScan
+License: https://creativecommons.org/licenses/by/3.0/
+
+The 19 analyzed scalp locations follow the montage shown in Figure 5 of Kim and colleagues. Coordinates from the MNE-Python 1.9.0 standard_1020 template were fitted to the separate optical scan. They illustrate the reference electrode positions. The study used a 32-channel instrument and analyzed 19 scalp channels.
+MNE-Python template https://github.com/mne-tools/mne-python/blob/v1.9.0/mne/channels/data/montages/standard_1020.elc
+Oostenveld and Praamstra (2001) https://doi.org/10.1016/S1388-2457(00)00527-7
+FieldTrip electrode template reference https://www.fieldtriptoolbox.org/template/electrode/
+
+MNE-Python BSD 3-Clause License
+
+Copyright 2011-2024 MNE-Python authors
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+Production
+50 seconds, 60 fps, English narration and stereo audio. The original narration, music, timing and SRT/VTT captions are retained. The website player reads the accompanying VTT file.
