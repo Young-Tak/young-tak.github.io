@@ -25,10 +25,12 @@
     {
       "publication_id": "pub-08",
       "slug": "targeted-sers",
-      "film_title": "Identity in Light",
-      "source_video": "Targeted_SERS_ACS_Nano_MGB_White_50s_Web_1080p60.mp4",
-      "source_poster": "Targeted_SERS_ACS_Nano_MGB_White_Poster.jpg",
-      "source_captions": "Targeted_SERS_ACS_Nano_MGB_White_50s_English.vtt",
+      "film_title": "Identity in Light · Optics Edition",
+      "source_video": "ACS_Nano_Targeted_SERS_Optics_Edition_50s_Web_1080p60.mp4",
+      "source_poster": "ACS_Nano_Targeted_SERS_Optics_Edition_Poster.jpg",
+      "source_captions": "ACS_Nano_Targeted_SERS_Optics_Edition_English.vtt",
+      "source_notes": "assets/video/targeted-sers-sources.txt",
+      "updated": "2026-11-18",
       "video": "assets/video/targeted-sers.mp4",
       "poster": "assets/video/targeted-sers-poster.jpg",
       "captions": "assets/video/targeted-sers.en.vtt",
@@ -37,10 +39,10 @@
       "height": 1080,
       "fps": 60,
       "fast_start": true,
-      "size_bytes": 8086843,
-      "sha256": "fc290cba48f44f7109c4a58ad0e0ad8e38dd05e6042b8bd7b90ea7f0f5d31afe",
-      "video_stream": "Stream #0:0[0x1](und): Video: h264 (High) (avc1 / 0x31637661), yuv420p(tv, bt709, progressive), 1920x1080 [SAR 1:1 DAR 16:9], 1117 kb/s, 60 fps, 60 tbr, 15360 tbn (default)",
-      "audio_stream": "Stream #0:1[0x2](eng): Audio: aac (LC) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 163 kb/s (default)"
+      "size_bytes": 10065929,
+      "sha256": "a81b1909351408b2a7ad0fe03da52c4c451ab4782825724171b8ec642e7be4c4",
+      "video_stream": "Stream #0:0[0x1](und): Video: h264 (High) (avc1 / 0x31637661), yuv420p(tv, bt709, progressive), 1920x1080 [SAR 1:1 DAR 16:9], 1315 kb/s, 60 fps, 60 tbr, 15360 tbn (default)",
+      "audio_stream": "Stream #0:1[0x2](eng): Audio: aac (LC) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 282 kb/s (default)"
     },
     {
       "publication_id": "pub-15",

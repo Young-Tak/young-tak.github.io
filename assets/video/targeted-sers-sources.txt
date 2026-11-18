@@ -1,0 +1,14 @@
+Identity in Light · Optics Edition
+
+Young-Tak Kim, Ju Eun Cho, Min Ji Hwang, Shimayali Kaushal, Nitin Singhal, Jung Bin Kim, Synho Do and Dong-Kwon Lim. “Targeted Surface-Enhanced Raman Scattering for Highly Accurate Identification of Bacterial Species and Finding Spectral Signatures with Explainable Artificial Intelligence.” ACS Nano (2026). https://doi.org/10.1021/acsnano.6c00119
+
+Study findings
+The study included 14 microbial species, comprising 12 bacteria and two yeasts. Each experimental setting produced 17,500 spectra. The authors used 1,750 held-out spectra per setting for testing. With the targeted particles, the model reported 96.1% spectrum classification accuracy at 532 nm, 90.9% at 633 nm, and 76.9% at 785 nm.
+
+An explainable AI analysis highlighted five influential Raman shifts for each species. The classification results come from the full spectral model. The study used cultured organisms and a spectrum-level split. Diagnostic performance in clinical specimens remains to be assessed.
+
+Optical illustrations
+The 3D objects and animations were created for this film. The rounded rod and the irregular gold-particle clusters were informed by the authors' electron micrographs in supplementary Figure S6A, https://doi.org/10.1021/acsnano.6c00119.s001. The surface texture, particle motion and close-up contact are artistic reconstructions. The green beam indicates incident laser light. The amber paths distinguish a small Raman-shifted component of the scattered light. Color separation, brightness, dimensions and timing are illustrative. The method diagram uses a schematic spectrum. The numerical findings come from the study.
+
+Website edition
+50 seconds at 60 frames per second, with the original English narration, music and caption timings. The standalone player reads its MP4, JPEG poster and English WebVTT file from the same folder.
