@@ -1,0 +1,18 @@
+Seeing Beyond the Scan
+
+Young-Tak Kim, So Hyeon Bak, Seon-Sook Han, Yunsik Son and Jinkyeong Park.
+Non-Contrast CT-based Pulmonary Embolism Detection Using GAN-Generated Synthetic Contrast Enhancement: Development and Validation of an AI Framework.
+
+The retrospective evaluation included 43 internal patients and 62 patients from another hospital. Patient-level models used five-fold stratified cross-validation within each cohort. The reported AUCs for real and synthetic contrast were 0.861 and 0.836 internally, and 0.787 and 0.680 in the external cohort. Small cohorts and wide confidence intervals limit interpretation.
+
+Axial CT comparison
+Kim and colleagues, supplied manuscript, Figure 3, page 27. The left panel shows acquired contrast, and the right panel shows AI-generated contrast. The source panels retain their original yellow circles and magnified insets marking the embolism.
+
+Anatomy credit
+The three-dimensional lung imagery uses a separate public reference CT (case s0004) from the TotalSegmentator dataset by Jakob Wasserthal and colleagues, University Hospital Basel. The study cohort contributes the paired axial CT images described above. The 3D animation combines five segmented lobes, the central pulmonary artery, the airway and branching intrapulmonary densities with a projection of the original lung attenuation. The closing shot sweeps a registered axial section through the same public scan. No clot is marked in the reference anatomy.
+Jakob Wasserthal et al., “TotalSegmentator: Robust Segmentation of 104 Anatomic Structures in CT Images.” Radiology: Artificial Intelligence (2023). https://doi.org/10.1148/ryai.230024
+Dataset: https://doi.org/10.5281/zenodo.6802614
+Download mirror: https://huggingface.co/datasets/MedOtter/totalsegmentator-organs
+Reference dataset license: Creative Commons Attribution 4.0 International (CC BY 4.0). https://creativecommons.org/licenses/by/4.0/
+
+The film retains the English soundtrack and captions from the first edition. The website player uses a 1080p, 60 fps MP4 with a separate poster. All paths in the HTML player are relative to its own directory.
