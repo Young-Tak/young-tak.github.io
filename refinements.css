@@ -248,7 +248,7 @@ body{background:#fff}
 @media(max-width:620px){.service-date .date-line{display:inline}}
 
 /* Connected research and future directions. */
-.intro-copy{font-size:16px}
+.intro-copy{font-size:16px;font-weight:400}
 .research-agenda{margin-top:40px}
 .research-agenda>h3{font-size:24px;letter-spacing:-.4px;line-height:1.35;margin-bottom:5px}
 .research-area{padding:25px 0}
