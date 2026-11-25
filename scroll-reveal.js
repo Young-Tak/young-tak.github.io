@@ -6,9 +6,6 @@
   const root = document.documentElement;
   const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
   const selectors = [
-    '#research > h2', '#research > .intro-lead', '.intro-copy > p',
-    '.research-agenda > h3', '.research-area-copy > h4', '.research-area-copy > p',
-    '.research-vision > .research-next', '.research-vision > .research-figure', '.research-links',
     '#main > section > .section-heading', '.publication',
     '.background-group > h3', '.institution-entry', '.service-group > h3', '.service-entry',
     '.patents-section > .section-description', '.patent-group > .subsection-heading', '.patent-entry',
