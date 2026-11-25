@@ -17,9 +17,10 @@ Static HTML, CSS, and JavaScript, published with GitHub Pages from the
   same menu outside the profile on small screens so it stays sticky through the page.
 - `scroll-reveal.js` and `scroll-reveal.css`: once-only upward content entrances,
   with reduced-motion, keyboard, direct-link, and no-JavaScript fallbacks.
-- `research-motion.js` and `research-motion.css`: scroll-linked phrase emphasis
-  and the three inline SVG research diagrams in `index.html`. The research copy
-  stays readable; desktop diagrams stick only within their own text block.
+- `research-motion.js` and `story-stage.css` control the pinned research introduction
+  and three programs. Each of the eight steps pairs a paragraph and an inline
+  SVG in `index.html` using a matching `data-scene` value.
+- `research-motion.css` styles the figures and source links in the full profile.
 - `assets/`: CV, research films, cover image, photographs, fonts, and icons.
 
 Edit the files and push to `main`; GitHub Pages publishes the update.
@@ -44,11 +45,11 @@ Reduced motion or unavailable WebGL uses an SVG fallback; animation pauses when
 offscreen, in a hidden tab, or after entering the profile. No RadPathway login or
 authentication code is included.
 
-Research motion uses native JavaScript with no animation dependency. It only
-updates on scroll, resize, or view changes and stops when the page is hidden.
-Mobile diagrams animate within normal document flow. Reduced motion, print,
-and no-JavaScript views show complete static diagrams. The original standalone
-SVG assets remain available at their existing URLs.
+Native scrolling drives the sticky research stage. Each step draws its figure
+in either scroll direction. The stage fits below the mobile menu and uses a
+single paragraph on shorter screens when needed. “Read full profile” opens
+the full text at any step. Reduced motion, print, disabled JavaScript, and
+viewports that cannot fit a step use the full text and static figures.
 
 ## Private website analytics
 

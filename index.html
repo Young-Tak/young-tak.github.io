@@ -20,11 +20,12 @@
 <link href="entrance.css?v=mobile-fit-20261112" rel="stylesheet"/>
 <link href="navigation.css?v=glass-soft-20261113" rel="stylesheet"/>
 <link href="scroll-reveal.css?v=20261113" rel="stylesheet"/>
-<link href="research-motion.css?v=20261125" rel="stylesheet"/>
+<link href="research-motion.css?v=pinned-1" rel="stylesheet"/>
+<link href="story-stage.css?v=1" rel="stylesheet"/>
 <script defer="" src="network-hero.js?v=1"></script>
 <script defer="" src="app.js?v=mobile-glass-20261113"></script>
 <script defer="" src="scroll-reveal.js?v=20261125"></script>
-<script defer="" src="research-motion.js?v=20261125"></script>
+<script defer="" src="research-motion.js?v=pinned-1"></script>
 <script defer="" src="analytics.js?v=utm-20261113"></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Young-Tak Kim","honorificSuffix":"PhD","jobTitle":"Research Fellow, Radiology","affiliation":[{"@type":"Organization","name":"Massachusetts General Hospital"},{"@type":"Organization","name":"Harvard Medical School"}],"sameAs":["https://orcid.org/0000-0003-3604-6580","https://www.linkedin.com/in/young-tak-kim/","https://scholar.google.co.kr/citations?user=4RyYKDAAAAAJ"],"knowsAbout":["Clinical AI safety","Human–AI decision-making","Biomedical informatics"],"url":"https://young-tak.github.io/"}</script>
 <link href="https://young-tak.github.io/" rel="canonical"/><meta content="https://young-tak.github.io/" property="og:url"/></head>
@@ -71,6 +72,346 @@
 </aside>
 <main id="main">
 <section aria-labelledby="research-title" class="intro" id="research">
+<div class="story-track" hidden>
+<div class="story-stage">
+<header class="story-header"><p class="story-kicker">Research</p><h2 class="story-title" id="research-story-title">Defining when AI can guide care.</h2></header>
+<div class="story-layout"><div class="story-text">
+<p class="story-line" data-scene="evidence" data-title="Defining when AI can guide care." data-kicker="Research" data-caption="A clinical decision depends on the evidence behind a prediction.">A model can predict well and still leave a clinician unsure what to do. <strong class="story-key">What should determine when and how we trust AI in medicine?</strong></p>
+<p class="story-line" data-scene="judgment" data-title="Defining when AI can guide care." data-kicker="Research" data-caption="Two possible trajectories of clinical expertise after AI introduction.">I develop <strong>safe AI for clinical practice</strong>. Over time, can clinicians use its advice and still <strong class="story-key">recognize an error and judge independently</strong>?</p>
+<p class="story-line" data-scene="reliability" data-title="Clinical AI safety" data-kicker="Research program" data-caption="Conceptual safety zones. Where the boundaries fall must be tested in each cohort.">I developed the <a href="https://doi.org/10.1038/s41746-026-02450-7">Safety-Aware Receiver Operating Characteristic (SA-ROC)</a> framework to identify when AI meets clinical reliability targets. I aim to <strong class="story-key">reassess those boundaries in new patient cohorts</strong>.</p>
+<p class="story-line" data-scene="llm" data-title="Clinical AI safety" data-kicker="Research program" data-caption="Agreement on a recommendation still leaves room for a shared error.">Building on our <a href="#pub-01">mammography reader study</a>, I plan to test how large language models (LLMs) communicate uncertainty and whether <strong class="story-key">independent review catches errors clinicians and AI miss together</strong>.</p>
+<p class="story-line" data-scene="spectrum" data-title="Explainable biomedical AI" data-kicker="Research program" data-caption="Schematic Raman spectrum and the features retained in a barcode.">In our <a href="https://doi.org/10.1021/acsnano.6c00119"><cite>ACS Nano</cite> study</a>, we traced bacterial classifications to <strong class="story-key">specific peaks in a Raman spectrum</strong> and assembled those peaks into an interpretable barcode.</p>
+<p class="story-line" data-scene="experiment" data-title="Explainable biomedical AI" data-kicker="Research program" data-caption="A follow-up measurement can confirm or challenge the proposed explanation.">I now study whether Raman spectra distinguish finer molecular differences, including DNA variants. The aim is to <strong class="story-key">turn a spectral explanation into a hypothesis we can test</strong> in independent samples.</p>
+<p class="story-line" data-scene="sources" data-title="Biomedical knowledge graphs" data-kicker="Research program" data-caption="An association stays linked to the text from which it was extracted.">I co-developed <a href="https://minervabio.org/">MINERVA</a>, a <a href="https://doi.org/10.1093/bib/bbaf472" aria-label="MINERVA paper in Briefings in Bioinformatics">microbiome knowledge graph</a>. Researchers can <strong class="story-key">trace a reported microbe–disease association to the passage that supports it</strong>.</p>
+<p class="story-line" data-scene="patient" data-title="Biomedical knowledge graphs" data-kicker="Research program" data-caption="Patient context can determine whether a recommendation applies or needs review.">My next question is <strong class="story-key">whether that evidence applies to this patient</strong>. I plan to match guideline and literature evidence to patient records, identifying missing information or conflicting findings that could change a recommendation.</p>
+</div><figure class="story-art">
+<svg hidden="" class="story-scene" data-scene="evidence" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 310" role="img" aria-labelledby="story-evidence-title story-evidence-desc" font-family="Roboto, Arial, sans-serif" stroke-linecap="round" stroke-linejoin="round">
+  <title id="story-evidence-title">From an AI prediction to clinical judgment</title>
+  <desc id="story-evidence-desc">A model produces a prediction. Supporting evidence connects the prediction to a clinician’s judgment.</desc>
+  <circle cx="82" cy="135" r="46" fill="#f4f8ff" stroke="#cbdaf0" stroke-width="1.5"/>
+  <text x="82" y="216" text-anchor="middle" fill="#19345a" font-size="19" font-weight="550">Prediction</text>
+  <path d="M54 144h11l6-14 7 22 9-38 6 25h18" fill="none" stroke="#245ac4" stroke-width="3.4" data-draw="" pathLength="1" data-from="0" data-to=".22"/>
+  <path d="M135 135h44" fill="none" stroke="#6489cf" stroke-width="2.5" data-draw="" pathLength="1" data-from=".17" data-to=".32"/>
+  <g data-appear="" data-from=".28" data-to=".36">
+    <path d="m172 129 7 6-7 6" fill="none" stroke="#6489cf" stroke-width="2.5" />
+  </g>
+  <g data-appear="" data-from=".28" data-to=".46">
+    <circle cx="248" cy="135" r="46" fill="#e8f1ff" stroke="#cbdaf0" stroke-width="1.5"/>
+    <text x="248" y="216" text-anchor="middle" fill="#19345a" font-size="19" font-weight="550">Evidence</text>
+  </g>
+  <g data-appear="" data-from=".34" data-to=".49">
+    <rect x="232" y="110" width="33" height="44" rx="4" fill="#fff" stroke="#245ac4" stroke-width="2"/>
+    <path d="M239 120h16m-16 8h10" fill="none" stroke="#6489cf" stroke-width="2.3" />
+  </g>
+  <path d="m239 142 5 5 12-13" fill="none" stroke="#245ac4" stroke-width="2.8" data-draw="" pathLength="1" data-from=".45" data-to=".61"/>
+  <path d="M303 135h45" fill="none" stroke="#6489cf" stroke-width="2.5" data-draw="" pathLength="1" data-from=".55" data-to=".72"/>
+  <g data-appear="" data-from=".66" data-to=".74">
+    <path d="m341 129 7 6-7 6" fill="none" stroke="#6489cf" stroke-width="2.5" />
+  </g>
+  <g data-appear="" data-from=".65" data-to=".83">
+    <circle cx="414" cy="135" r="46" fill="#245ac4" stroke="none" stroke-width="1.5"/>
+    <text x="414" y="214" text-anchor="middle" fill="#19345a" font-size="19" font-weight="550">Clinical</text>
+    <text x="414" y="238" text-anchor="middle" fill="#19345a" font-size="19" font-weight="550">judgment</text>
+  </g>
+  <g data-appear="" data-from=".76" data-to=".92">
+    <path d="M392 115v9c0 12 6 19 15 19s15-7 15-19v-9" fill="none" stroke="#fff" stroke-width="2.7" />
+    <path d="m392 116 4-1m26 1-4-1" fill="none" stroke="#fff" stroke-width="2.7" />
+  </g>
+  <path d="M407 143v4c0 8 4 12 11 12s12-5 12-13v-5" fill="none" stroke="#fff" stroke-width="2.7" data-draw="" pathLength="1" data-from=".84" data-to=".97"/>
+  <g data-appear="" data-from=".91" data-to="1">
+    <circle cx="430" cy="136" r="4.2" fill="#245ac4" stroke="#fff" stroke-width="2.4"/>
+  </g>
+</svg>
+<svg hidden="" class="story-scene" data-scene="judgment" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 310" role="img" aria-labelledby="story-judgment-title story-judgment-desc" font-family="Roboto, Arial, sans-serif" stroke-linecap="round" stroke-linejoin="round">
+  <title id="story-judgment-title">Two possible paths of clinical expertise after AI introduction</title>
+  <desc id="story-judgment-desc">A conceptual chart shows growth in expertise before AI introduction. A solid rising path represents continued growth and a dashed falling path represents deskilling.</desc>
+  <text x="43" y="37" text-anchor="start" fill="#19345a" font-size="19" font-weight="550">Clinical expertise</text>
+  <path d="M44 60v185h412m-7-5 7 5-7 5" fill="none" stroke="#acc4e8" stroke-width="1.8" />
+  <text x="457" y="279" text-anchor="end" fill="#526b8b" font-size="18" font-weight="450">Time</text>
+  <path d="M52 213c54-6 77-57 133-70" fill="none" stroke="#cbdaf0" stroke-width="2" />
+  <path d="M52 213c54-6 77-57 133-70" fill="none" stroke="#19345a" stroke-width="3.2" data-draw="" pathLength="1" data-from="0" data-to=".3"/>
+  <g data-appear="" data-from=".19" data-to=".39">
+    <path d="M185 75v169" fill="none" stroke="#6489cf" stroke-width="1.6" stroke-dasharray="3 5"/>
+    <circle cx="185" cy="143" r="5.1" fill="#fff" stroke="#245ac4" stroke-width="2.4"/>
+    <text x="185" y="279" text-anchor="middle" fill="#526b8b" font-size="18" font-weight="550">AI introduced</text>
+  </g>
+  <path d="M185 143C261 126 322 75 455 68" fill="none" stroke="#245ac4" stroke-width="3.4" data-draw="" pathLength="1" data-from=".3" data-to=".75"/>
+  <path d="m448 64 7 4-7 5" fill="none" stroke="#245ac4" stroke-width="3" data-appear="" data-from=".72" data-to=".81"/>
+  <g data-appear="" data-from=".54" data-to=".78">
+    <text x="450" y="51" text-anchor="end" fill="#245ac4" font-size="19" font-weight="550">Continued growth</text>
+  </g>
+  <defs>
+    <mask id="story-judgment-decline-mask" maskUnits="userSpaceOnUse" x="178" y="130" width="286" height="84">
+      <path d="M185 143C260 138 350 192 454 197" fill="none" stroke="#fff" stroke-width="8" pathLength="1" data-draw="" data-from=".5" data-to=".9"/>
+    </mask>
+  </defs>
+  <path d="M185 143C260 138 350 192 454 197" fill="none" stroke="#b64a52" stroke-width="2.7" stroke-dasharray="7 6" mask="url(#story-judgment-decline-mask)"/>
+  <g data-appear="" data-from=".72" data-to=".97">
+    <text x="450" y="225" text-anchor="end" fill="#a83d47" font-size="19" font-weight="550">Deskilling</text>
+  </g>
+</svg>
+<svg hidden="" class="story-scene" data-scene="reliability" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 310" role="img" aria-labelledby="story-reliability-title story-reliability-desc" font-family="Roboto, Arial, sans-serif" stroke-linecap="round" stroke-linejoin="round">
+  <title id="story-reliability-title">Reliability thresholds vary across cohorts</title>
+  <desc id="story-reliability-desc">Two example cohorts share the same score scale. Rule-out, review, and rule-in zones have different boundaries in each cohort.</desc>
+  <defs>
+    <pattern id="story-reliability-review" width="8" height="8" patternUnits="userSpaceOnUse"><rect width="8" height="8" fill="#f4f8ff"/><path d="M-2 2 2-2m-2 10 8-8m-2 10 4-4" stroke="#acc4e8" stroke-width="1.1"/></pattern>
+    <linearGradient id="story-reliability-low"><stop stop-color="#d9e6f9"/><stop offset="1" stop-color="#acc4e8"/></linearGradient>
+  </defs>
+  <text x="55" y="41" text-anchor="start" fill="#19345a" font-size="19" font-weight="550">Model score</text>
+  <path d="M185 35h254m-7-5 7 5-7 5" fill="none" stroke="#6489cf" stroke-width="1.8" data-draw="" pathLength="1" data-from="0" data-to=".28"/>
+  <circle cx="61" cy="75" r="6" fill="#acc4e8" stroke="none" stroke-width="1.5"/>
+  <text x="74" y="81" text-anchor="start" fill="#526b8b" font-size="18" font-weight="550">Rule-out</text>
+  <circle cx="205" cy="75" r="6" fill="#fff" stroke="#6489cf" stroke-width="1.5"/>
+  <text x="218" y="81" text-anchor="start" fill="#526b8b" font-size="18" font-weight="550">Review</text>
+  <circle cx="342" cy="75" r="6" fill="#245ac4" stroke="none" stroke-width="1.5"/>
+  <text x="355" y="81" text-anchor="start" fill="#526b8b" font-size="18" font-weight="550">Rule-in</text>
+  <text x="55" y="125" text-anchor="start" fill="#19345a" font-size="19" font-weight="550">Cohort A</text>
+  <g data-appear="" data-from="0" data-to=".28">
+    <rect x="55" y="140" width="390" height="24" rx="12" fill="url(#story-reliability-low)" stroke="none" stroke-width="1.5"/>
+    <rect x="170" y="140" width="137" height="24" rx="0" fill="url(#story-reliability-review)" stroke="none" stroke-width="1.5"/>
+    <path d="M307 140H433a12 12 0 0 1 0 24H307Z" fill="#245ac4"/>
+  </g>
+  <g data-appear="" data-from=".18" data-to=".37">
+    <path d="M170 134v36" fill="none" stroke="#19345a" stroke-width="2.2" />
+    <circle cx="170" cy="135" r="3" fill="#19345a" stroke="none" stroke-width="1.5"/>
+    <path d="M307 134v36" fill="none" stroke="#19345a" stroke-width="2.2" />
+    <circle cx="307" cy="135" r="3" fill="#19345a" stroke="none" stroke-width="1.5"/>
+  </g>
+  <g data-appear="" data-from=".35" data-to=".53">
+    <path d="M170 170 204 219m103-49 34 49" fill="none" stroke="#6489cf" stroke-width="1.8" stroke-dasharray="3 5"/>
+  </g>
+  <g data-appear="" data-from=".4" data-to=".59">
+    <text x="55" y="210" text-anchor="start" fill="#19345a" font-size="19" font-weight="550">Cohort B</text>
+  </g>
+  <g data-appear="" data-from=".45" data-to=".71">
+    <rect x="55" y="225" width="390" height="24" rx="12" fill="url(#story-reliability-low)" stroke="none" stroke-width="1.5"/>
+    <rect x="204" y="225" width="137" height="24" rx="0" fill="url(#story-reliability-review)" stroke="none" stroke-width="1.5"/>
+    <path d="M341 225H433a12 12 0 0 1 0 24H341Z" fill="#245ac4"/>
+  </g>
+  <g data-appear="" data-from=".66" data-to=".88">
+    <path d="M204 219v36" fill="none" stroke="#19345a" stroke-width="2.2" />
+    <circle cx="204" cy="220" r="3" fill="#19345a" stroke="none" stroke-width="1.5"/>
+    <path d="M341 219v36" fill="none" stroke="#19345a" stroke-width="2.2" />
+    <circle cx="341" cy="220" r="3" fill="#19345a" stroke="none" stroke-width="1.5"/>
+  </g>
+  <g data-appear="" data-from=".76" data-to="1">
+    <path d="M204 259v8h137v-8" fill="none" stroke="#6489cf" stroke-width="1.6" data-draw="" pathLength="1" data-from=".76" data-to="1"/>
+    <text x="273" y="290" text-anchor="middle" fill="#526b8b" font-size="18" font-weight="550">Review interval</text>
+  </g>
+</svg>
+<svg hidden="" class="story-scene" data-scene="llm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 310" role="img" aria-labelledby="story-llm-title story-llm-desc" font-family="Roboto, Arial, sans-serif" stroke-linecap="round" stroke-linejoin="round">
+  <title id="story-llm-title">Independent review of language model advice</title>
+  <desc id="story-llm-desc">A clinician independently evaluates a case alongside language model advice and its uncertainty. Reviewing both judgments across repeated use can reveal shared errors.</desc>
+  <rect x="38" y="38" width="191" height="141" rx="14" fill="#f4f8ff" stroke="#cbdaf0" stroke-width="1.5"/>
+  <text x="134" y="69" text-anchor="middle" fill="#19345a" font-size="19" font-weight="550">LLM advice</text>
+  <g data-appear="" data-from="0" data-to=".18">
+    <path d="M96 88h71a5 5 0 0 1 5 5v15a5 5 0 0 1-5 5h-54l-12 8v-8h-5a5 5 0 0 1-5-5V93a5 5 0 0 1 5-5z" fill="none" stroke="#6489cf" stroke-width="1.8" />
+    <path d="M102 99h26m5 0h20" fill="none" stroke="#245ac4" stroke-width="2.5" />
+  </g>
+  <g data-appear="" data-from=".12" data-to=".31">
+    <path d="M81 138h104" fill="none" stroke="#cbdaf0" stroke-width="2" />
+    <path d="M107 138h52m-52-4v8m52-8v8" fill="none" stroke="#245ac4" stroke-width="2.5" />
+    <circle cx="135" cy="138" r="4" fill="#245ac4" stroke="none" stroke-width="1.5"/>
+    <text x="134" y="163" text-anchor="middle" fill="#526b8b" font-size="18" font-weight="550">Uncertainty</text>
+  </g>
+  <g data-appear="" data-from=".25" data-to=".43">
+    <rect x="270" y="38" width="192" height="141" rx="14" fill="#fff" stroke="#cbdaf0" stroke-width="1.5"/>
+    <text x="366" y="69" text-anchor="middle" fill="#19345a" font-size="19" font-weight="550">Clinician review</text>
+  </g>
+  <g data-appear="" data-from=".31" data-to=".49">
+    <rect x="342" y="86" width="43" height="47" rx="4" fill="#e8f1ff" stroke="#6489cf" stroke-width="1.8"/>
+    <rect x="354" y="82" width="19" height="7" rx="2" fill="#fff" stroke="#6489cf" stroke-width="1.7"/>
+    <path d="M351 100h24m-24 7h17" fill="none" stroke="#6489cf" stroke-width="2" />
+  </g>
+  <path d="m352 119 5 5 10-11" fill="none" stroke="#245ac4" stroke-width="2.8" data-draw="" pathLength="1" data-from=".42" data-to=".57"/>
+  <g data-appear="" data-from=".45" data-to=".59">
+    <text x="366" y="163" text-anchor="middle" fill="#526b8b" font-size="18" font-weight="550">Independent</text>
+  </g>
+  <path d="M134 183v17q0 11 11 11h96m125-28v17q0 11-11 11H259" fill="none" stroke="#6489cf" stroke-width="2" data-draw="" pathLength="1" data-from=".55" data-to=".74"/>
+  <g data-appear="" data-from=".68" data-to=".8">
+    <circle cx="250" cy="211" r="5" fill="#245ac4" stroke="none" stroke-width="1.5"/>
+    <path d="M250 216v11" fill="none" stroke="#6489cf" stroke-width="2" />
+  </g>
+  <g data-appear="" data-from=".7" data-to=".89">
+    <rect x="86" y="233" width="328" height="55" rx="12" fill="#e8f1ff" stroke="#cbdaf0" stroke-width="1.5"/>
+    <text x="266" y="257" text-anchor="middle" fill="#19345a" font-size="19" font-weight="600">Review shared errors</text>
+    <text x="266" y="278" text-anchor="middle" fill="#526b8b" font-size="17" font-weight="450">across repeated use</text>
+  </g>
+  <path d="M126 252a10 10 0 1 0 1 15m-1-21v7h-7" fill="none" stroke="#245ac4" stroke-width="2.2" data-draw="" pathLength="1" data-from=".78" data-to="1"/>
+</svg>
+<svg hidden="" class="story-scene" data-scene="spectrum" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 310" role="img" aria-labelledby="story-spectrum-title story-spectrum-desc" font-family="Roboto, Arial, sans-serif" stroke-linecap="round" stroke-linejoin="round">
+  <title id="story-spectrum-title">Aligning Raman peaks with a spectral barcode</title>
+  <desc id="story-spectrum-desc">Highlighted peaks in a schematic Raman spectrum share horizontal positions with the corresponding bands in a barcode.</desc>
+  <text x="40" y="37" text-anchor="start" fill="#19345a" font-size="19" font-weight="550">Raman spectrum</text>
+  <path d="M43 63v103h414" fill="none" stroke="#cbdaf0" stroke-width="1.6" />
+  <path d="M44 156 55 155 61 151 66 155 76 154 85 143 90 153 97 154 106 149 112 155 122 152 129 144 135 119 141 76 146 114 153 145 161 153 169 151 178 141 183 150 193 152 202 147 209 131 215 149 221 152 229 150 238 145 246 136 252 119 258 99 264 122 271 143 277 151 285 153 292 148 299 151 308 140 315 132 320 148 328 152 338 150 346 143 355 132 362 116 367 87 372 68 377 99 382 124 389 143 395 149 402 152 412 149 420 137 426 149 434 152 442 150 456 151" fill="none" stroke="#cbdaf0" stroke-width="1.4" />
+  <path d="M44 156 55 155 61 151 66 155 76 154 85 143 90 153 97 154 106 149 112 155 122 152 129 144 135 119 141 76 146 114 153 145 161 153 169 151 178 141 183 150 193 152 202 147 209 131 215 149 221 152 229 150 238 145 246 136 252 119 258 99 264 122 271 143 277 151 285 153 292 148 299 151 308 140 315 132 320 148 328 152 338 150 346 143 355 132 362 116 367 87 372 68 377 99 382 124 389 143 395 149 402 152 412 149 420 137 426 149 434 152 442 150 456 151" fill="none" stroke="#245ac4" stroke-width="2.8" data-draw="" pathLength="1" data-from="0" data-to=".52"/>
+  <g data-appear="" data-from=".32" data-to=".53">
+    <circle cx="141" cy="76" r="4.4" fill="#fff" stroke="#245ac4" stroke-width="2.4"/>
+    <circle cx="258" cy="99" r="4.4" fill="#fff" stroke="#245ac4" stroke-width="2.4"/>
+    <circle cx="372" cy="68" r="4.4" fill="#fff" stroke="#245ac4" stroke-width="2.4"/>
+  </g>
+  <g data-appear="" data-from=".45" data-to=".67">
+    <path d="M141 83v118m117-95v95m114-126v126" fill="none" stroke="#6489cf" stroke-width="1.5" stroke-dasharray="3 5"/>
+  </g>
+  <g data-appear="" data-from=".56" data-to=".74">
+    <rect x="43" y="201" width="414" height="37" rx="5" fill="#f4f8ff" stroke="#cbdaf0" stroke-width="1.5"/>
+  </g>
+  <g data-appear="" data-from=".63" data-to=".82">
+    <path d="M85 211v17m93-17v17m31-17v17m106-17v17m105-17v17" fill="none" stroke="#acc4e8" stroke-width="3" />
+  </g>
+  <g data-appear="" data-from=".68" data-to=".87">
+    <rect x="136" y="205" width="10" height="29" rx="2" fill="#245ac4" stroke="none" stroke-width="1.5"/>
+    <rect x="255" y="205" width="6" height="29" rx="1.5" fill="#245ac4" stroke="none" stroke-width="1.5"/>
+    <rect x="366" y="205" width="12" height="29" rx="2" fill="#245ac4" stroke="none" stroke-width="1.5"/>
+  </g>
+  <g data-appear="" data-from=".76" data-to=".96">
+    <text x="43" y="269" text-anchor="start" fill="#19345a" font-size="19" font-weight="550">Spectral barcode</text>
+    <text x="457" y="269" text-anchor="end" fill="#526b8b" font-size="17" font-weight="450">Raman shift →</text>
+  </g>
+</svg>
+<svg hidden="" class="story-scene" data-scene="experiment" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 310" role="img" aria-labelledby="story-experiment-title story-experiment-desc" font-family="Roboto, Arial, sans-serif" stroke-linecap="round" stroke-linejoin="round">
+  <title id="story-experiment-title">Testing an explanation with an independent sample</title>
+  <desc id="story-experiment-desc">A model explanation motivates a hypothesis. An independent sample provides new measurements to compare with the proposed signature.</desc>
+  <circle cx="116" cy="67" r="33" fill="#f4f8ff" stroke="#cbdaf0" stroke-width="1.5"/>
+  <text x="116" y="126" text-anchor="middle" fill="#19345a" font-size="19" font-weight="550">Explanation</text>
+  <path d="M95 77h5l4-7 4 4 5-23 5 22 4-5 4 9h9" fill="none" stroke="#245ac4" stroke-width="2.5" data-draw="" pathLength="1" data-from="0" data-to=".18"/>
+  <path d="M164 67h152" fill="none" stroke="#6489cf" stroke-width="2" data-draw="" pathLength="1" data-from=".13" data-to=".32"/>
+  <g data-appear="" data-from=".24" data-to=".34">
+    <path d="m308 61 8 6-8 6" fill="none" stroke="#6489cf" stroke-width="2.5" />
+  </g>
+  <g data-appear="" data-from=".24" data-to=".42">
+    <circle cx="369" cy="67" r="33" fill="#e8f1ff" stroke="#cbdaf0" stroke-width="1.5"/>
+    <text x="369" y="126" text-anchor="middle" fill="#19345a" font-size="19" font-weight="550">Hypothesis</text>
+  </g>
+  <g data-appear="" data-from=".28" data-to=".45">
+    <path d="M363 77v-3c0-5-7-6-7-14a13 13 0 0 1 26 0c0 8-7 9-7 14v3z" fill="none" stroke="#245ac4" stroke-width="2.2" />
+    <path d="M364 82h10m-8 4h6" fill="none" stroke="#6489cf" stroke-width="2.1" />
+  </g>
+  <path d="M412 67h13q11 0 11 11v113q0 11-11 11h-13" fill="none" stroke="#6489cf" stroke-width="2" data-draw="" pathLength="1" data-from=".39" data-to=".58"/>
+  <g data-appear="" data-from=".51" data-to=".62">
+    <path d="m420 196-8 6 8 6" fill="none" stroke="#6489cf" stroke-width="2.5" />
+  </g>
+  <g data-appear="" data-from=".51" data-to=".69">
+    <circle cx="369" cy="202" r="33" fill="#f4f8ff" stroke="#cbdaf0" stroke-width="1.5"/>
+    <text x="369" y="261" text-anchor="middle" fill="#19345a" font-size="19" font-weight="550">Independent</text>
+    <text x="369" y="284" text-anchor="middle" fill="#19345a" font-size="19" font-weight="550">sample</text>
+  </g>
+  <g data-appear="" data-from=".54" data-to=".72">
+    <path d="m360 185 17 4m-15-3-5 29a7 7 0 0 0 14 3l5-29" fill="none" stroke="#245ac4" stroke-width="2.3" />
+    <path d="m360 205 12 2" fill="none" stroke="#6489cf" stroke-width="2.3" />
+    <circle cx="364" cy="212" r="1.6" fill="#6489cf" stroke="none" stroke-width="1.5"/>
+  </g>
+  <path d="M320 202H167" fill="none" stroke="#6489cf" stroke-width="2" data-draw="" pathLength="1" data-from=".66" data-to=".83"/>
+  <g data-appear="" data-from=".77" data-to=".86">
+    <path d="m175 196-8 6 8 6" fill="none" stroke="#6489cf" stroke-width="2.5" />
+  </g>
+  <g data-appear="" data-from=".73" data-to=".91">
+    <circle cx="116" cy="202" r="33" fill="#e8f1ff" stroke="#cbdaf0" stroke-width="1.5"/>
+    <text x="116" y="261" text-anchor="middle" fill="#19345a" font-size="19" font-weight="550">Compare</text>
+    <text x="116" y="284" text-anchor="middle" fill="#19345a" font-size="19" font-weight="550">measurements</text>
+  </g>
+  <g data-appear="" data-from=".79" data-to=".94">
+    <path d="M96 186v32h40" fill="none" stroke="#6489cf" stroke-width="1.6" />
+    <path d="M99 209c7 0 8 1 12-12s5 13 11 8 9 1 12 0" fill="none" stroke="#6489cf" stroke-width="2" stroke-dasharray="2 3"/>
+  </g>
+  <path d="M99 211c7-1 9 1 13-11s6 11 11 7 9 1 11 0" fill="none" stroke="#245ac4" stroke-width="2.4" data-draw="" pathLength="1" data-from=".82" data-to="1"/>
+</svg>
+<svg hidden="" class="story-scene" data-scene="sources" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 310" role="img" aria-labelledby="story-sources-title story-sources-desc" font-family="Roboto, Arial, sans-serif" stroke-linecap="round" stroke-linejoin="round">
+  <title id="story-sources-title">A MINERVA association linked to its source passage</title>
+  <desc id="story-sources-desc">A reported microbe–disease association in the MINERVA knowledge graph links to a highlighted passage in the underlying article.</desc>
+  <text x="37" y="46" text-anchor="start" fill="#19345a" font-size="19" font-weight="550">MINERVA</text>
+  <text x="37" y="70" text-anchor="start" fill="#526b8b" font-size="18" font-weight="450">Reported association</text>
+  <g data-appear="" data-from="0" data-to=".18">
+    <path d="M68 146 49 105m19 41-27 56m27-56 24-41m99 41 24-44m-24 44 33 49" fill="none" stroke="#cbdaf0" stroke-width="1.8" />
+    <circle cx="49" cy="105" r="5" fill="#f4f8ff" stroke="#cbdaf0" stroke-width="1.5"/>
+    <circle cx="41" cy="202" r="4" fill="#f4f8ff" stroke="#cbdaf0" stroke-width="1.5"/>
+    <circle cx="92" cy="105" r="5" fill="#f4f8ff" stroke="#cbdaf0" stroke-width="1.5"/>
+    <circle cx="215" cy="102" r="4" fill="#f4f8ff" stroke="#cbdaf0" stroke-width="1.5"/>
+    <circle cx="224" cy="195" r="5" fill="#f4f8ff" stroke="#cbdaf0" stroke-width="1.5"/>
+  </g>
+  <circle cx="68" cy="146" r="11" fill="#e8f1ff" stroke="#245ac4" stroke-width="2.5"/>
+  <text x="68" y="183" text-anchor="middle" fill="#19345a" font-size="18" font-weight="550">Microbe</text>
+  <g data-appear="" data-from=".16" data-to=".31">
+    <circle cx="191" cy="146" r="11" fill="#e8f1ff" stroke="#245ac4" stroke-width="2.5"/>
+    <text x="191" y="183" text-anchor="middle" fill="#19345a" font-size="18" font-weight="550">Disease</text>
+  </g>
+  <path d="M82 146h95" fill="none" stroke="#245ac4" stroke-width="2.5" data-draw="" pathLength="1" data-from=".09" data-to=".34"/>
+  <g data-appear="" data-from=".25" data-to=".42">
+    <circle cx="130" cy="146" r="4.5" fill="#245ac4" stroke="none" stroke-width="1.5"/>
+  </g>
+  <g data-appear="" data-from=".29" data-to=".51">
+    <rect x="283" y="40" width="172" height="213" rx="9" fill="#fff" stroke="#cbdaf0" stroke-width="1.5"/>
+    <rect x="277" y="35" width="172" height="213" rx="9" fill="#fff" stroke="#acc4e8" stroke-width="1.5"/>
+    <text x="295" y="70" text-anchor="start" fill="#19345a" font-size="18" font-weight="600">Source article</text>
+    <path d="M296 91h133m-133 10h106m-106 20h130m-130 10h116m-116 70h119m-119 11h130m-130 10h82" fill="none" stroke="#cbdaf0" stroke-width="2" />
+  </g>
+  <path d="M130 154v44q0 15 15 15h82q11 0 18-10l22-35h24" fill="none" stroke="#245ac4" stroke-width="2.4" data-draw="" pathLength="1" data-from=".38" data-to=".73"/>
+  <g data-appear="" data-from=".64" data-to=".81">
+    <path d="m284 162 8 6-8 6" fill="none" stroke="#245ac4" stroke-width="2.4" />
+    <rect x="299" y="147" width="136" height="40" rx="4" fill="#e8f1ff" stroke="none" stroke-width="1.5"/>
+    <rect x="305" y="156" width="119" height="5" rx="2" fill="#6489cf" stroke="none" stroke-width="1.5"/>
+    <rect x="305" y="167" width="97" height="5" rx="2" fill="#6489cf" stroke="none" stroke-width="1.5"/>
+    <rect x="305" y="178" width="70" height="4" rx="2" fill="#acc4e8" stroke="none" stroke-width="1.5"/>
+  </g>
+  <g data-appear="" data-from=".73" data-to=".98">
+    <path d="M361 250v14" fill="none" stroke="#6489cf" stroke-width="1.8" />
+    <text x="361" y="287" text-anchor="middle" fill="#19345a" font-size="19" font-weight="550">Source passage</text>
+  </g>
+</svg>
+<svg hidden="" class="story-scene" data-scene="patient" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 310" role="img" aria-labelledby="story-patient-title story-patient-desc" font-family="Roboto, Arial, sans-serif" stroke-linecap="round" stroke-linejoin="round">
+  <title id="story-patient-title">Assessing published evidence for an individual patient</title>
+  <desc id="story-patient-desc">Guidelines and studies are reviewed alongside a patient’s record to identify applicable evidence, gaps, and conflicting information.</desc>
+  <rect x="30" y="60" width="163" height="76" rx="10" fill="#f4f8ff" stroke="#cbdaf0" stroke-width="1.5"/>
+  <text x="83" y="94" text-anchor="start" fill="#19345a" font-size="19" font-weight="550">Guidelines</text>
+  <text x="83" y="117" text-anchor="start" fill="#526b8b" font-size="18" font-weight="450">and studies</text>
+  <g data-appear="" data-from="0" data-to=".2">
+    <rect x="45" y="79" width="23" height="32" rx="3" fill="#fff" stroke="#6489cf" stroke-width="1.8"/>
+    <path d="M49 85h15m-15 6h13m-13 6h10" fill="none" stroke="#245ac4" stroke-width="1.7" />
+    <path d="M51 115h21V87" fill="none" stroke="#6489cf" stroke-width="1.6" />
+  </g>
+  <g data-appear="" data-from=".1" data-to=".31">
+    <rect x="30" y="174" width="163" height="76" rx="10" fill="#f4f8ff" stroke="#cbdaf0" stroke-width="1.5"/>
+    <text x="83" y="207" text-anchor="start" fill="#19345a" font-size="19" font-weight="550">Patient</text>
+    <text x="83" y="230" text-anchor="start" fill="#526b8b" font-size="18" font-weight="450">record</text>
+    <rect x="45" y="193" width="24" height="31" rx="3" fill="#fff" stroke="#6489cf" stroke-width="1.8"/>
+    <circle cx="57" cy="202" r="3" fill="#fff" stroke="#245ac4" stroke-width="1.5"/>
+    <path d="M51 212c0-6 12-6 12 0m-13 6h14" fill="none" stroke="#245ac4" stroke-width="1.6" />
+  </g>
+  <path d="M195 98h10q10 0 13 12l9 35m-32 67h10q10 0 13-12l9-35" fill="none" stroke="#6489cf" stroke-width="2" data-draw="" pathLength="1" data-from=".21" data-to=".46"/>
+  <g data-appear="" data-from=".35" data-to=".54">
+    <circle cx="230" cy="155" r="8" fill="#245ac4" stroke="none" stroke-width="1.5"/>
+  </g>
+  <path d="M240 155h17q9 0 9-10V80q0-10 10-10h19m-55 85h55m-55 0h17q9 0 9 10v65q0 10 10 10h19" fill="none" stroke="#6489cf" stroke-width="2" data-draw="" pathLength="1" data-from=".43" data-to=".69"/>
+  <g data-appear="" data-from=".51" data-to=".71">
+    <circle cx="314" cy="70" r="13" fill="#e8f1ff" stroke="#cbdaf0" stroke-width="1.5"/>
+    <path d="m308 70 4 4 8-9" fill="none" stroke="#245ac4" stroke-width="2.1" />
+    <text x="338" y="77" text-anchor="start" fill="#19345a" font-size="19" font-weight="550">Applicability</text>
+  </g>
+  <g data-appear="" data-from=".62" data-to=".82">
+    <circle cx="314" cy="155" r="13" fill="#f4f8ff" stroke="#cbdaf0" stroke-width="1.5"/>
+    <path d="m311 150 1-2q7-4 8 2 0 4-5 5v2" fill="none" stroke="#6489cf" stroke-width="1.8" />
+    <circle cx="315" cy="162" r="1.1" fill="#6489cf" stroke="none" stroke-width="1.5"/>
+    <text x="338" y="162" text-anchor="start" fill="#19345a" font-size="19" font-weight="550">Evidence gaps</text>
+  </g>
+  <g data-appear="" data-from=".72" data-to=".96">
+    <circle cx="314" cy="240" r="13" fill="#e8f1ff" stroke="#cbdaf0" stroke-width="1.5"/>
+    <path d="M309 235h9l-3-3m4 13h-9l3 3" fill="none" stroke="#245ac4" stroke-width="1.8" />
+    <text x="338" y="247" text-anchor="start" fill="#19345a" font-size="19" font-weight="550">Conflicts</text>
+  </g>
+</svg>
+<figcaption class="story-caption"></figcaption></figure></div>
+<div class="story-footer"><div class="story-steps" role="group" aria-label="Research story steps"><button class="story-step" type="button" data-scene="evidence" title="From prediction to decision" aria-label="1 of 8. From prediction to decision"></button>
+<button class="story-step" type="button" data-scene="judgment" title="Independent clinical judgment" aria-label="2 of 8. Independent clinical judgment"></button>
+<button class="story-step" type="button" data-scene="reliability" title="Reliability across cohorts" aria-label="3 of 8. Reliability across cohorts"></button>
+<button class="story-step" type="button" data-scene="llm" title="Uncertainty and independent review" aria-label="4 of 8. Uncertainty and independent review"></button>
+<button class="story-step" type="button" data-scene="spectrum" title="From spectrum to barcode" aria-label="5 of 8. From spectrum to barcode"></button>
+<button class="story-step" type="button" data-scene="experiment" title="Testing a spectral explanation" aria-label="6 of 8. Testing a spectral explanation"></button>
+<button class="story-step" type="button" data-scene="sources" title="Tracing a finding to its source" aria-label="7 of 8. Tracing a finding to its source"></button>
+<button class="story-step" type="button" data-scene="patient" title="Does the evidence apply?" aria-label="8 of 8. Does the evidence apply?"></button></div><span class="story-count" aria-hidden="true">01 / 08</span><span class="story-scroll" aria-hidden="true">Scroll</span><button class="story-mode" type="button">Read full profile</button></div>
+</div></div>
+<div class="research-original">
+<button hidden class="story-return" type="button">Back to research story</button>
 <h2 id="research-title">Defining when AI can guide care.</h2>
 <p class="intro-lead">Strong predictive performance alone does not tell us <span class="reading-highlight" data-reading="">what an AI result means or when to act on it</span>. My research asks: <mark class="research-question reading-highlight" data-reading="">What should determine when and how we trust AI in medicine?</mark></p>
 <div class="intro-copy">
@@ -221,6 +562,7 @@ My next step is to represent the conditions behind recommendations in clinical g
 </figure>
 </div>
 <div class="research-links"><a aria-label="View publications on knowledge graphs and biomedical evidence" data-topic-link="Knowledge &amp; discovery" href="#publications">View related publications <span aria-hidden="true">↗</span></a><a href="https://minervabio.org/" target="_blank" rel="noopener noreferrer">Explore MINERVA platform <span aria-hidden="true">↗</span></a></div></div></article>
+</div>
 </div>
 </section>
 <section aria-labelledby="publications-title" class="publications-section" id="publications">
