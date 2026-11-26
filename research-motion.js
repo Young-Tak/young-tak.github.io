@@ -34,6 +34,7 @@
     });
     return {
       panel, title: panel.querySelector('.story-panel-title').textContent, line, button, parts,
+      kicker: panel.querySelector('.story-kicker'),
       headline: line.querySelector('.story-key'), detail: line.querySelector('.story-detail'),
       figure: panel.querySelector('.story-art')
     };
@@ -45,6 +46,8 @@
   let active = Math.max(0, saved);
   let requested = active;
   let frame = 0;
+  let figureTimer = 0;
+  const arrival = [];
   const entrances = [];
   let exitAnimation;
 
@@ -54,20 +57,22 @@
       const t = Math.max(0, Math.min(1, (progress - from) / (to - from)));
       if (t === part.lastValue) continue;
       part.lastValue = t;
-      if (part.draw) node.style.strokeDashoffset = String(1 - t);
-      if (part.appear) node.style.opacity = String(.12 + .88 * t);
+      const eased = t * t * (3 - 2 * t);
+      if (part.draw) node.style.strokeDashoffset = String(1 - eased);
+      if (part.appear) node.style.opacity = String(.12 + .88 * eased);
       if (part.path) {
         part.length ??= part.path.getTotalLength();
-        const point = part.path.getPointAtLength(t * part.length);
+        const point = part.path.getPointAtLength(eased * part.length);
         node.setAttribute('transform', 'translate(' + point.x + ' ' + point.y + ')');
       } else if (part.shiftX || part.shiftY) {
-        const remaining = 1 - t * t * (3 - 2 * t);
+        const remaining = 1 - eased;
         node.setAttribute('transform', 'translate(' + part.shiftX * remaining + ' ' + part.shiftY * remaining + ')');
       }
     }
   }
 
   function stopPlayback() {
+    clearTimeout(figureTimer);
     cancelAnimationFrame(frame);
     frame = 0;
     exitAnimation?.cancel();
@@ -76,35 +81,47 @@
     entrances.length = 0;
   }
 
-  function rise(element, delay, duration, distance) {
-    if (!element) return;
-    entrances.push(element.animate([
-      {opacity: 0, transform: 'translateY(' + distance + 'px)'},
-      {opacity: 1, transform: 'translateY(0)'}
-    ], {delay, duration, easing: 'cubic-bezier(.18,.72,.25,1)', fill: 'backwards'}));
+  function reveal(element, delay, duration, from = 'none') {
+    return element.animate([
+      {opacity: 0, transform: from},
+      {opacity: 1, transform: 'none'}
+    ], {delay, duration, easing: 'cubic-bezier(.28,.10,.24,1)', fill: 'backwards'});
   }
 
-  function playSlide() {
+  function playArrival() {
+    // A horizontal entrance leaves the photo's measured vertical position intact.
+    const identity = profile?.getClientRects().length
+      ? profile.querySelector('.profile-top')
+      : document.querySelector('.story-mobile-header');
+    if (identity) arrival.push(reveal(identity, 0, 1120, 'translateX(-4px)'));
+    arrival.push(reveal(heading.parentElement, 170, 1060, 'translateY(5px)'));
+    arrival.push(reveal(stage.querySelector('.story-footer'), 0, 900));
+  }
+
+  function playSlide(lead = 0) {
     if (!layout.animate || track.hidden || reduce.matches || document.hidden) {
       draw(1);
       return;
     }
     const slide = slides[active];
-    rise(slide.headline, 0, 460, 12);
-    rise(slide.detail, 255, 440, 9);
+    entrances.push(
+      reveal(slide.kicker, lead, 760),
+      reveal(slide.headline, lead, 990, 'translateY(7px)'),
+      reveal(slide.detail, lead + 880, 1000, 'translateY(5px)')
+    );
     if (!slide.figure) return;
 
-    const figureDelay = 555;
-    rise(slide.figure, figureDelay, 420, 7);
+    const figureDelay = lead + 1770;
+    entrances.push(reveal(slide.figure, figureDelay, 1100, 'translateY(4px)'));
     if (!slide.parts.length) return;
     draw(0, slide);
     const start = performance.now() + figureDelay;
     const tick = now => {
-      const progress = Math.min(1, (now - start) / 1450);
+      const progress = Math.min(1, (now - start) / 2250);
       if (progress > 0) draw(progress, slide);
       frame = progress < 1 ? requestAnimationFrame(tick) : 0;
     };
-    frame = requestAnimationFrame(tick);
+    figureTimer = setTimeout(() => { frame = requestAnimationFrame(tick); }, figureDelay);
   }
 
   function display(index, announce) {
@@ -143,7 +160,7 @@
     // Repeated inputs during the exit update the destination of this same fade.
     if (exitAnimation) return;
     const exit = layout.animate([{opacity: 1}, {opacity: 0}],
-      {duration: 95, easing: 'ease-in', fill: 'forwards'});
+      {duration: 200, easing: 'ease-in-out', fill: 'forwards'});
     exitAnimation = exit;
     exit.finished.then(() => {
       if (exit !== exitAnimation) return;
@@ -175,9 +192,14 @@
     goTo(requested + (event.key === 'ArrowLeft' ? -1 : 1));
   });
   function settle() {
+    finishArrival();
     stopPlayback();
     display(requested, requested !== active);
     draw(1);
+  }
+  function finishArrival() {
+    arrival.forEach(animation => animation.cancel());
+    arrival.length = 0;
   }
   if (reduce.addEventListener) reduce.addEventListener('change', settle);
   else reduce.addListener(settle);
@@ -187,6 +209,7 @@
   document.fonts?.ready.then(alignToPhoto);
 
   window.addEventListener('beforeprint', () => {
+    finishArrival();
     stopPlayback();
     slides.forEach(slide => {
       slide.panel.inert = false;
@@ -205,5 +228,11 @@
   layout.setAttribute('aria-roledescription', 'slide');
   display(active, false);
   alignToPhoto();
-  playSlide();
+  const restored = performance.getEntriesByType('navigation')[0]?.type === 'back_forward';
+  if (restored || !layout.animate || reduce.matches || document.hidden) {
+    settle();
+  } else {
+    playArrival();
+    playSlide(400);
+  }
 })();
