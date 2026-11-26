@@ -14,7 +14,7 @@
   const next = stage.querySelector('.story-next');
   const fullLink = stage.querySelector('.story-mode');
   const reduce = matchMedia('(prefers-reduced-motion: reduce)');
-  const playbackRate = 1.1;
+  const playbackRate = 1.32;
   const profile = document.querySelector('.profile');
   const photo = profile?.querySelector('.profile-photo > a');
 
