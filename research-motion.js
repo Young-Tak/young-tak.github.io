@@ -108,18 +108,18 @@
       return;
     }
     const slide = slides[active];
+    const detailDelay = lead + 880;
     entrances.push(
       reveal(slide.kicker, lead, 760),
       reveal(slide.headline, lead, 990, 'translateY(7px)'),
-      reveal(slide.detail, lead + 880, 1000, 'translateY(5px)')
+      reveal(slide.detail, detailDelay, 1000, 'translateY(5px)')
     );
     if (!slide.figure) return;
 
-    const figureDelay = lead + 1770;
-    entrances.push(reveal(slide.figure, figureDelay, 1100, 'translateY(4px)'));
+    entrances.push(reveal(slide.figure, detailDelay, 1000, 'translateY(4px)'));
     if (!slide.parts.length) return;
     draw(0, slide);
-    const wait = figureDelay / playbackRate;
+    const wait = detailDelay / playbackRate;
     const start = performance.now() + wait;
     const tick = now => {
       const progress = Math.min(1, (now - start) * playbackRate / 2250);

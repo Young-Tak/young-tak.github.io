@@ -46,8 +46,8 @@ authentication code is included.
 
 The research slides sit in the normal page flow. Previous, Next, the chapter
 buttons, and the left and right arrow keys within the carousel select a slide.
-Each slide introduces its main question, then the supporting text. On slides
-with a figure, the figure animates last and rests on its final frame. With
+Each slide introduces its main question, then reveals the supporting text and
+any accompanying figure together. The figure rests on its final frame. With
 reduced motion, the entire slide appears immediately. “Read full profile”
 opens the full profile. Browser Back returns to the same slide. Printing the
 story or viewing it with JavaScript disabled displays all eight articles in order.
