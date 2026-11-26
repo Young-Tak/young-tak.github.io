@@ -46,13 +46,14 @@ authentication code is included.
 
 The research slides sit in the normal page flow. Previous, Next, the chapter
 buttons, and the left and right arrow keys within the carousel select a slide.
-Each illustration plays once on entry and rests on its final frame. With reduced
-motion, the finished illustration appears immediately. “Read full profile”
+Each slide introduces its main question, then the supporting text. On slides
+with a figure, the figure animates last and rests on its final frame. With
+reduced motion, the entire slide appears immediately. “Read full profile”
 opens the full profile. Browser Back returns to the same slide. Printing the
 story or viewing it with JavaScript disabled displays all eight articles in order.
 
-The opening photo shows a clinician checking a monitor in Costa Rica. The animation
-below it illustrates the research question. [Photo by César Badilla Miranda](https://unsplash.com/photos/a-man-in-scrubs-and-a-stethoscope-looking-at-a-monitor-0Fv4M2hSZJU) · [Unsplash License](https://unsplash.com/license).
+Photo credit for the archived `clinician-at-monitor.webp` asset:
+[César Badilla Miranda](https://unsplash.com/photos/a-man-in-scrubs-and-a-stethoscope-looking-at-a-monitor-0Fv4M2hSZJU) · [Unsplash License](https://unsplash.com/license).
 
 The independent-review slide uses an NCI teaching mammogram. The original arrow
 is part of the source radiograph.

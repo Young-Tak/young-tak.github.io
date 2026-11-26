@@ -22,27 +22,31 @@
     const key = line.dataset.scene;
     const svg = panel.querySelector('.story-scene');
     const button = stage.querySelector('button[data-scene="' + key + '"]');
-    const parts = [...svg.querySelectorAll('[data-from][data-to]')].map(node => {
+    const parts = Array.from(svg?.querySelectorAll('[data-from][data-to]') || [], node => {
       const data = node.dataset;
       if (node.hasAttribute('data-draw')) node.style.strokeDasharray = '1';
       return {
         node, from: Number(data.from), to: Number(data.to),
         draw: node.hasAttribute('data-draw'), appear: node.hasAttribute('data-appear'),
         shiftX: Number(data.shiftX || 0), shiftY: Number(data.shiftY || 0),
-        zoom: Number(data.zoomTo || 1), cx: Number(data.cx || 0), cy: Number(data.cy || 0),
         path: data.follow ? document.getElementById(data.follow) : null
       };
     });
-    return {panel, title: panel.querySelector('.story-panel-title').textContent, line, svg, button, parts};
+    return {
+      panel, title: panel.querySelector('.story-panel-title').textContent, line, button, parts,
+      headline: line.querySelector('.story-key'), detail: line.querySelector('.story-detail'),
+      figure: panel.querySelector('.story-art')
+    };
   });
-  if (!slides.length || slides.some(slide => !slide.button || !slide.parts.length)) return;
+  if (!slides.length || slides.some(slide => !slide.button)) return;
 
   const last = slides.length - 1;
   const saved = slides.findIndex(slide => slide.line.dataset.scene === history.state?.researchScene);
   let active = Math.max(0, saved);
   let requested = active;
   let frame = 0;
-  let transition;
+  const entrances = [];
+  let exitAnimation;
 
   function draw(progress, slide = slides[active]) {
     for (const part of slide.parts) {
@@ -56,9 +60,6 @@
         part.length ??= part.path.getTotalLength();
         const point = part.path.getPointAtLength(t * part.length);
         node.setAttribute('transform', 'translate(' + point.x + ' ' + point.y + ')');
-      } else if (part.zoom !== 1) {
-        const scale = 1 + (part.zoom - 1) * t * t * (3 - 2 * t);
-        node.setAttribute('transform', 'translate(' + part.cx + ' ' + part.cy + ') scale(' + scale + ') translate(' + -part.cx + ' ' + -part.cy + ')');
       } else if (part.shiftX || part.shiftY) {
         const remaining = 1 - t * t * (3 - 2 * t);
         node.setAttribute('transform', 'translate(' + part.shiftX * remaining + ' ' + part.shiftY * remaining + ')');
@@ -69,20 +70,38 @@
   function stopPlayback() {
     cancelAnimationFrame(frame);
     frame = 0;
-    transition?.cancel();
-    transition = undefined;
+    exitAnimation?.cancel();
+    exitAnimation = undefined;
+    entrances.forEach(animation => animation.cancel());
+    entrances.length = 0;
   }
 
-  function playFigure() {
-    if (track.hidden || reduce.matches || document.hidden) {
+  function rise(element, delay, duration, distance) {
+    if (!element) return;
+    entrances.push(element.animate([
+      {opacity: 0, transform: 'translateY(' + distance + 'px)'},
+      {opacity: 1, transform: 'translateY(0)'}
+    ], {delay, duration, easing: 'cubic-bezier(.18,.72,.25,1)', fill: 'backwards'}));
+  }
+
+  function playSlide() {
+    if (!layout.animate || track.hidden || reduce.matches || document.hidden) {
       draw(1);
       return;
     }
-    const start = performance.now();
-    draw(.08);
+    const slide = slides[active];
+    rise(slide.headline, 0, 460, 12);
+    rise(slide.detail, 255, 440, 9);
+    if (!slide.figure) return;
+
+    const figureDelay = 555;
+    rise(slide.figure, figureDelay, 420, 7);
+    if (!slide.parts.length) return;
+    draw(0, slide);
+    const start = performance.now() + figureDelay;
     const tick = now => {
-      const progress = Math.min(1, (now - start) / 1550);
-      draw(.08 + .92 * progress);
+      const progress = Math.min(1, (now - start) / 1450);
+      if (progress > 0) draw(progress, slide);
       frame = progress < 1 ? requestAnimationFrame(tick) : 0;
     };
     frame = requestAnimationFrame(tick);
@@ -117,29 +136,21 @@
   function goTo(index) {
     if (index < 0 || index > last || requested === index) return;
     requested = index;
-    const direction = index > active ? 1 : -1;
-    stopPlayback();
-
-    // A short fade between plates keeps the chapter and controls stationary.
-    if (reduce.matches || !layout.animate) {
-      display(index, true);
-      playFigure();
+    if (reduce.matches || document.hidden || !layout.animate) {
+      settle();
       return;
     }
-    const exit = layout.animate([
-      {opacity: 1}, {opacity: 0, transform: 'translateX(' + (-4 * direction) + 'px)'}
-    ], {duration: 90, easing: 'ease-in', fill: 'forwards'});
-    transition = exit;
+    // Repeated inputs during the exit update the destination of this same fade.
+    if (exitAnimation) return;
+    const exit = layout.animate([{opacity: 1}, {opacity: 0}],
+      {duration: 95, easing: 'ease-in', fill: 'forwards'});
+    exitAnimation = exit;
     exit.finished.then(() => {
-      if (exit !== transition) return;
-      exit.cancel();
-      display(index, true);
-      playFigure();
-      transition = layout.animate([
-        {opacity: .1, transform: 'translateX(' + (8 * direction) + 'px)'},
-        {opacity: 1, transform: 'translateX(0)'}
-      ], {duration: 250, easing: 'cubic-bezier(.2,.75,.25,1)'});
-    }, () => {}); // A second input supersedes an unfinished transition.
+      if (exit !== exitAnimation) return;
+      stopPlayback();
+      display(requested, requested !== active);
+      playSlide();
+    }, () => {}); // Printing or a motion preference change can cancel the exit.
   }
 
   function alignToPhoto() {
@@ -194,5 +205,5 @@
   layout.setAttribute('aria-roledescription', 'slide');
   display(active, false);
   alignToPhoto();
-  playFigure();
+  playSlide();
 })();
