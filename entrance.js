@@ -3,12 +3,18 @@
   const root = document.documentElement;
   // Set before styles load so section links never flash the opening screen.
   root.dataset.view = location.hash ? 'profile' : 'landing';
+  const restored = performance.getEntriesByType('navigation')[0]?.type === 'back_forward';
+  if (root.dataset.view === 'landing' && !restored && matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+    root.classList.add('landing-arrival');
+    window.addEventListener('pagehide', () => root.classList.remove('landing-arrival'), {once: true});
+  }
 
   const syncView = () => {
     const wasLanding = root.dataset.view === 'landing';
     const isLanding = !location.hash;
     root.dataset.view = isLanding ? 'landing' : 'profile';
     if (wasLanding === isLanding) return;
+    root.classList.remove('landing-arrival');
 
     requestAnimationFrame(() => {
       if (isLanding) {

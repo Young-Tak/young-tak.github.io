@@ -14,6 +14,7 @@
   const next = stage.querySelector('.story-next');
   const fullLink = stage.querySelector('.story-mode');
   const reduce = matchMedia('(prefers-reduced-motion: reduce)');
+  const playbackRate = 1.1;
   const profile = document.querySelector('.profile');
   const photo = profile?.querySelector('.profile-photo > a');
 
@@ -85,7 +86,10 @@
     return element.animate([
       {opacity: 0, transform: from},
       {opacity: 1, transform: 'none'}
-    ], {delay, duration, easing: 'cubic-bezier(.28,.10,.24,1)', fill: 'backwards'});
+    ], {
+      delay: delay / playbackRate, duration: duration / playbackRate,
+      easing: 'cubic-bezier(.28,.10,.24,1)', fill: 'backwards'
+    });
   }
 
   function playArrival() {
@@ -115,13 +119,14 @@
     entrances.push(reveal(slide.figure, figureDelay, 1100, 'translateY(4px)'));
     if (!slide.parts.length) return;
     draw(0, slide);
-    const start = performance.now() + figureDelay;
+    const wait = figureDelay / playbackRate;
+    const start = performance.now() + wait;
     const tick = now => {
-      const progress = Math.min(1, (now - start) / 2250);
+      const progress = Math.min(1, (now - start) * playbackRate / 2250);
       if (progress > 0) draw(progress, slide);
       frame = progress < 1 ? requestAnimationFrame(tick) : 0;
     };
-    figureTimer = setTimeout(() => { frame = requestAnimationFrame(tick); }, figureDelay);
+    figureTimer = setTimeout(() => { frame = requestAnimationFrame(tick); }, wait);
   }
 
   function display(index, announce) {
@@ -160,7 +165,7 @@
     // Repeated inputs during the exit update the destination of this same fade.
     if (exitAnimation) return;
     const exit = layout.animate([{opacity: 1}, {opacity: 0}],
-      {duration: 200, easing: 'ease-in-out', fill: 'forwards'});
+      {duration: 200 / playbackRate, easing: 'ease-in-out', fill: 'forwards'});
     exitAnimation = exit;
     exit.finished.then(() => {
       if (exit !== exitAnimation) return;
