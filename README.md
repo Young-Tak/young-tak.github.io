@@ -45,11 +45,15 @@ Reduced motion or unavailable WebGL uses an SVG fallback; animation pauses when
 offscreen, in a hidden tab, or after entering the profile. No RadPathway login or
 authentication code is included.
 
-Native scrolling drives the sticky research stage. Each step draws its figure
-in either scroll direction. The stage fits below the mobile menu and uses a
-single paragraph on shorter screens when needed. “Read full profile” opens
-the full text at any step. Reduced motion, print, disabled JavaScript, and
+Native scrolling drives the sticky research stage. Each step pairs a short
+claim with its own figure. Scrolling draws paths, aligns markers, and magnifies
+image details in either direction. The chapter controls jump to a completed
+figure. “Read full profile” opens the full text at any step. Reduced motion, print, disabled JavaScript, and
 viewports that cannot fit a step use the full text and static figures.
+
+The mammogram in the opening and independent-review illustrations is an NCI
+teaching image, separate from the study cohorts. The original arrow is part of
+the source radiograph. [National Cancer Institute, Visuals Online 2553, public domain](https://commons.wikimedia.org/wiki/File:Mammogram_showing_small_lesion.jpg).
 
 ## Private website analytics
 
