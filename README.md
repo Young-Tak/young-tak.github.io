@@ -17,9 +17,9 @@ Static HTML, CSS, and JavaScript, published with GitHub Pages from the
   same menu outside the profile on small screens so it stays sticky through the page.
 - `scroll-reveal.js` and `scroll-reveal.css`: once-only upward content entrances,
   with reduced-motion, keyboard, direct-link, and no-JavaScript fallbacks.
-- `research-motion.js` and `story-stage.css` control the pinned research introduction
-  and three programs. Each of the eight steps pairs a paragraph and an inline
-  SVG in `index.html` using a matching `data-scene` value.
+- `research-motion.js` and `story-stage.css` control eight research slides.
+  Each slide pairs its text, figure, and navigation button in `index.html`
+  using a matching `data-scene` value.
 - `research-motion.css` styles the figures and source links in the full profile.
 - `assets/`: CV, research films, cover image, photographs, fonts, and icons.
 
@@ -45,15 +45,17 @@ Reduced motion or unavailable WebGL uses an SVG fallback; animation pauses when
 offscreen, in a hidden tab, or after entering the profile. No RadPathway login or
 authentication code is included.
 
-Native scrolling drives the sticky research stage. Each step pairs a short
-claim with its own figure. Scrolling draws paths, aligns markers, and magnifies
-image details in either direction. The chapter controls jump to a completed
-figure. “Read full profile” opens the full text at any step. Reduced motion, print, disabled JavaScript, and
-viewports that cannot fit a step use the full text and static figures.
+The research slides sit in the normal page flow. Previous, Next, the chapter
+buttons, and the left and right arrow keys within the carousel select a slide.
+Each illustration plays once on entry and rests on its final frame. With reduced
+motion, the finished illustration appears immediately. “Read full profile”
+opens the full text and lets the reader return to the same slide. Print and
+no-JavaScript views use the full text and static figures.
 
-The mammogram in the opening and independent-review illustrations is an NCI
-teaching image, separate from the study cohorts. The original arrow is part of
-the source radiograph. [National Cancer Institute, Visuals Online 2553, public domain](https://commons.wikimedia.org/wiki/File:Mammogram_showing_small_lesion.jpg).
+The clinician at the workstation is an original editorial illustration with
+an animated chart review on the monitor. The independent-review slide uses
+an NCI teaching mammogram. The original arrow is part of the source radiograph.
+[National Cancer Institute, Visuals Online 2553, public domain](https://commons.wikimedia.org/wiki/File:Mammogram_showing_small_lesion.jpg).
 
 ## Private website analytics
 

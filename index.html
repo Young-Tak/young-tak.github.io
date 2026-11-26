@@ -21,11 +21,11 @@
 <link href="navigation.css?v=glass-soft-20261113" rel="stylesheet"/>
 <link href="scroll-reveal.css?v=20261113" rel="stylesheet"/>
 <link href="research-motion.css?v=pinned-1" rel="stylesheet"/>
-<link href="story-stage.css?v=plates-2" rel="stylesheet"/>
+<link href="story-stage.css?v=slides-1" rel="stylesheet"/>
 <script defer="" src="network-hero.js?v=1"></script>
 <script defer="" src="app.js?v=mobile-glass-20261113"></script>
 <script defer="" src="scroll-reveal.js?v=20261125"></script>
-<script defer="" src="research-motion.js?v=plates-2"></script>
+<script defer="" src="research-motion.js?v=slides-1"></script>
 <script defer="" src="analytics.js?v=utm-20261113"></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Young-Tak Kim","honorificSuffix":"PhD","jobTitle":"Research Fellow, Radiology","affiliation":[{"@type":"Organization","name":"Massachusetts General Hospital"},{"@type":"Organization","name":"Harvard Medical School"}],"sameAs":["https://orcid.org/0000-0003-3604-6580","https://www.linkedin.com/in/young-tak-kim/","https://scholar.google.co.kr/citations?user=4RyYKDAAAAAJ"],"knowsAbout":["Clinical AI safety","Human–AI decision-making","Biomedical informatics"],"url":"https://young-tak.github.io/"}</script>
 <link href="https://young-tak.github.io/" rel="canonical"/><meta content="https://young-tak.github.io/" property="og:url"/></head>
@@ -73,20 +73,20 @@
 <main id="main">
 <section aria-labelledby="research-title" class="intro" id="research">
 <div class="story-track" hidden>
-<div class="story-stage">
+<div class="story-stage" role="region" aria-roledescription="carousel" aria-label="Research story" tabindex="-1">
 <header class="story-header"><h2 class="story-title" id="research-story-title">Research overview</h2></header>
-<div class="story-layout"><div class="story-text">
+<div class="story-layout" id="research-slide" role="group" aria-roledescription="slide"><div class="story-text">
 <p class="story-kicker">My research question</p>
-<p class="story-line" data-scene="evidence" data-image-source="https://commons.wikimedia.org/wiki/File:Mammogram_showing_small_lesion.jpg" data-title="Research overview" data-kicker="My research question" data-caption="Teaching image from the US National Cancer Institute.">
+<p class="story-line" data-scene="evidence" data-title="Research overview" data-kicker="My research question" data-caption="The clinician reviews the patient record alongside the AI recommendation.">
 <strong class="story-key">What should determine <em>when and how</em> we trust AI in medicine?</strong>
-<span class="story-detail">A model can perform well on average and still miss a lesion. I study the evidence a clinician needs before acting on its advice.</span></p>
+<span class="story-detail">A model can perform well on average and still be wrong for an individual patient. I study the evidence clinicians need before acting on its advice.</span></p>
 <p class="story-line" data-scene="judgment" data-title="Research overview" data-kicker="Long-term goal" data-caption="Conceptual trajectories of clinical expertise after AI enters practice.">
 <strong class="story-key">What stays with the clinician <em>when the AI is switched off?</em></strong>
 <span class="story-detail">My goal is <b>safe AI for clinical practice</b> that helps clinicians recognize errors and strengthen their <b>independent clinical judgment</b> over time.</span></p>
 <p class="story-line" data-scene="reliability" data-title="Clinical AI safety" data-kicker="Current work" data-caption="Hatching marks cases that call for human review. Boundaries are illustrative.">
 <strong class="story-key">Where does a model become <em>reliable enough to act on?</em></strong>
 <span class="story-detail">I developed the <a href="https://doi.org/10.1038/s41746-026-02450-7">Safety-Aware Receiver Operating Characteristic (SA-ROC)</a> framework to distinguish rule-in, rule-out, and review zones. My next step is to test how those boundaries shift across patient cohorts.</span></p>
-<p class="story-line" data-scene="llm" data-image-source="https://commons.wikimedia.org/wiki/File:Mammogram_showing_small_lesion.jpg" data-title="Clinical AI safety" data-kicker="Next study" data-caption="Illustrative review using the same National Cancer Institute mammogram.">
+<p class="story-line" data-scene="llm" data-image-source="https://commons.wikimedia.org/wiki/File:Mammogram_showing_small_lesion.jpg" data-title="Clinical AI safety" data-kicker="Next study" data-caption="Illustrative review using a National Cancer Institute mammogram.">
 <strong class="story-key">A clinician and an AI can <em>agree on the same mistake.</em></strong>
 <span class="story-detail">Building on our <a href="#pub-01">mammography reader study</a>, I plan to test how large language models communicate uncertainty and whether independent review reveals errors clinicians and AI miss together.</span></p>
 <p class="story-line" data-scene="spectrum" data-title="Explainable biomedical AI" data-kicker="Current work" data-caption="Dashed guides connect selected peaks to their positions in the barcode. Schematic spectrum.">
@@ -103,27 +103,31 @@
 <span class="story-detail">I plan to match conditions in guidelines and studies against patient records. A missing result or conflicting finding should be visible before a clinician acts on a recommendation.</span></p>
 </div><figure class="story-art">
 <svg hidden="" class="story-scene" data-scene="evidence" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 310" role="img" aria-labelledby="story-evidence-title story-evidence-desc" font-family="Roboto, Arial, sans-serif" stroke-linecap="round" stroke-linejoin="round">
-  <title id="story-evidence-title">A screening mammogram and a closer look at its marked finding</title>
-  <desc id="story-evidence-desc">The original arrow on a National Cancer Institute teaching mammogram points to a small lesion. Scrolling traces the marked area to an enlarged detail. Source: NCI Visuals Online, image 2553.</desc>
-  <defs>
-    <clipPath id="plate-evidence-detail"><rect x="266" y="44" width="222" height="170"/></clipPath>
-  </defs>
-  <rect x="8" y="10" width="215" height="265" fill="#101e30"/>
-  <image href="assets/research/nci-mammogram-2553.webp" x="20" y="12" width="190" height="262"/>
-  <rect x="18" y="37" width="32" height="35" fill="none" stroke="#81c9ff" stroke-width="2"/>
-  <path d="M50 45H177L207 71H266" fill="none" stroke="#94b8e9" stroke-width="1.4"/>
-  <path id="plate-evidence-guide" d="M50 45H177L207 71H266" fill="none" stroke="#3985fa" stroke-width="2.5" pathLength="1" data-draw="" data-from=".07" data-to=".56"/>
-  <circle r="3.4" fill="#2b71e5" data-follow="plate-evidence-guide" data-from=".07" data-to=".56"/>
-  <g clip-path="url(#plate-evidence-detail)">
-    <rect x="266" y="44" width="222" height="170" fill="#112039"/>
-    <g data-zoom-to="1.55" data-cx="298" data-cy="124" data-from=".23" data-to=".82">
-      <image href="assets/research/nci-mammogram-2553.webp" x="266" y="24" width="560" height="772"/>
+  <title id="story-evidence-title">A clinician weighs an AI recommendation against the patient record</title>
+  <desc id="story-evidence-desc">A seated physician pauses with a hand at her chin. On her monitor, a recommendation is followed by the patient's history and findings for review.</desc>
+  <image href="assets/research/clinician-workstation.webp" x="17.5" y="0" width="465" height="310"/>
+  <g transform="matrix(1 -.045 -.04 1 262 80)">
+    <text x="0" y="15" font-size="15.5" font-weight="570" fill="#344860">AI recommendation</text>
+    <g data-appear="" data-from=".02" data-to=".30">
+      <rect x="0" y="26" width="188" height="32" rx="2" fill="#eef4ff"/>
+      <rect x="0" y="26" width="3" height="32" rx="1" fill="#2555b6"/>
+      <text x="11" y="47" font-size="16" font-weight="570" fill="#244a9a">Review suggested</text>
+    </g>
+    <path d="M3 65H190" fill="none" stroke="#d0dae8" stroke-width="1.1"/>
+    <g data-appear="" data-from=".30" data-to=".57">
+      <text x="0" y="88" font-size="16" font-weight="590" fill="#172f51">Patient record</text>
+    </g>
+    <g data-appear="" data-from=".46" data-to=".72">
+      <circle cx="5" cy="106" r="2.6" fill="#355fa8"/>
+      <text x="15" y="111" font-size="14.5" fill="#364e68">History</text>
+      <path d="M88 106H166" stroke="#a9bedb" stroke-width="2.4" pathLength="1" data-draw="" data-from=".46" data-to=".72"/>
+    </g>
+    <g data-appear="" data-from=".60" data-to=".93">
+      <circle cx="5" cy="128" r="2.6" fill="#355fa8"/>
+      <text x="15" y="133" font-size="14.5" fill="#364e68">Findings</text>
+      <path d="M88 128H147" stroke="#7394c2" stroke-width="2.4" pathLength="1" data-draw="" data-from=".60" data-to=".93"/>
     </g>
   </g>
-  <rect x="266" y="44" width="222" height="170" fill="none" stroke="#a6b8ca" stroke-width="1"/>
-  <text x="9" y="300" fill="#172e4a" font-size="18" font-weight="550">Screening mammogram</text>
-  <text x="266" y="243" fill="#175aca" font-size="19" font-weight="600">Enlarged finding</text>
-  <text x="266" y="267" fill="#52677c" font-size="15">Original arrow marks the lesion</text>
 </svg>
 <svg hidden="" class="story-scene" data-scene="judgment" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 310" role="img" aria-labelledby="story-judgment-title story-judgment-desc" font-family="Roboto, Arial, sans-serif" stroke-linecap="round" stroke-linejoin="round">
   <title id="story-judgment-title">Clinical expertise after AI introduction</title>
@@ -481,7 +485,14 @@
 <button class="story-step" type="button" data-scene="spectrum" title="From spectrum to barcode" aria-label="5 of 8. From spectrum to barcode"><span class="story-step-label" aria-hidden="true">Explainable AI</span><span class="story-step-fill" aria-hidden="true"></span></button>
 <button class="story-step" type="button" data-scene="experiment" title="Testing a spectral explanation" aria-label="6 of 8. Testing a spectral explanation"><span class="story-step-fill" aria-hidden="true"></span></button>
 <button class="story-step" type="button" data-scene="sources" title="Tracing a finding to its source" aria-label="7 of 8. Tracing a finding to its source"><span class="story-step-label" aria-hidden="true">Knowledge graphs</span><span class="story-step-fill" aria-hidden="true"></span></button>
-<button class="story-step" type="button" data-scene="patient" title="Does the evidence apply?" aria-label="8 of 8. Does the evidence apply?"><span class="story-step-fill" aria-hidden="true"></span></button></div><span class="story-count" aria-hidden="true">01 / 08</span><span class="story-scroll" aria-hidden="true">Scroll</span><button class="story-mode" type="button">Read full profile</button></div>
+<button class="story-step" type="button" data-scene="patient" title="Does the evidence apply?" aria-label="8 of 8. Does the evidence apply?"><span class="story-step-fill" aria-hidden="true"></span></button></div>
+<span class="story-count" aria-hidden="true">01 / 08</span>
+<div class="story-controls" role="group" aria-label="Slide navigation">
+<button type="button" class="story-prev" aria-controls="research-slide" disabled><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12H4m7-7-7 7 7 7"/></svg><span>Previous</span></button>
+<button type="button" class="story-next" aria-controls="research-slide"><span>Next</span><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16m-7-7 7 7-7 7"/></svg></button>
+</div>
+<button class="story-mode" type="button">Read full profile</button>
+<span class="sr-only story-announcement" role="status" aria-atomic="true"></span></div>
 </div></div>
 <div class="research-original">
 <button hidden class="story-return" type="button">Back to research story</button>
