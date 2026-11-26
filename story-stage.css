@@ -143,7 +143,6 @@
   aspect-ratio: 500 / 310;
 }
 .story-caption {
-  min-height: 3em;
   margin: 9px 0 0;
   padding-left: 24px;
   position: relative;
@@ -169,7 +168,7 @@
   grid-template-areas: "steps count controls mode";
   align-items: center;
   column-gap: clamp(12px, 1.4vw, 22px);
-  margin-top: clamp(22px, 2.6vw, 38px);
+  margin-top: clamp(16px, 1.2vw, 22px);
   padding-top: 13px;
   border-top: 1px solid var(--story-rule);
 }
@@ -299,11 +298,6 @@
     margin-right: calc(-1 * clamp(6px, calc((100vw - 1130px) / 2), 100px));
   }
   .story-stage { padding-block-start: var(--story-photo-offset, 77px); }
-  [data-view="story"] .story-enhanced .story-stage {
-    grid-template-rows: auto minmax(min-content, 1fr) auto;
-    min-height: min(830px, calc(100svh - 115px));
-  }
-  [data-view="story"] .story-layout { align-self: start; }
 }
 @media (min-width: 1131px) {
   #research.story-enhanced > .story-track { margin-left: -48px; }
@@ -379,7 +373,7 @@
   .story-key { max-width: 25ch; font-size: clamp(25px, 7vw, 34px); }
   .story-detail { max-width: 50ch; margin-top: 10px; font-size: clamp(15px, 4.15vw, 18px); line-height: 1.45; }
   .story-art { width: min(100%, 470px); justify-self: center; }
-  .story-caption { margin-top: 6px; font-size: 12px; min-height: 2.9em; line-height: 1.42; }
+  .story-caption { margin-top: 6px; font-size: 12px; line-height: 1.42; }
   .story-footer {
     grid-template-columns: minmax(0, 1fr) auto auto;
     grid-template-areas: "steps steps count" "controls mode mode";
@@ -403,13 +397,6 @@
   .story-caption { margin-top: 4px; }
   .story-footer { margin-top: 7px; row-gap: 0; padding-top: 0; }
   .story-step { height: 28px; }
-}
-@media (max-width: 680px) and (min-height: 721px) {
-  [data-view="story"] .story-enhanced .story-stage {
-    grid-template-rows: auto minmax(min-content, 1fr) auto;
-    min-height: calc(100svh - 140px);
-  }
-  [data-view="story"] .story-layout { align-self: start; }
 }
 @media print {
   [data-view="story"] .profile, .story-mobile-header, .story-footer { display: none !important; }
