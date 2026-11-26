@@ -14,6 +14,14 @@
   const next = stage.querySelector('.story-next');
   const fullLink = stage.querySelector('.story-mode');
   const reduce = matchMedia('(prefers-reduced-motion: reduce)');
+  window.addEventListener('pageswap', event => {
+    const transition = event.viewTransition;
+    if (!transition) return;
+    transition.ready.catch(() => {}); // The outgoing document may be discarded before the snapshot is ready.
+    if (reduce.matches || event.activation?.entry?.url !== fullLink.href || event.activation?.navigationType === 'traverse') {
+      transition.skipTransition();
+    }
+  });
   const playbackRate = 1.32;
   const profile = document.querySelector('.profile');
   const photo = profile?.querySelector('.profile-photo > a');

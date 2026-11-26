@@ -48,6 +48,18 @@ html[data-view="landing"] .landing{
 /* Grid proportions match emblem heights; offset accounts for transparent margins. */
 .landing-affiliations .landing-mgh-logo img{transform:translateY(1.42%)}
 @media screen and (prefers-reduced-motion:no-preference){
+  [data-profile-arrival]::view-transition-group(root){animation-duration:280ms}
+  [data-profile-arrival]::view-transition{pointer-events:none}
+  html[data-view="profile"] #main > .intro{animation:none}
+  [data-profile-arrival="top"] .research-original{
+    animation:profile-content-in 840ms cubic-bezier(.28,.10,.24,1) backwards;
+  }
+  [data-profile-arrival] .section-nav{
+    animation:profile-menu-in 900ms cubic-bezier(.28,.10,.24,1) 120ms backwards;
+  }
+  [data-profile-arrival] .section-nav:focus-within{animation-delay:-1s}
+  @keyframes profile-content-in{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  @keyframes profile-menu-in{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
   .landing-arrival .landing-line,
   .landing-arrival .landing-invitation > p{
     animation:landing-arrive 1s cubic-bezier(.28,.10,.24,1) .08s backwards;
@@ -55,6 +67,11 @@ html[data-view="landing"] .landing{
   .landing-arrival .landing-question{animation-delay:.96s}
   .landing-arrival .landing-invitation > p{animation-delay:1.85s}
   @keyframes landing-arrive{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}
+}
+@media screen and (max-width:960px) and (prefers-reduced-motion:no-preference){
+  [data-profile-arrival="top"] .profile-top{
+    animation:profile-content-in 760ms cubic-bezier(.28,.10,.24,1) backwards;
+  }
 }
 @media(max-width:960px){
   .landing-main{padding-top:42px}
