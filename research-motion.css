@@ -1,4 +1,8 @@
 /* Diagrams and source links in the full-text research profile. */
+.story-reentry { margin-top: 18px; font-size: 14px; }
+.story-reentry a { color: var(--accent); text-underline-offset: 3px; }
+.story-reentry a:hover { text-decoration: underline; }
+@media print { .story-reentry { display: none; } }
 .reading-highlight {
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;

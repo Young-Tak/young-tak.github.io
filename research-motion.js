@@ -8,23 +8,19 @@
   const stage = track.querySelector('.story-stage');
   const layout = stage.querySelector('.story-layout');
   const heading = stage.querySelector('.story-title');
-  const kicker = stage.querySelector('.story-kicker');
-  const caption = stage.querySelector('.story-caption');
   const count = stage.querySelector('.story-count');
   const status = stage.querySelector('.story-announcement');
   const previous = stage.querySelector('.story-prev');
   const next = stage.querySelector('.story-next');
-  const nextLabel = next.querySelector('span');
-  const fullProfile = section.querySelector('.research-original');
-  const readButton = stage.querySelector('.story-mode');
-  const returnButton = fullProfile.querySelector('.story-return');
+  const fullLink = stage.querySelector('.story-mode');
   const reduce = matchMedia('(prefers-reduced-motion: reduce)');
   const profile = document.querySelector('.profile');
   const photo = profile?.querySelector('.profile-photo > a');
 
-  const slides = [...layout.querySelectorAll('.story-line')].map(line => {
+  const slides = [...layout.querySelectorAll('.story-panel')].map(panel => {
+    const line = panel.querySelector('.story-line');
     const key = line.dataset.scene;
-    const svg = layout.querySelector('svg[data-scene="' + key + '"]');
+    const svg = panel.querySelector('.story-scene');
     const button = stage.querySelector('button[data-scene="' + key + '"]');
     const parts = [...svg.querySelectorAll('[data-from][data-to]')].map(node => {
       const data = node.dataset;
@@ -37,19 +33,19 @@
         path: data.follow ? document.getElementById(data.follow) : null
       };
     });
-    return {line, svg, button, parts};
+    return {panel, title: panel.querySelector('.story-panel-title').textContent, line, svg, button, parts};
   });
   if (!slides.length || slides.some(slide => !slide.button || !slide.parts.length)) return;
 
   const last = slides.length - 1;
-  let active = 0;
-  let requested = 0;
+  const saved = slides.findIndex(slide => slide.line.dataset.scene === history.state?.researchScene);
+  let active = Math.max(0, saved);
+  let requested = active;
   let frame = 0;
   let transition;
-  let initialObserver;
 
-  function draw(progress) {
-    for (const part of slides[active].parts) {
+  function draw(progress, slide = slides[active]) {
+    for (const part of slide.parts) {
       const {node, from, to} = part;
       const t = Math.max(0, Math.min(1, (progress - from) / (to - from)));
       if (t === part.lastValue) continue;
@@ -71,7 +67,6 @@
   }
 
   function stopPlayback() {
-    initialObserver?.disconnect();
     cancelAnimationFrame(frame);
     frame = 0;
     transition?.cancel();
@@ -95,34 +90,28 @@
 
   function display(index, announce) {
     active = index;
-    const {line, button} = slides[index];
-    const {title, caption: description, imageSource} = line.dataset;
+    const {line, title, button} = slides[index];
     slides.forEach((slide, i) => {
       const current = i === index;
+      slide.panel.classList.toggle('is-current', current);
       slide.line.classList.toggle('is-current', current);
-      slide.line.inert = !current;
-      slide.line.setAttribute('aria-hidden', String(!current));
-      slide.svg.toggleAttribute('hidden', !current);
+      slide.panel.inert = !current;
+      slide.panel.setAttribute('aria-hidden', String(!current));
       if (current) slide.button.setAttribute('aria-current', 'step');
       else slide.button.removeAttribute('aria-current');
     });
     heading.textContent = title;
-    kicker.textContent = line.dataset.kicker;
-    if (imageSource) {
-      const source = document.createElement('a');
-      source.href = imageSource;
-      source.textContent = description;
-      caption.replaceChildren(source);
-    } else {
-      caption.textContent = description;
-    }
     count.textContent = String(index + 1).padStart(2, '0') + ' / ' + String(slides.length).padStart(2, '0');
     const accessibleName = button.getAttribute('aria-label');
     layout.setAttribute('aria-label', accessibleName);
-    if (announce) status.textContent = accessibleName;
+    if (announce) {
+      status.textContent = accessibleName;
+      history.replaceState({...history.state, researchScene: line.dataset.scene}, '');
+    }
     if (document.activeElement === previous && index === 0) next.focus({preventScroll: true});
     previous.disabled = index === 0;
-    nextLabel.textContent = index === last ? 'Publications' : 'Next';
+    if (document.activeElement === next && index === last) fullLink.focus({preventScroll: true});
+    next.disabled = index === last;
   }
 
   function goTo(index) {
@@ -165,78 +154,45 @@
     stage.style.setProperty('--story-photo-offset', Math.max(0, photoTop - trackTop) + 'px');
   }
 
-  function readingMode(full) {
-    stopPlayback();
-    track.hidden = full;
-    fullProfile.hidden = !full;
-    returnButton.hidden = !full;
-    section.classList.toggle('story-enhanced', !full);
-    section.setAttribute('aria-labelledby', full ? 'research-title' : 'research-story-title');
-    if (!full) {
-      requested = active;
-      display(active, false);
-      alignToPhoto();
-    }
-  }
-
   slides.forEach(({button}, i) => button.addEventListener('click', () => goTo(i)));
   previous.addEventListener('click', () => goTo(requested - 1));
-  next.addEventListener('click', () => {
-    if (active !== last || requested !== last) {
-      goTo(Math.min(requested + 1, last));
-      return;
-    }
-    const publications = document.getElementById('publications');
-    if (location.hash !== '#publications') location.hash = 'publications';
-    publications.scrollIntoView({block: 'start', behavior: 'instant'});
-    const title = publications.querySelector('h2');
-    title.tabIndex = -1;
-    title.focus({preventScroll: true});
-  });
+  next.addEventListener('click', () => goTo(requested + 1));
   stage.addEventListener('keydown', event => {
     if (event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return;
     if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
     event.preventDefault();
     goTo(requested + (event.key === 'ArrowLeft' ? -1 : 1));
   });
-  readButton.addEventListener('click', () => {
-    readingMode(true);
-    returnButton.focus({preventScroll: true});
-    section.scrollIntoView({block: 'start', behavior: 'instant'});
-  });
-  returnButton.addEventListener('click', () => {
-    readingMode(false);
-    draw(1);
-    slides[active].button.focus({preventScroll: true});
-    section.scrollIntoView({block: 'start', behavior: 'instant'});
-  });
-
   function settle() {
     stopPlayback();
-    if (!track.hidden) {
-      display(requested, false);
-      draw(1);
-    }
+    display(requested, requested !== active);
+    draw(1);
   }
   if (reduce.addEventListener) reduce.addEventListener('change', settle);
   else reduce.addListener(settle);
   document.addEventListener('visibilitychange', () => { if (document.hidden) settle(); });
   window.addEventListener('resize', alignToPhoto, {passive: true});
-  new MutationObserver(alignToPhoto).observe(document.documentElement, {attributes: true, attributeFilter: ['data-view']});
   if (photo && window.ResizeObserver) new ResizeObserver(alignToPhoto).observe(photo.parentElement.parentElement);
   document.fonts?.ready.then(alignToPhoto);
 
-  readingMode(false);
-  if (!reduce.matches && window.IntersectionObserver) {
-    draw(.08);
-    // Start the opening illustration once when it can be seen, including after Explore.
-    initialObserver = new IntersectionObserver(entries => {
-      if (!entries.some(entry => entry.isIntersecting) || track.hidden) return;
-      initialObserver.disconnect();
-      playFigure();
+  window.addEventListener('beforeprint', () => {
+    stopPlayback();
+    slides.forEach(slide => {
+      slide.panel.inert = false;
+      slide.panel.removeAttribute('aria-hidden');
+      draw(1, slide);
     });
-    initialObserver.observe(slides[0].svg);
-  } else {
-    playFigure();
-  }
+  });
+  window.addEventListener('afterprint', settle);
+
+  section.classList.add('story-enhanced');
+  stage.setAttribute('role', 'region');
+  stage.setAttribute('aria-roledescription', 'carousel');
+  stage.setAttribute('aria-label', 'Research story');
+  stage.tabIndex = -1;
+  layout.setAttribute('role', 'group');
+  layout.setAttribute('aria-roledescription', 'slide');
+  display(active, false);
+  alignToPhoto();
+  playFigure();
 })();

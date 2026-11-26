@@ -4,7 +4,8 @@
   window.__ytkAnalyticsLoaded = true;
   const local = ['localhost','127.0.0.1'].includes(location.hostname);
   if (!local && location.hostname !== 'young-tak.github.io') return;
-  if (!['/','/index.html'].includes(location.pathname)) return;
+  const profilePaths = new Set(['/','/index.html','/research/','/research/index.html']);
+  if (!profilePaths.has(location.pathname)) return;
   const endpoint = (local ? location.origin : 'https://youngtak-site-analytics.wellchar512.chatgpt.site') + '/api/collect';
   const OPTOUT_KEY='ytk-analytics-optout', SESSION_KEY='ytk-analytics-tab-session', SOURCE_KEY='ytk-analytics-tab-source';
   const excluded = () => {
@@ -68,7 +69,17 @@
     // keepalive preserves navigation clicks without sending cookies or a Referer header.
     try {fetch(endpoint,{method:'POST',headers:{'Content-Type':'text/plain;charset=UTF-8'},body:data,mode:'cors',credentials:'omit',keepalive:true,referrerPolicy:'no-referrer'}).catch(()=>{});} catch (_) {}
   }
-  send('pageview');
+  // Opening the story and returning to the biography are one homepage visit.
+  const internalPageTurn = (() => {
+    try {
+      const from = new URL(document.referrer);
+      return from.origin === location.origin && profilePaths.has(from.pathname) &&
+        from.pathname !== location.pathname &&
+        ['navigate','back_forward'].includes(performance.getEntriesByType('navigation')[0]?.type) &&
+        !new URLSearchParams(location.search).has('utm_source');
+    } catch (_) { return false; }
+  })();
+  if (!internalPageTurn) send('pageview');
   document.addEventListener('click',event=>{
     if (!(event.target instanceof Element)) return;
     const link=event.target.closest('a');if(!link)return;

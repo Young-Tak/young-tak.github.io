@@ -9,7 +9,7 @@ Static HTML, CSS, and JavaScript, published with GitHub Pages from the
 
 - `index.html`: introduction, research, publications, and background.
 - `refinements.css` and `styles.css`: typography and layout.
-- `entrance.css` and `entrance.js`: opening screen and immediate entry to the profile.
+- `entrance.css` and `entrance.js`: opening screen and direct profile links.
 - `network-hero.js`: landing network lifecycle, pause control, and static fallback.
 - `assets/network/`: framework-free RadPathway graphics port; see its [maintenance notes](assets/network/README.md).
 - `app.js`: publication filters, navigation, and video controls.
@@ -17,9 +17,9 @@ Static HTML, CSS, and JavaScript, published with GitHub Pages from the
   same menu outside the profile on small screens so it stays sticky through the page.
 - `scroll-reveal.js` and `scroll-reveal.css`: once-only upward content entrances,
   with reduced-motion, keyboard, direct-link, and no-JavaScript fallbacks.
-- `research-motion.js` and `story-stage.css` control eight research slides.
-  Each slide pairs its text, figure, and navigation button in `index.html`
-  using a matching `data-scene` value.
+- `research/index.html` is the standalone research story. Each article contains
+  its text, figure, and credit. Its `data-scene` value pairs it with a chapter
+  button. `research-motion.js` and `story-stage.css` enhance the static articles.
 - `research-motion.css` styles the figures and source links in the full profile.
 - `assets/`: CV, research films, cover image, photographs, fonts, and icons.
 
@@ -34,10 +34,9 @@ Typography uses self-hosted Roboto variable fonts, including true italic journal
 titles. Body text uses Light (300); headings and emphasis retain stronger weights.
 The shared font declarations and license are in `assets/fonts/`.
 
-The root URL opens with a typographic landing screen. Its links enter the existing
-profile at `#top`; any section hash opens the profile directly, preserving
-shared links. Browser Back returns to the opening screen. Without JavaScript,
-the full profile remains accessible. Both views use a plain white background.
+The root URL opens with a typographic landing screen. “Explore my research”
+leads to `/research/`. “Read full profile” opens the original biography at
+`/#top`. Existing links to sections and papers still open the full profile.
 
 The landing effect uses self-hosted Three.js 0.185.1 without React, Fiber, or a CDN.
 It preserves the supplied RadPathway shaders, camera, geometry, and default settings.
@@ -49,12 +48,14 @@ The research slides sit in the normal page flow. Previous, Next, the chapter
 buttons, and the left and right arrow keys within the carousel select a slide.
 Each illustration plays once on entry and rests on its final frame. With reduced
 motion, the finished illustration appears immediately. “Read full profile”
-opens the full text and lets the reader return to the same slide. Print and
-no-JavaScript views use the full text and static figures.
+opens the full profile. Browser Back returns to the same slide. Printing the
+story or viewing it with JavaScript disabled displays all eight articles in order.
 
-The clinician at the workstation is an original editorial illustration with
-an animated chart review on the monitor. The independent-review slide uses
-an NCI teaching mammogram. The original arrow is part of the source radiograph.
+The opening photo shows a clinician checking a monitor in Costa Rica. The animation
+below it illustrates the research question. [Photo by César Badilla Miranda](https://unsplash.com/photos/a-man-in-scrubs-and-a-stethoscope-looking-at-a-monitor-0Fv4M2hSZJU) · [Unsplash License](https://unsplash.com/license).
+
+The independent-review slide uses an NCI teaching mammogram. The original arrow
+is part of the source radiograph.
 [National Cancer Institute, Visuals Online 2553, public domain](https://commons.wikimedia.org/wiki/File:Mammogram_showing_small_lesion.jpg).
 
 ## Private website analytics
